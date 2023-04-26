@@ -1,0 +1,133 @@
+.gigsContainer{
+    display: flex;
+    justify-content: center;
+    .gigsWrapper{
+        width: 1400px;
+        padding: 30pX 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .gigsTopBar{
+            
+
+            .breadcrumb{
+                font-weight: 300;
+                font-size: 13px;
+                color: #555;
+
+            }
+            h1{
+                color: dimgrey;
+                font-weight: 700;
+            }
+
+            p{
+                color: #999;
+                font-weight: 300;
+            }
+        }
+        .menu{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .left{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #555;
+                font-weight: 300;
+
+                input{
+                    padding: 5px;
+                    border: 1px solid lightgray;
+                    outline: none;
+                    width: 120px;
+
+                    &::placeholder{
+                        color: rgb(158, 158, 158);
+                    }
+                }
+                button{
+                    background-color: #1dbf73;
+                    color: white;
+                    font-weight: 500;
+                    border: none;
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+
+                    &:hover{
+                        background-color: #18a865;
+                    }
+                }
+            }
+            .right{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                position: relative;
+
+                .sortBy{
+                    color: #555;
+                    font-weight: 300;
+                }
+
+                .sortType{
+                    font-weight: 500;
+                }
+
+                img{
+                    width: 18px;
+                    cursor: pointer;
+                }
+
+                .dropdownMenu {
+                    position: absolute;
+                    top: 30px;
+                    right: 0px;
+                    padding: 0px;
+                    margin: 0px;
+                    background-color: white;
+                    border-radius: 8px;
+                    border: 1px solid lightgray;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    color: gray;
+                    width: 130px;
+                    font-weight: 300;
+
+                    .optionLink {
+                        cursor: pointer;
+                        padding: 8px;
+                        margin: 0px;
+
+                        &:hover {
+                            background-color: rgb(243, 243, 243);
+                            color: black;
+                        }
+
+                        &:hover.bordersTop {
+                            border-radius: 8px 8px 0px 0px;
+                        }
+
+                        &:hover.bordersBottom {
+                            border-radius: 0px 0px 8px 8px;
+                        }
+                    }
+                }
+            }
+        }
+        .gigCardContainer{
+            width: auto;
+            color: white;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: auto auto;
+            position: relative;
+            row-gap: 20px;
+         }
+    }
+}

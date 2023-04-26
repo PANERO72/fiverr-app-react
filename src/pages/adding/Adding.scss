@@ -1,0 +1,197 @@
+.addingContainer{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px 50px 0px;
+    .addingWrapper{
+        width: 1400px;
+        h1{
+            color: dimgrey;
+            font-weight: 700;
+        }
+        .addingSections{
+            
+            form{
+                display: flex;
+                flex-direction: row;
+                gap: 100px;
+                input[type=email], input[type=password], input[type=search], input[type=text] {
+                    -moz-appearance: textfield !important;
+                    appearance: textfield !important;
+                    outline: none;
+                }
+                .left{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 10px;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    flex-basis: 100%;
+                    .form-group{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        gap: 10px;
+                        .form-label{
+                            color: gray;
+                            font-weight: 800;
+                        }
+                        .form-control-input{
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: rgb(173, 173, 173);
+                            border-image: initial;
+                            border-radius: 4px;
+                            padding: 15px;
+                            &:focus{
+                                outline: #17a563 auto 0.1px;
+                            }
+                        }
+                        .form-control-textarea{
+                            height: 210px;
+                            resize: none;
+                            padding: 15px;
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: rgb(173, 173, 173);
+                            border-image: initial;
+                            border-radius: 4px;
+
+                            &:focus{
+                                outline: #17a563 auto 0.1px;
+                            }
+                        }
+                        .form-control-select{
+                            padding: 15px;
+                            color: gray;
+                            appearance: auto;
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: rgb(173, 173, 173);
+                            border-image: initial;
+                            border-radius: 4px;
+                        }
+
+                        .form-control-select:focus{
+                            outline: #17a563 auto 0.1px;                            
+                        }
+                        // .form-control-select.select-border{
+                        //     border: #17a563 solid 2px;   
+                        //     border-radius: 2px;       
+                        // }
+                        .form-control-input-file{
+                            padding: 15px;
+                            appearance: auto;
+                            // border: 1px solid currentColor;
+
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: rgb(173, 173, 173);
+                            border-image: initial;
+                            border-radius: 4px;
+
+                            &:focus{
+                                outline: #17a563 auto 0.1px;
+                            }
+                            // &.file-border{
+                            //     border: 2px solid #17a563;
+                            // }
+                        }
+
+                        .form-control-button{
+                            background-color: #1dbf73;
+                            padding: 10px;
+                            color: white;
+                            font-weight: 600;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            width: 100%;
+        
+                            &:hover{background-color: #17a563;}
+                        }
+                    }
+                }
+
+                .right{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 10px;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    flex-basis: 100%;
+                    .form-group{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        gap: 10px;
+                        .form-group-skills{
+                            display: grid;
+                           grid-template-columns: auto auto;
+                           grid-template-rows: auto auto auto;
+                           gap: 15px;
+                        }
+                        .form-label{
+                            color: gray;
+                            font-weight: 800;
+                        }
+                        .form-control-input{
+                            padding: 15px;
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: rgb(173, 173, 173);
+                            border-image: initial;
+                            border-radius: 4px;
+                            &:focus{
+                                outline: #17a563 auto 0.1px;
+                            }
+                        }
+                        .form-control-textarea{
+                            height: 210px;
+                            resize: none;
+                            padding: 15px;
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: rgb(173, 173, 173);
+                            border-image: initial;
+                            border-radius: 4px;
+                            &:focus{
+                                outline: #17a563 auto 0.1px;
+                            }
+                        }
+
+                    }
+                    .form-group-delivery-revision{
+                        display: grid;
+                        grid-template-columns: auto auto;
+                        grid-template-rows: auto;
+                        gap: 15px;
+
+                        .delivery-revision{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+
+                            .form-label{
+                                color: gray;
+                                font-weight: 800;
+                            }
+                            .form-control-input{
+                                padding: 15px;
+                                border-width: 1.5px;
+                                border-style: solid;
+                                border-color: rgb(173, 173, 173);
+                                border-image: initial;
+                                border-radius: 4px;
+                                &:focus{
+                                    outline: #17a563 auto 0.1px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

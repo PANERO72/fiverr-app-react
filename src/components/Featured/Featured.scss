@@ -1,0 +1,100 @@
+.featuredContainer{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-color: #013914;
+    color: white;
+    .featuredWrapper{
+        width: 1400px;
+        display: flex;
+        align-items: center;
+        .leftContainer{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            h1{
+                font-size: 50px;
+                i{
+                    font-weight: 300;
+                }
+            }
+            .searchContainer{
+                width: 700px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: white;
+                border-radius: 5px;
+
+                .searchInput{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        margin: 10px;
+                    }
+
+                    input{
+                        width: 100%;
+                        border: none;
+                        outline: none;
+                    }
+                    
+                }
+                button{
+                    width: 120px;
+                    height: 50px;
+                    border: none;
+                    background-color: #1dbf73;
+                    color: white;
+                    cursor: pointer;
+                    border-radius: 0px 5px 5px 0px;
+                    transition: 0.5s all ease;
+
+                    &:hover{
+                        background-color: #1bad69;
+                    }
+                }
+            }
+
+            .popular{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                span{
+                    font-weight: 700;
+                }
+
+                .popularButtons{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin: 0px;
+                    padding: 0px;
+                    button{
+                        color: white;
+                        background-color: transparent;
+                        border: 1px solid white;
+                        padding: 5px 10px;
+                        border-radius: 20px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        font-weight: 500;
+                        transition: 0.5s all ease;
+
+                        &:hover{
+                            background-color: white;
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+
+        //.rightContainer{}
+    }
+}

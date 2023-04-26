@@ -1,0 +1,97 @@
+.ordersContainer{
+    display: flex;
+    justify-content: center;
+
+    .ordersWrapper{
+        width: 1400px;
+        margin:20px 0px 50px 0px;
+
+        .ordersTitleContainer{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h1{
+                color: dimgrey;
+                font-weight: 700;
+            }
+
+            .addNewOrderBtn{
+                border: 1px solid transparent;
+                background-color: #1dbf73;
+                border-radius: 4px;
+                color: white;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 100%;
+                padding: 10px 22px;
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                -webkit-transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+                -o-transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+                transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+
+                &:hover {
+                    background: #19a463;
+                }
+            }
+        }
+
+        .ordersTableContainer{
+            table{
+                margin-top: 15px;
+                width: 100%;
+                thead{
+                    tr{
+                        width: 100px;
+                        height: 50px;
+                        background-color: rgb(243, 243, 243);
+
+                        th{
+                            text-align: left;
+                            width: 200px;
+                            padding-left: 15px;
+                        }
+                        
+                    }
+                }
+                tbody{
+
+                    tr{
+                        height: 50px;
+    
+                        td{
+                            padding-left: 15px;
+
+                            .gigImage{
+                                width: 40%;
+                                height: auto;
+                                object-fit: cover;
+                            }
+    
+                            .gigEdit, .gigDelete{
+                                width: 20px;
+                                cursor: pointer;
+                            }
+                        }
+                        .image{
+                            padding-top: 5px;
+                            padding-bottom: 5px ;
+                        }
+                        .desc{
+                            width: 300px;
+                        }
+                        &:nth-child(even){
+                            background-color: #1dbf730f;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

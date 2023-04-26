@@ -1,0 +1,19 @@
+.trustedContainer{
+    background-color: #f3f3f3;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    .trustedWrapper{
+        width: 760px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: rgb(180, 180, 180);
+        font-weight: 600;
+
+        img{
+            height: 50px;
+            object-fit: contain;
+        }
+    }
+}
