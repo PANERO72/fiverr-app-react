@@ -1,0 +1,69 @@
+.testimonialsCardContainer{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px;
+    margin-left: 18px;
+    .testimonialsCardWrapper{
+        width: 1400px;
+        display: flex;
+        align-items:start;
+        justify-content: center;
+        flex-direction: row;
+        gap: 0px;
+        .testimonialsOneLeft{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            width: auto;
+            margin-right: 40px;
+            video{
+                width: 720px;
+                height: auto;
+            }
+        }
+        .testimonialsOneRight{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 2;
+            margin-bottom: 15px;
+            padding-right: 10px;
+            .title{
+                font-weight: 700;
+                font-size: 24px;
+                position: relative;
+                left: 15px;
+                top: 40px;
+                color: #74767e;
+                
+                .testimonialsLogo{
+                    border-left: 1px solid #c5c6c9;
+                    height: 36px;
+                    margin-left: 16px;
+                    img{
+                        display: inline-block;
+                        margin-left: 12px;
+                        vertical-align: middle;
+                        height: 36px;
+                    }
+                }
+            }
+            
+            blockquote {
+                font-size: 28px;
+                line-height: 44px;
+                padding-bottom: 0;
+                color: #003912;
+                margin: 25px;
+                padding: 0px;
+                .desc{
+                    font-weight: 500;
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,150 @@
+.featuresTwoContainer{
+    background-color: #0d084d;
+    // color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0px;
+    .featuresTwoWrapper{
+        width: 1400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 100px;
+        .featuresTwoLeft{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 2;
+            .fiverrBusinesContainer{
+                display: flex;
+                align-items: center;
+                vertical-align: bottom;
+
+                .fiverrLogo{
+                    width: 40%;
+                    height: 40%;
+                }
+                .bagde{
+                    margin-top: 5px;
+                    margin-left: 5px;
+                    border-color: rgb(88, 74, 255);
+                    background-color: rgb(88, 74, 255);
+                    color: rgb(255, 255, 255);
+                    text-transform: uppercase;
+                    border-radius: 999px;
+    
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    -webkit-align-items: center;
+                    align-items: center;
+                    border-style: solid;
+                    border-width: 1px;
+                    box-sizing: border-box;
+                    color: #fff;
+                    display: inline-flex;
+                    font-size: 12px;
+                    font-weight: 700;
+                    justify-content: center;
+                    line-height: 100%;
+                    padding: 3px 7px 2px;
+                    text-align: center;
+                    text-decoration: none;
+                }
+            }
+            h2{
+                font-weight: 700;
+                margin-bottom: 10px;
+                font-size: 32px;
+                line-height: 120%;
+                color: white;
+            }
+            .textMain{
+                font-size: 18px;
+                font-weight: 300;
+                color: white;
+                line-height: 20px;
+                letter-spacing: 1px;
+            }
+            .featuresTwoLeftItem{
+                margin: 0px;
+                padding: 0px;
+                display: flex;
+                flex-direction: column;
+                column-gap: 10px;
+                row-gap: 10px;
+                margin-bottom: 30px;
+                .title{
+                    margin: 0px;
+                    padding: 0px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: rgb(63, 63, 63);
+                    
+                    .check-icon{ 
+                        width: 24px;
+                        height: 24px;
+                        color: #74767e !important;
+                    }
+                    .text{
+                        font-size: 16px;
+                        font-weight: 100;
+                        color: white;
+                        line-height: 20px;
+                        letter-spacing: 1px;
+                    }
+                }
+        
+            }
+            .featuresTwoLeftButton{
+                margin: 0px;
+                padding: 0px;
+                display: inline-block;
+            
+                .featuresButton{
+                    border: 1px solid transparent;
+                    background-color: #1dbf73;
+                    border-radius: 4px;
+                    color: white;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 100%;
+                    padding: 12px 24px;
+                    position: relative;
+                    text-align: center;
+                    text-decoration: none;
+                    -webkit-transition: 70ms cubic-bezier(.75,0,.25,1);
+                    -o-transition: 70ms cubic-bezier(.75,0,.25,1);
+                    transition: 70ms cubic-bezier(.75,0,.25,1);
+
+                    &:hover{
+                        background: #19a463;
+                    }
+                }
+            }
+            
+        }
+        .featuresTwoRight{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            width: auto;
+            margin-right: 40px;
+
+            img{
+                width: 700px;
+            }
+        }
+    }
+}
