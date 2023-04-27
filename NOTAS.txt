@@ -2,8 +2,8 @@
 
 *** VÍDEO PRIMERA PARTE DEL CURSO => https://www.youtube.com/watch?v=KI5CnJ9u5ok ***
 
-************************************************************************************
+**** DISEÑO DE LA INTERFAZ DE USUARIO DE LA APLICACIÓN ***
 
-*** SEGUIR EN EL MINUTO: 03:33 EN EL VÍDEO DE LA SEGUNDA PARTE => https://www.youtube.com/watch?v=csUM7yfiaMw ***
+*** ESTA ES LA RAMA 'fiverr-app-ui' DEL REPOSITORIO 'react-fiverr-app' ***
 
-*** COMENZAR CON ESTE CAPITULO *** 
+*** INSTALAR LAS DEPENDENCIAS PARA EJECUTAR EL PROYECTO ***
