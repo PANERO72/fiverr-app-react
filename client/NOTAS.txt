@@ -1,9 +1,7 @@
 *** PROYECTO EN REACT DEL CANAL 'Lamadev' DE YOUTUBE ***
 
-*** VÍDEO PRIMERA PARTE DEL CURSO => https://www.youtube.com/watch?v=KI5CnJ9u5ok ***
+*** SEGUNDA PARTE DE PROYECTO CREACIÓN DE LA INTERACTIVIDAD ***
 
-************************************************************************************
+*** SEGUIR EN EL MINUTO: 3:33 EN EL VÍDEO => https://www.youtube.com/watch?v=csUM7yfiaMw ***
 
-*** SEGUIR EN EL MINUTO: 2:54:28 EN EL VÍDEO => https://www.youtube.com/watch?v=csUM7yfiaMw ***
-
-*** SEGUIR EN LA PÁGINA 'Adding.jsx' - AGREGAR CONTENIDO *** 
+*** COMENZAR PROYECTO *** 
