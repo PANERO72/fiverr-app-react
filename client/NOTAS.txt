@@ -4,4 +4,8 @@
 
 *** SEGUIR EN EL MINUTO: 3:33 EN EL VÍDEO => https://www.youtube.com/watch?v=csUM7yfiaMw ***
 
+*** ESTA ES LA RAMA 'fullstack-fiverr' DEL REPOSITORIO 'react-fiverr-app' ***
+
+*** INSTALAR LAS DEPENDENCIAS PARA EJECUTAR EL PROYECTO ***
+
 *** COMENZAR PROYECTO *** 
