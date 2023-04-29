@@ -3,11 +3,59 @@ import './Gig.scss';
 import Slide from '../../components/Slide/Slide';
 // import './Gig.css';
 
+import SliderImage01 from '../../assets/img/slide-01.png';
+import SliderImage02 from '../../assets/img/slide-02.png';
+import SliderImage03 from '../../assets/img/slide-03.png';
+import SliderImage04 from '../../assets/img/slide-04.png';
+import SliderImage05 from '../../assets/img/slide-05.png';
+import SliderImage06 from '../../assets/img/slide-06.png';
+import SliderImage07 from '../../assets/img/slide-07.png';
+import SliderImage08 from '../../assets/img/slide-08.png';
+import SliderImage09 from '../../assets/img/slide-09.png';
+import SliderImage10 from '../../assets/img/slide-10.png';
+import SliderImage11 from '../../assets/img/slide-11.png';
+import SliderImage12 from '../../assets/img/slide-12.png';
+import SliderImage13 from '../../assets/img/slide-13.png';
+import SliderImage14 from '../../assets/img/slide-14.png';
+import SliderImage15 from '../../assets/img/slide-15.png';
+import SliderImage16 from '../../assets/img/slide-16.png';
+import SliderImage17 from '../../assets/img/slide-17.png';
+import SliderImage18 from '../../assets/img/slide-18.png';
+import SliderImage19 from '../../assets/img/slide-19.webp';
+import SliderImage20 from '../../assets/img/slide-20.jpg';
+import SliderImage21 from '../../assets/img/slide-21.webp';
+import SliderImage22 from '../../assets/img/slide-22.webp';
+import SliderImage23 from '../../assets/img/slide-23.webp';
+import SliderImage24 from '../../assets/img/slide-24.webp';
+import SliderImage25 from '../../assets/img/slide-25.jpg';
+import SliderImage26 from '../../assets/img/slide-26.webp';
+
+import Carousel from "nuka-carousel";
 import { Link } from 'react-scroll';
 
 function Gig() {
 
+    const paramsCarousel = {
+        defaultControlsConfig:{
+            prevButtonText: "🡸",
+            nextButtonText: "🡺"
+        }
+    }
+
     const [isActiveRevision, setIsActiveRevision] = useState(false);
+
+    const [activeIndex, setActiveIndex] = useState(1);
+    // const handleClick = (index) => setActiveIndex(index);
+    const handleClick = (index) => {
+        setActiveIndex(index);
+        if (index === 1) {
+            setIsActiveRevision(false);
+        } else {
+            setIsActiveRevision(true);
+        }
+        
+    } 
+    const checkActive = (index, className) => activeIndex === index ? className : "";
 
     return (<>
         <div className="topMenuShareContainer">
@@ -16,7 +64,9 @@ function Gig() {
                     <ul>
                         <li className='navlink overview-link link'><Link activeClass='active' smooth={true} spy={true} offset={-200} to='overview-section'>Resumen</Link></li>
                         <li className='navlink description-link link'><Link activeClass='active' smooth={true} spy={true} offset={-100} to='description-section'>Descripción</Link></li>
-                        <li className='navlink about-link link'><Link activeClass='active' smooth={true} spy={true} offset={-100} to='seller-section'>Acerca del vendedor</Link></li>                      
+                        <li className='navlink about-link link'><Link activeClass='active' smooth={true} spy={true} offset={-100} to='seller-section'>Acerca del vendedor</Link></li>
+                        <li className='navlink packages-link link'><Link activeClass='active' smooth={true} spy={true} offset={-100} to='buy-packages-section'>Comprar paquetes</Link></li>
+                        <li className='navlink recommendations-link link'><Link activeClass='active' smooth={true} spy={true} offset={-100} to='recommendations-section'>Recomendaciones</Link></li>
                         <li className='navlink reviews-link link'><Link activeClass='active' smooth={true} spy={true} offset={-100} to='reviews-section'>Reseñas</Link></li>
                     </ul>
                 </div>
@@ -106,7 +156,22 @@ function Gig() {
                                 <strong>¡La gente continúa regresando!</strong> ai_lani tiene una cantidad excepcional de compradores recurrentes.
                             </div>
                         </div>
-                       
+                        {/* ESTE BOTON LO HE OCULTADO */}
+                        <div className="ugc-translation-button-wrapper">
+                            <div className="default-translation-button">
+                                <button className="translation-button">
+                                    <div className="icons-container">
+                                        <span className="glAQDp5 translation-icon" style={{width:"28px",height:"28px"}} aria-hidden="true">
+                                            <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.2002 5.2002H15.0002C14.1002 5.2002 13.4002 5.5002 12.7002 6.0002H5.00025C3.80025 6.0002 2.60025 7.0002 2.30025 8.2002L1.00025 14.9002C0.800246 16.1002 1.60025 17.1002 2.90025 17.1002H7.70025C8.70024 17.1002 9.70024 16.7002 10.4002 15.9002H17.1002C18.3002 15.9002 19.5002 14.9002 19.7002 13.7002L21.0002 7.3002C21.2002 6.1002 20.4002 5.2002 19.2002 5.2002ZM10.3002 14.2002C10.1002 15.4002 9.00024 16.3002 7.70025 16.3002H2.90025C2.60025 16.3002 2.30025 16.2002 2.10025 16.0002C1.90025 15.8002 1.90025 15.5002 1.90025 15.2002L3.20025 8.5002C3.40025 7.7002 4.20025 7.0002 5.00025 7.0002H11.7002L10.3002 14.2002ZM17.5002 13.4002L16.6002 11.4002H14.3002L13.4002 13.4002H12.4002L15.0002 7.4002H15.9002L18.5002 13.4002H17.5002Z"></path><path d="M14.7002 10.5002H16.2002L15.4002 8.7002L14.7002 10.5002Z"></path><path d="M3.90039 10.2H8.20039C8.00039 10.7 7.50039 11.7 6.80039 12.5C6.10039 11.6 5.80039 10.6 5.80039 10.6L5.00039 10.8C5.00039 10.8 5.30039 12 6.10039 13.1C5.60039 13.5 5.00039 13.8 4.30039 13.8V14.6C5.20039 14.6 5.90039 14.2 6.60039 13.7C7.00039 14.1 7.50039 14.5 8.20039 14.7L8.60039 14C8.10039 13.8 7.70039 13.5 7.30039 13.2C8.40039 11.9 9.00039 10.3 9.00039 10.2H10.0004V9.4H7.30039V8.5H6.50039V9.4H3.90039V10.2Z"></path><path d="M12.7 18.8002C11.6 19.7002 10.5 20.3002 8.5 19.3002C10.1 22.5002 12.9 20.8002 13.8 20.1002L15.1 22.0002L16.2 17.3002L11.3 17.2002L12.7 18.8002Z"></path><path d="M10.3998 3.2C11.4998 2.3 12.5998 1.7 14.5998 2.7C12.9998 -0.5 10.1998 1.2 9.2998 1.9L7.8998 0L6.7998 4.7L11.6998 4.8L10.3998 3.2Z"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p className="text-body-2">Mostrar en el idioma original</p>
+                                </button>
+                                <p className="text-body-3 translation-disclaimer">Algunos elementos de esta página se han traducido de manera automática.<i className="vendor-disclaimer"></i></p>
+                            </div>
+                        </div>
                         <div className="gigCardContainer">
                             <Slide slidesToShow={1} arrowsScroll={1}>
                                 <img src="https://picsum.photos/id/1/200/300" alt="" />
@@ -123,7 +188,294 @@ function Gig() {
                                 <img src="https://picsum.photos/id/169/200/300" alt="" />
                             </Slide>
                         </div>
-                       
+                        <div className="gig-reviews-snippet">
+                            <header className='reviews-snippet'>
+                                <h2 className="section-title">Lo que a la gente le encantó de este vendedor</h2>
+                                <button className="sPdE5j4 zUvc8Si co-white text-button reviews-button bg-co-green-700">Ver todas las reseñas</button>
+                            </header>
+                            <Slide slidesToShow={1} arrowsScroll={1}>  
+                                <div className="reviews-package carousel-review-item" style={{width: "478px"}}>
+                                    <div className="user-profile-image">
+                                        <label className="profile-pict" htmlFor="profile_image_9108926286148" style={{width: "32px", height: "32px", fontSize: "1em"}}>
+                                            <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/217716d11c605ccbb1ea858ff600078e-1462045551678450864.813797/37577F31-360B-4292-9A50-8E2B281367F7" className="profile-pict-img" alt="nikki_ryan5" loading="lazy" data-uw-rm-ima-original="nikki_ryan5" />
+                                        </label>
+                                    </div>
+                                    <div className="details">
+                                        <div className="reviewer">
+                                            <h6 className="text-display-7">nikki_ryan5</h6>
+                                            <div className="country">
+                                                <img className="country-flag" src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png" alt="US" loading="lazy" data-uw-rm-ima-original="us" />
+                                                <div className="country-name tbody-6">Estados Unidos</div>
+                                            </div>
+                                            <span className="inline-divider"></span>
+                                            <div className="orca-rating p-l-0 ratings-header rating-desktop color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="orca-rating p-l-0 ratings-header rating-mobile color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                        </div>
+                                        <p className="review-item-comment" style={{height: "48px; -webkit-line-clamp: 2"}}>5 stars here its not enough to tell how professional, smart , fast , intelligent, responsible, and thoughtful you are This world literally needs more than you to be a better world 🌎 I appreciate your time, and professional work alot 🌹😍❤️🥰 </p>
+                                        <span className="summarize">
+                                            <time className="text-body-2">hace 1 mes</time>
+                                            <span className="separator"> | </span>
+                                            <div className="translate-btn-wrapper">
+                                                <div className="flex-center info-wrapper">
+                                                    <span className="glAQDp5 translation-icon" aria-hidden="true" style={{width: "22px", height: "22px"}}><svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M19.2002 5.2002H15.0002C14.1002 5.2002 13.4002 5.5002 12.7002 6.0002H5.00025C3.80025 6.0002 2.60025 7.0002 2.30025 8.2002L1.00025 14.9002C0.800246 16.1002 1.60025 17.1002 2.90025 17.1002H7.70025C8.70024 17.1002 9.70024 16.7002 10.4002 15.9002H17.1002C18.3002 15.9002 19.5002 14.9002 19.7002 13.7002L21.0002 7.3002C21.2002 6.1002 20.4002 5.2002 19.2002 5.2002ZM10.3002 14.2002C10.1002 15.4002 9.00024 16.3002 7.70025 16.3002H2.90025C2.60025 16.3002 2.30025 16.2002 2.10025 16.0002C1.90025 15.8002 1.90025 15.5002 1.90025 15.2002L3.20025 8.5002C3.40025 7.7002 4.20025 7.0002 5.00025 7.0002H11.7002L10.3002 14.2002ZM17.5002 13.4002L16.6002 11.4002H14.3002L13.4002 13.4002H12.4002L15.0002 7.4002H15.9002L18.5002 13.4002H17.5002Z"></path><path d="M14.7002 10.5002H16.2002L15.4002 8.7002L14.7002 10.5002Z"></path><path d="M3.90039 10.2H8.20039C8.00039 10.7 7.50039 11.7 6.80039 12.5C6.10039 11.6 5.80039 10.6 5.80039 10.6L5.00039 10.8C5.00039 10.8 5.30039 12 6.10039 13.1C5.60039 13.5 5.00039 13.8 4.30039 13.8V14.6C5.20039 14.6 5.90039 14.2 6.60039 13.7C7.00039 14.1 7.50039 14.5 8.20039 14.7L8.60039 14C8.10039 13.8 7.70039 13.5 7.30039 13.2C8.40039 11.9 9.00039 10.3 9.00039 10.2H10.0004V9.4H7.30039V8.5H6.50039V9.4H3.90039V10.2Z"></path><path d="M12.7 18.8002C11.6 19.7002 10.5 20.3002 8.5 19.3002C10.1 22.5002 12.9 20.8002 13.8 20.1002L15.1 22.0002L16.2 17.3002L11.3 17.2002L12.7 18.8002Z"></path><path d="M10.3998 3.2C11.4998 2.3 12.5998 1.7 14.5998 2.7C12.9998 -0.5 10.1998 1.2 9.2998 1.9L7.8998 0L6.7998 4.7L11.6998 4.8L10.3998 3.2Z"></path></svg></span>
+                                                </div>
+                                                <button>
+                                                    <p className="text-body-2">Traducir a Español</p>
+                                                </button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="reviews-package carousel-review-item">
+                                    <div className="user-profile-image">
+                                        <label className="profile-pict" htmlFor="profile_image_1911270754103" style={{width: "32px", height: "32px", fontSize: "1em"}}>
+                                            <span className="missing-profile-image flex-center">d</span>
+                                        </label>
+                                    </div>
+                                    <div className="details">
+                                        <div className="reviewer">
+                                            <h6 className="text-display-7">drpramw</h6>
+                                            <div className="country">
+                                                <img className="country-flag" src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png" alt="US" loading="lazy" data-uw-rm-ima-original="us" />
+                                                <div className="country-name tbody-6">Estados Unidos</div>
+                                            </div>
+                                            <span className="inline-divider "></span>
+                                            <div className="orca-rating p-l-0 ratings-header rating-desktop color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                            <div className="orca-rating p-l-0 ratings-header rating-mobile color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                        </div>
+                                        <p className="review-item-comment" style={{height: "48px; -webkit-line-clamp: 2"}}>ai_lani was a pure delight to work with. The project was complicated, and it quickly became clear that her ability to capture the essence allowed us to streamline significantly, and produce a piece of art that clearly and more simply captured what I was trying to convey. She communicated clearly, and adapted splendidly when miscommunications occurred. I'll likely be working with her again.</p>
+                                        <span className="summarize">
+                                            <time className="text-body-2">hace 1 mes</time>
+                                            <span className="separator"> | </span>
+                                            <div className="translate-btn-wrapper">
+                                                <div className="flex-center info-wrapper">
+                                                    <span className="glAQDp5 translation-icon" aria-hidden="true" style={{width: "22px", height: "22px"}}><svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M19.2002 5.2002H15.0002C14.1002 5.2002 13.4002 5.5002 12.7002 6.0002H5.00025C3.80025 6.0002 2.60025 7.0002 2.30025 8.2002L1.00025 14.9002C0.800246 16.1002 1.60025 17.1002 2.90025 17.1002H7.70025C8.70024 17.1002 9.70024 16.7002 10.4002 15.9002H17.1002C18.3002 15.9002 19.5002 14.9002 19.7002 13.7002L21.0002 7.3002C21.2002 6.1002 20.4002 5.2002 19.2002 5.2002ZM10.3002 14.2002C10.1002 15.4002 9.00024 16.3002 7.70025 16.3002H2.90025C2.60025 16.3002 2.30025 16.2002 2.10025 16.0002C1.90025 15.8002 1.90025 15.5002 1.90025 15.2002L3.20025 8.5002C3.40025 7.7002 4.20025 7.0002 5.00025 7.0002H11.7002L10.3002 14.2002ZM17.5002 13.4002L16.6002 11.4002H14.3002L13.4002 13.4002H12.4002L15.0002 7.4002H15.9002L18.5002 13.4002H17.5002Z"></path><path d="M14.7002 10.5002H16.2002L15.4002 8.7002L14.7002 10.5002Z"></path><path d="M3.90039 10.2H8.20039C8.00039 10.7 7.50039 11.7 6.80039 12.5C6.10039 11.6 5.80039 10.6 5.80039 10.6L5.00039 10.8C5.00039 10.8 5.30039 12 6.10039 13.1C5.60039 13.5 5.00039 13.8 4.30039 13.8V14.6C5.20039 14.6 5.90039 14.2 6.60039 13.7C7.00039 14.1 7.50039 14.5 8.20039 14.7L8.60039 14C8.10039 13.8 7.70039 13.5 7.30039 13.2C8.40039 11.9 9.00039 10.3 9.00039 10.2H10.0004V9.4H7.30039V8.5H6.50039V9.4H3.90039V10.2Z"></path><path d="M12.7 18.8002C11.6 19.7002 10.5 20.3002 8.5 19.3002C10.1 22.5002 12.9 20.8002 13.8 20.1002L15.1 22.0002L16.2 17.3002L11.3 17.2002L12.7 18.8002Z"></path><path d="M10.3998 3.2C11.4998 2.3 12.5998 1.7 14.5998 2.7C12.9998 -0.5 10.1998 1.2 9.2998 1.9L7.8998 0L6.7998 4.7L11.6998 4.8L10.3998 3.2Z"></path></svg>
+                                                    </span>
+                                                </div>
+                                                <button><p className="text-body-2">Traducir a Español</p></button>
+                                            </div>
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div className="reviews-package carousel-review-item">
+                                    <div className="user-profile-image">
+                                        <label className="profile-pict" htmlFor="profile_image_4391877845692" style={{width: "32px", height: "32px", fontSize: "1em"}}>
+                                            <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/19666a7a1f119e120347242291e6cd2d-1680019798148/7b05d72b-098c-4beb-90a5-7ad15beeae62.JPG" className="profile-pict-img" alt="shamirgenomal" loading="lazy" data-uw-rm-ima-original="shamirgenomal" />
+                                        </label>
+                                    </div>
+                                    <div className="details">
+                                        <div className="reviewer">
+                                            <h6 className="text-display-7">shamirgenomal</h6>
+                                            <div className="country">
+                                                <img className="country-flag" src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f3.png" alt="IN" loading="lazy" data-uw-rm-ima-original="in" />
+                                                <div className="country-name tbody-6">India</div>
+                                            </div>
+                                            <span className="inline-divider "></span>
+                                            <div className="orca-rating p-l-0 ratings-header rating-desktop color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                            <div className="orca-rating p-l-0 ratings-header rating-mobile color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                        </div>
+                                        <p className="review-item-comment" style={{height: "48px; -webkit-line-clamp: 2"}}>Amazing work! Able to create wonderful and epic art from just my words and thoughts. &nbsp; My album cover has come out amazing! She is truly a league apart. She is so kind and wants to make even the smallest details come out perfect. &nbsp;5/5 on everything - output, professionalism, turnaround time and communication! </p>
+                                        <span className="summarize">
+                                            <time className="text-body-2">hace 1 mes</time>
+                                            <span className="separator"> | </span>
+                                            <div className="translate-btn-wrapper">
+                                                <div className="flex-center info-wrapper">
+                                                    <span className="glAQDp5 translation-icon" aria-hidden="true" style={{width: "22px", height: "22px"}}><svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M19.2002 5.2002H15.0002C14.1002 5.2002 13.4002 5.5002 12.7002 6.0002H5.00025C3.80025 6.0002 2.60025 7.0002 2.30025 8.2002L1.00025 14.9002C0.800246 16.1002 1.60025 17.1002 2.90025 17.1002H7.70025C8.70024 17.1002 9.70024 16.7002 10.4002 15.9002H17.1002C18.3002 15.9002 19.5002 14.9002 19.7002 13.7002L21.0002 7.3002C21.2002 6.1002 20.4002 5.2002 19.2002 5.2002ZM10.3002 14.2002C10.1002 15.4002 9.00024 16.3002 7.70025 16.3002H2.90025C2.60025 16.3002 2.30025 16.2002 2.10025 16.0002C1.90025 15.8002 1.90025 15.5002 1.90025 15.2002L3.20025 8.5002C3.40025 7.7002 4.20025 7.0002 5.00025 7.0002H11.7002L10.3002 14.2002ZM17.5002 13.4002L16.6002 11.4002H14.3002L13.4002 13.4002H12.4002L15.0002 7.4002H15.9002L18.5002 13.4002H17.5002Z"></path><path d="M14.7002 10.5002H16.2002L15.4002 8.7002L14.7002 10.5002Z"></path><path d="M3.90039 10.2H8.20039C8.00039 10.7 7.50039 11.7 6.80039 12.5C6.10039 11.6 5.80039 10.6 5.80039 10.6L5.00039 10.8C5.00039 10.8 5.30039 12 6.10039 13.1C5.60039 13.5 5.00039 13.8 4.30039 13.8V14.6C5.20039 14.6 5.90039 14.2 6.60039 13.7C7.00039 14.1 7.50039 14.5 8.20039 14.7L8.60039 14C8.10039 13.8 7.70039 13.5 7.30039 13.2C8.40039 11.9 9.00039 10.3 9.00039 10.2H10.0004V9.4H7.30039V8.5H6.50039V9.4H3.90039V10.2Z"></path><path d="M12.7 18.8002C11.6 19.7002 10.5 20.3002 8.5 19.3002C10.1 22.5002 12.9 20.8002 13.8 20.1002L15.1 22.0002L16.2 17.3002L11.3 17.2002L12.7 18.8002Z"></path><path d="M10.3998 3.2C11.4998 2.3 12.5998 1.7 14.5998 2.7C12.9998 -0.5 10.1998 1.2 9.2998 1.9L7.8998 0L6.7998 4.7L11.6998 4.8L10.3998 3.2Z"></path></svg></span>
+                                                </div>
+                                                <button><p className="text-body-2">Traducir a Español</p></button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="reviews-package carousel-review-item">
+                                    <div className="user-profile-image">
+                                        <label className="profile-pict" htmlFor="profile_image_7335463345707" style={{width: "32px", height: "32px", fontSize: "1em"}}>
+                                            <span className="missing-profile-image flex-center">s</span>
+                                        </label>
+                                    </div>
+                                    <div className="details">
+                                        <div className="reviewer">
+                                            <h6 className="text-display-7">superiorroad</h6>
+                                            <div className="country">
+                                                <img className="country-flag" src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png" alt="CA" loading="lazy" data-uw-rm-ima-original="ca" />
+                                                <div className="country-name tbody-6">Canadá</div>
+                                            </div>
+                                            <span className="inline-divider "></span>
+                                            <div className="orca-rating p-l-0 ratings-header rating-desktop color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg>
+                                                    </span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                            <div className="orca-rating p-l-0 ratings-header rating-mobile color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                        </div>
+                                        <p className="review-item-comment" style={{height: "48px; -webkit-line-clamp: 2"}}>ai_lani was very professional in their approach to the project.&nbsp; I was impressed with their understanding of my concept, and the results were great.&nbsp; I'll be putting this image into our marketing pitches and will be using ai_lani again for some personal projects as gifts to my family!  What a great gift! I finally have something unique to give for birthday presents.&nbsp; Overall experience was excellent!</p>
+                                        <span className="summarize">
+                                            <time className="text-body-2">Hace 2 meses</time>
+                                            <span className="separator"> | </span>
+                                            <div className="translate-btn-wrapper">
+                                                <div className="flex-center info-wrapper">
+                                                    <span className="glAQDp5 translation-icon" aria-hidden="true" style={{width: "22px", height: "22px"}}><svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M19.2002 5.2002H15.0002C14.1002 5.2002 13.4002 5.5002 12.7002 6.0002H5.00025C3.80025 6.0002 2.60025 7.0002 2.30025 8.2002L1.00025 14.9002C0.800246 16.1002 1.60025 17.1002 2.90025 17.1002H7.70025C8.70024 17.1002 9.70024 16.7002 10.4002 15.9002H17.1002C18.3002 15.9002 19.5002 14.9002 19.7002 13.7002L21.0002 7.3002C21.2002 6.1002 20.4002 5.2002 19.2002 5.2002ZM10.3002 14.2002C10.1002 15.4002 9.00024 16.3002 7.70025 16.3002H2.90025C2.60025 16.3002 2.30025 16.2002 2.10025 16.0002C1.90025 15.8002 1.90025 15.5002 1.90025 15.2002L3.20025 8.5002C3.40025 7.7002 4.20025 7.0002 5.00025 7.0002H11.7002L10.3002 14.2002ZM17.5002 13.4002L16.6002 11.4002H14.3002L13.4002 13.4002H12.4002L15.0002 7.4002H15.9002L18.5002 13.4002H17.5002Z"></path><path d="M14.7002 10.5002H16.2002L15.4002 8.7002L14.7002 10.5002Z"></path><path d="M3.90039 10.2H8.20039C8.00039 10.7 7.50039 11.7 6.80039 12.5C6.10039 11.6 5.80039 10.6 5.80039 10.6L5.00039 10.8C5.00039 10.8 5.30039 12 6.10039 13.1C5.60039 13.5 5.00039 13.8 4.30039 13.8V14.6C5.20039 14.6 5.90039 14.2 6.60039 13.7C7.00039 14.1 7.50039 14.5 8.20039 14.7L8.60039 14C8.10039 13.8 7.70039 13.5 7.30039 13.2C8.40039 11.9 9.00039 10.3 9.00039 10.2H10.0004V9.4H7.30039V8.5H6.50039V9.4H3.90039V10.2Z"></path><path d="M12.7 18.8002C11.6 19.7002 10.5 20.3002 8.5 19.3002C10.1 22.5002 12.9 20.8002 13.8 20.1002L15.1 22.0002L16.2 17.3002L11.3 17.2002L12.7 18.8002Z"></path><path d="M10.3998 3.2C11.4998 2.3 12.5998 1.7 14.5998 2.7C12.9998 -0.5 10.1998 1.2 9.2998 1.9L7.8998 0L6.7998 4.7L11.6998 4.8L10.3998 3.2Z"></path></svg></span>
+                                                </div>
+                                                <button><p className="text-body-2">Traducir a Español</p></button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="reviews-package carousel-review-item ">
+                                    <div className="user-profile-image">
+                                        <label className="profile-pict" htmlFor="profile_image_8560097896958" style={{width: "32px", height: "32px", fontSize: "1em"}}>
+                                            <span className="missing-profile-image flex-center">r</span>
+                                        </label>
+                                    </div>
+                                    <div className="details">
+                                        <div className="reviewer">
+                                            <h6 className="text-display-7">rebeccameucci</h6>
+                                            <div className="country">
+                                                <img className="country-flag" src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1ed.png" alt="CH" loading="lazy" data-uw-rm-ima-original="ch" />
+                                                <div className="country-name tbody-6">Suiza</div>
+                                            </div>
+                                            <span className="inline-divider"></span>
+                                            <div className="orca-rating p-l-0 ratings-header rating-desktop color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                            <div className="orca-rating p-l-0 ratings-header rating-mobile color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                        </div>
+                                        <p className="review-item-comment" style={{height: "48px; -webkit-line-clamp: 2"}}>Ai was so easy to work with, she answered to all my questions quickly and asked for every important detail etc.&nbsp; If you have a doubt, this is your sign to go for it ☺️ she delivered a great work of my baby, cute and all- will print it and put it in his room😍 thank you AI LANI will definitely order more, thank you for your patience and your great work</p>
+                                        <span className="summarize">
+                                            <time className="text-body-2">hace 1 mes</time>
+                                            <span className="separator"> | </span>
+                                            <div className="translate-btn-wrapper">
+                                                <div className="flex-center info-wrapper">
+                                                    <span className="glAQDp5 translation-icon" aria-hidden="true" style={{width: "22px", height: "22px"}}><svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M19.2002 5.2002H15.0002C14.1002 5.2002 13.4002 5.5002 12.7002 6.0002H5.00025C3.80025 6.0002 2.60025 7.0002 2.30025 8.2002L1.00025 14.9002C0.800246 16.1002 1.60025 17.1002 2.90025 17.1002H7.70025C8.70024 17.1002 9.70024 16.7002 10.4002 15.9002H17.1002C18.3002 15.9002 19.5002 14.9002 19.7002 13.7002L21.0002 7.3002C21.2002 6.1002 20.4002 5.2002 19.2002 5.2002ZM10.3002 14.2002C10.1002 15.4002 9.00024 16.3002 7.70025 16.3002H2.90025C2.60025 16.3002 2.30025 16.2002 2.10025 16.0002C1.90025 15.8002 1.90025 15.5002 1.90025 15.2002L3.20025 8.5002C3.40025 7.7002 4.20025 7.0002 5.00025 7.0002H11.7002L10.3002 14.2002ZM17.5002 13.4002L16.6002 11.4002H14.3002L13.4002 13.4002H12.4002L15.0002 7.4002H15.9002L18.5002 13.4002H17.5002Z"></path><path d="M14.7002 10.5002H16.2002L15.4002 8.7002L14.7002 10.5002Z"></path><path d="M3.90039 10.2H8.20039C8.00039 10.7 7.50039 11.7 6.80039 12.5C6.10039 11.6 5.80039 10.6 5.80039 10.6L5.00039 10.8C5.00039 10.8 5.30039 12 6.10039 13.1C5.60039 13.5 5.00039 13.8 4.30039 13.8V14.6C5.20039 14.6 5.90039 14.2 6.60039 13.7C7.00039 14.1 7.50039 14.5 8.20039 14.7L8.60039 14C8.10039 13.8 7.70039 13.5 7.30039 13.2C8.40039 11.9 9.00039 10.3 9.00039 10.2H10.0004V9.4H7.30039V8.5H6.50039V9.4H3.90039V10.2Z"></path><path d="M12.7 18.8002C11.6 19.7002 10.5 20.3002 8.5 19.3002C10.1 22.5002 12.9 20.8002 13.8 20.1002L15.1 22.0002L16.2 17.3002L11.3 17.2002L12.7 18.8002Z"></path><path d="M10.3998 3.2C11.4998 2.3 12.5998 1.7 14.5998 2.7C12.9998 -0.5 10.1998 1.2 9.2998 1.9L7.8998 0L6.7998 4.7L11.6998 4.8L10.3998 3.2Z"></path></svg></span>
+                                                </div>
+                                                <button><p className="text-body-2">Traducir a Español</p></button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="reviews-package carousel-review-item ">
+                                    <div className="user-profile-image">
+                                        <label className="profile-pict" htmlFor="profile_image_0668119266722" style={{width: "32px", height: "32px", fontSize: "1em"}}>
+                                            <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/217716d11c605ccbb1ea858ff600078e-1462045551678450864.813797/37577F31-360B-4292-9A50-8E2B281367F7" className="profile-pict-img" alt="nikki_ryan5" loading="lazy" data-uw-rm-ima-original="nikki_ryan5" />
+                                        </label>
+                                    </div>
+                                    <div className="details">
+                                        <div className="reviewer">
+                                            <h6 className="text-display-7">nikki_ryan5</h6>
+                                            <div className="country">
+                                                <img className="country-flag" src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png" alt="US" loading="lazy" data-uw-rm-ima-original="us" />
+                                                <div className="country-name tbody-6">Estados Unidos</div>
+                                            </div>
+                                            <span className="inline-divider "></span>
+                                            <div className="orca-rating p-l-0 ratings-header rating-desktop color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                            <div className="orca-rating p-l-0 ratings-header rating-mobile color-yellow tbody-6">
+                                                <div className="stars">
+                                                    <span className="glAQDp5 orca-star" aria-hidden="true" style={{width: "15px", height: "15px"}}><svg width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"></path></svg></span>
+                                                </div>
+                                                <strong className="rating-score">5</strong>
+                                            </div>
+                                        </div>
+                                        <p className="review-item-comment" style={{height: "48px; -webkit-line-clamp: 2"}}>5 stars here its not enough to tell how professional, smart, fast, intelligent, responsible, and thoughtful you are.&nbsp; This world literally needs more than you to be a better world 🌎&nbsp; I appreciate your time, and professional work alot 🌹😍❤️🥰 </p>
+                                        <span className="summarize">
+                                            <time className="text-body-2">hace 1 mes</time>
+                                            <span className="separator"> | </span>
+                                            <div className="translate-btn-wrapper">
+                                                <div className="flex-center info-wrapper">
+                                                    <span className="glAQDp5 translation-icon" aria-hidden="true" style={{width: "22px", height: "22px"}}><svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M19.2002 5.2002H15.0002C14.1002 5.2002 13.4002 5.5002 12.7002 6.0002H5.00025C3.80025 6.0002 2.60025 7.0002 2.30025 8.2002L1.00025 14.9002C0.800246 16.1002 1.60025 17.1002 2.90025 17.1002H7.70025C8.70024 17.1002 9.70024 16.7002 10.4002 15.9002H17.1002C18.3002 15.9002 19.5002 14.9002 19.7002 13.7002L21.0002 7.3002C21.2002 6.1002 20.4002 5.2002 19.2002 5.2002ZM10.3002 14.2002C10.1002 15.4002 9.00024 16.3002 7.70025 16.3002H2.90025C2.60025 16.3002 2.30025 16.2002 2.10025 16.0002C1.90025 15.8002 1.90025 15.5002 1.90025 15.2002L3.20025 8.5002C3.40025 7.7002 4.20025 7.0002 5.00025 7.0002H11.7002L10.3002 14.2002ZM17.5002 13.4002L16.6002 11.4002H14.3002L13.4002 13.4002H12.4002L15.0002 7.4002H15.9002L18.5002 13.4002H17.5002Z"></path><path d="M14.7002 10.5002H16.2002L15.4002 8.7002L14.7002 10.5002Z"></path><path d="M3.90039 10.2H8.20039C8.00039 10.7 7.50039 11.7 6.80039 12.5C6.10039 11.6 5.80039 10.6 5.80039 10.6L5.00039 10.8C5.00039 10.8 5.30039 12 6.10039 13.1C5.60039 13.5 5.00039 13.8 4.30039 13.8V14.6C5.20039 14.6 5.90039 14.2 6.60039 13.7C7.00039 14.1 7.50039 14.5 8.20039 14.7L8.60039 14C8.10039 13.8 7.70039 13.5 7.30039 13.2C8.40039 11.9 9.00039 10.3 9.00039 10.2H10.0004V9.4H7.30039V8.5H6.50039V9.4H3.90039V10.2Z"></path><path d="M12.7 18.8002C11.6 19.7002 10.5 20.3002 8.5 19.3002C10.1 22.5002 12.9 20.8002 13.8 20.1002L15.1 22.0002L16.2 17.3002L11.3 17.2002L12.7 18.8002Z"></path><path d="M10.3998 3.2C11.4998 2.3 12.5998 1.7 14.5998 2.7C12.9998 -0.5 10.1998 1.2 9.2998 1.9L7.8998 0L6.7998 4.7L11.6998 4.8L10.3998 3.2Z"></path></svg></span>
+                                                </div>
+                                                <button><p className="text-body-2">Traducir a Español</p></button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </Slide>
+                        </div>
                         <div className="gig-description with-translated-badge" id='description-section'>
                             <header className='gig-description-header'>
                                 <h2 className="section-title">Acerca de este Servicio</h2>
@@ -137,9 +489,10 @@ function Gig() {
                                     <p><strong>No hay temas relacionados con la desnudez, la violencia o las drogas.</strong></p>
                                     <p><strong><u>Por favor, póngase en contacto conmigo antes de realizar un pedido*</u></strong></p>
                                 
-                                    <p> Creo imágenes de IA únicas con Midjourney.&nbsp; He invertido incontables horas para dominar efectivamente este software, y es por eso que soy el diseñador ideal para su proyecto.&nbsp; Ya no necesita pasar horas buscando la imagen correcta o intentar hacer un diseño desde cero.&nbsp; Con sus palabras, puedo generar una amplia variedad de estilos, temas y paletas de colores que reflejan su idea de una obra maestra perfecta. Puedes ser el artista, ¡no se necesita experiencia! Ya sea para una presentación comercial, contenido de redes sociales o un proyecto personal, mi plataforma ofrece una solución rápida y fácil para todas sus necesidades artísticas.&nbsp; Mejora tu creatividad con mis servicios.&nbsp; <em>¡Envíame un mensaje en cualquier momento!</em><strong><em></em></strong> Estoy aquí.</p>
+                                    <p> Creo imágenes de IA únicas con Midjourney.&nbsp; He invertido incontables horas para dominar efectivamente este software, y es por eso que soy el diseñador ideal para su proyecto.&nbsp; Ya no necesita pasar horas buscando la imagen correcta o intentar hacer un diseño desde cero.&nbsp; Con sus palabras, puedo generar una amplia variedad de estilos, temas y paletas de colores que reflejan su idea de una obra maestra perfecta. Puedes ser el artista, ¡no se necesita experiencia! Ya sea para una presentación comercial, contenido de redes sociales o un proyecto personal, mi plataforma ofrece una solución rápida y fácil para todas sus necesidades artísticas.&nbsp; Mejora tu creatividad con mis servicios.&nbsp; <em>¡Envíame un mensaje en cualquier momento!</em><strong><em></em></strong>Estoy aquí.</p>
                                 </div>
-                                
+                                <div className="cover"></div>
+                                <button className="collapse-button">Ver más</button>
                             </div>
                             <ul className="metadata">
                                 <li className="metadata-attribute"><p>Motor de IA</p>
@@ -204,11 +557,489 @@ function Gig() {
                                     </ul>
                                     <article className="seller-desc">
                                         <div className="inner"><p>Hi there &amp; welcome to my shop.&nbsp; I'm ai_lani - a digital artist who creates fully customizable images based on your specific needs and vision.&nbsp; You send me the photo or description, and I will present to you a one of a kind - AI generated piece of art.&nbsp; If you have any questions, send me a message anytime :)</p></div>
+                                        <button className="read-more">+ Ver más</button>
                                     </article>
                                 </div>
                             </div>
                         </div>
-                      
+                        <section className="portfolio-external-wrapper">
+                            <section className="portfolio-presence" data-impression-collected="true">
+                                <div className="presence-header flex m-b-16">
+                                    <a href="/users/ai_lani/portfolio?gig=create-custom-ai-art-using-midjourney-advanced-ai-tool&amp;origin=gig_page" className="tbody-5 m-r-8" data-uw-rm-brl="false">Mi porfolio</a>
+                                    <div className="Waqjn3u" title='Estos son algunos de los 
+    proyectos que hizo ai_lani para 
+    que puedas comprender mejor su 
+    experiencia'>
+                                        <span className="flex">
+                                            <span className="glAQDp5" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path fillRule="evenodd" clipRule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16ZM6.667 6.222c0-.228.075-.59.277-.87C7.112 5.12 7.4 4.89 8 4.89c.734 0 1.116.388 1.245.777.136.41.02.867-.405 1.15-.701.468-1.218.92-1.49 1.556-.24.56-.24 1.175-.239 1.752v.098H8.89c0-.728.015-.964.095-1.15.06-.142.21-.356.842-.777a2.751 2.751 0 0 0 1.106-3.19C10.558 3.978 9.488 3.111 8 3.111c-1.179 0-2.001.511-2.5 1.203a3.37 3.37 0 0 0-.611 1.908h1.778Zm2.222 6.667V11.11H7.11v1.778H8.89Z"></path></svg></span>
+                                        </span>
+                                    </div>
+                                    <span className="portafolio-badge">NUEVO</span>
+                                </div>
+                                <ul className="project-grid grid-1 m-b-24 wide-grid">
+                                    <li className="project-photo photo-0">
+                                        <div className="project-img hide-on-error responsive-wrapper">
+                                            <img src="https://fiverr-res.cloudinary.com/t_portfolio_project_grid,q_auto,f_auto,q_auto,f_auto/attachments/project_item/attachment/f37774fccc84102dcef37b12cf2191b0-1679255124064/robotflowers-transformed.jpeg" role="presentation" data-uw-rm-ima="un" /></div>
+                                        <div className="project-title-wrapper responsive-wrapper"><span className="project-title">Organic Intelligence</span></div>
+                                    </li>
+                                </ul>
+                                <a className="portfolio-link" href="/users/ai_lani/portfolio?gig=create-custom-ai-art-using-midjourney-advanced-ai-tool&amp;origin=gig_page" data-uw-rm-brl="false">
+                                    <span className="text-part m-r-8">Mira los proyectos &nbsp;(1)</span>
+                                    <span className="arrow-link" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M9.92332 2.96885C9.63854 2.66807 9.1768 2.66807 8.89202 2.96885C8.60723 3.26963 8.60723 3.75729 8.89202 4.05807L11.6958 7.01931H1.48616C1.08341 7.01931 0.756918 7.36413 0.756918 7.7895C0.756918 8.21487 1.08341 8.5597 1.48616 8.5597H11.8436L8.89202 11.677C8.60723 11.9778 8.60723 12.4654 8.89202 12.7662C9.1768 13.067 9.63854 13.067 9.92332 12.7662L14.0459 8.41213C14.3307 8.11135 14.3307 7.62369 14.0459 7.32291L13.977 7.25011C13.9737 7.24661 13.9704 7.24315 13.9671 7.23972L9.92332 2.96885Z"></path></svg></span>
+                                </a>
+                            </section>
+                        </section>
+                        <div className="buyPackagesContainer" id='buy-packages-section'>
+                            <form action="/payments" method="post">
+                                <input type="hidden" name="authenticity_token" value="1683105468.bNaLdsHetWeGUqFCsY31OEzbtKNCjVxEw7RMoLrihAo=" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <input type="hidden" name="package_id" value="1" />
+                                <input type="hidden" name="gig_id" value="298676084" />
+                                <input type="hidden" name="total_delivery" value="3" />
+                                <input type="hidden" name="milestones_purchase" value="false" />
+                                <input type="hidden" name="fiverr_choice" value="true" />
+                                <input type="hidden" name="rising_talent" value="false" />
+                                <input type="hidden" name="payment_funnel_source" value="gig_page" />
+                                <input type="hidden" name="guest_checkout_token" value="df8f29862ec3" />
+                                <div className="gig-page-packages-table">
+                                    <h2 className="section-title">Comprar paquetes</h2>
+                                    <table>
+                                        <colgroup>
+                                        <col />
+                                        <col /><col /><col />
+                                        </colgroup>
+                                        <tbody>
+                                            <tr className="package-type">
+                                                <th className="package-row-label">Paquete</th>
+                                                <th className="package-type-price">
+                                                    <div className="price-wrapper">
+                                                        <p className="price">28,71&nbsp;€</p>
+                                                    </div>
+                                                    <strong className="type">Básico</strong>
+                                                    <strong className="title">Basic</strong>
+                                                </th>
+                                                <th className="package-type-price">
+                                                    <div className="price-wrapper">
+                                                        <p className="price">66,99&nbsp;€</p>
+                                                    </div>
+                                                    <strong className="type">Estándar</strong>
+                                                    <strong className="title">Standard</strong>
+                                                </th>
+                                                <th className="package-type-price">
+                                                    <div className="price-wrapper">
+                                                        <p className="price">143,55&nbsp;€</p>
+                                                    </div>
+                                                    <strong className="type">Premium</strong>
+                                                    <strong className="title">Premium</strong>
+                                                </th>
+                                            </tr>
+                                            <tr className="description">
+                                                <td className="package-row-label"></td>
+                                                <td className='description-row'>One custom digital design **Please contact me before placing an order :)**</td>
+                                                <td className='description-row'>Three custom digital designs **Please contact me before placing an order :)**</td>
+                                                <td className='description-row'>Seven custom digital designs **Please contact me before placing an order :)**</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="package-row-label">
+                                                    <div className="jEW3B9z Y_05slf">
+                                                        <span className="HsyURQF">Redacción de textos</span>
+                                                    </div>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="package-row-label">
+                                                    <div className="jEW3B9z Y_05slf">
+                                                        <span className="HsyURQF">Entrega de obras de arte</span>
+                                                    </div>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="package-row-label">
+                                                    <div className="jEW3B9z Y_05slf">
+                                                        <span className="HsyURQF">Imagen mejorada</span>
+                                                    </div>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                                <td className="boolean-pricing-factor">
+                                                    <span className="glAQDp5 pricing-factor-check-icon included" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg"><path d="M3.64489 8.10164L0.158292 4.61504C-0.0511769 4.40557 -0.0511769 4.06594 0.158292 3.85645L0.916858 3.09786C1.12633 2.88837 1.46598 2.88837 1.67545 3.09786L4.02419 5.44658L9.05493 0.41586C9.2644 0.206391 9.60405 0.206391 9.81352 0.41586L10.5721 1.17445C10.7816 1.38392 10.7816 1.72355 10.5721 1.93303L4.40348 8.10166C4.19399 8.31113 3.85436 8.31113 3.64489 8.10164V8.10164Z"></path></svg></span>
+                                                </td>
+                                            </tr>
+                                            <tr className='revisions'>
+                                                <td className="package-row-label">
+                                                    <div className="jEW3B9z Y_05slf">
+                                                        <span className="HsyURQF">Revisiones</span>
+                                                    </div>
+                                                </td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr className="delivery-time">
+                                                <td className="package-row-label">Tiempo de entrega</td>
+                                                <td>3 días</td>
+                                                <td>3 días</td>
+                                                <td>3 días</td>
+                                            </tr>
+                                            <tr className="select-package">
+                                                <td className="package-row-label">Total</td>
+                                                <td>
+                                                    <div className="price-wrapper">
+                                                        <p className="tbody-5">28,71&nbsp;€</p>
+                                                    </div>
+                                                    <button className="sPdE5j4 zUvc8Si co-white btn-select-package bg-co-green-700" type="button">Seleccionar</button>
+                                                </td>
+                                                <td>
+                                                    <div className="price-wrapper">
+                                                        <p className="tbody-5">66,99&nbsp;€</p>
+                                                    </div>
+                                                    <button className="sPdE5j4 zUvc8Si co-white btn-select-package bg-co-green-700" type="button">Seleccionar</button>
+                                                </td>
+                                                <td>
+                                                    <div className="price-wrapper">
+                                                        <p className="tbody-5">143,55&nbsp;€</p>
+                                                    </div>
+                                                    <button className="sPdE5j4 zUvc8Si co-white btn-select-package bg-co-green-700" type="button">Seleccionar</button>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                        <section className="personalized-content personalized-content-compare" id='recommendations-section'>
+                            <header className="carousel-header">
+                                <div className="titles">
+                                    <div className="title">
+                                        <h4><span>Recomendado para ti</span>&nbsp;</h4>
+                                    </div>
+                                </div>
+                            </header>
+                            <Slide slidesToShow={2} arrowsScroll={2}>
+                                {/* *********************************************** */} 
+                                <div className="gig-wrapper-impressions gig-wrapper card" data-gig-id="299303050" data-impression-collected="true">
+                                    <a href="/koalafication/create-an-amazing-art-from-your-imagination-using-midjourney-ai?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=3&amp;context_alg=t2g_dfm&amp;imp_id=706b1e5b-917d-4083-8755-3bcac84e7296" target="_self" className="media" title="" rel="" data-uw-rm-brl="false">
+                                        <div className="slider first-slide">
+                                            <div className="slides preview" style={{width: ""}}>
+                                                <Carousel {...paramsCarousel}>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage01} alt="create an amazing concept art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create an amazing concept art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage02} alt="create an amazing concept art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create an amazing concept art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage03} alt="create an amazing concept art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create an amazing concept art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage04} alt="create an amazing concept art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create an amazing concept art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage05} alt="create an amazing concept art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create an amazing concept art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage06} alt="create an amazing concept art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create an amazing concept art using midjourney ai" />
+                                                    </div>
+                                                    </Carousel>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div className="seller-info text-body-2">
+                                        <div className="inner-wrapper">
+                                            <span className="seller-image">
+                                                <div className="UCQ0bV4" style={{borderRadius: "50%"}}>
+                                                    <figure className="Febe2dk seller-avatar" title="koalafication" style={{fontSize: "24px", backgroundColor: "rgb(27, 137, 150)"}}>
+                                                        <figcaption className="KFSQ0ji">k</figcaption>
+                                                        <img className="_YszT7W" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/9011893847add9cba5ee7f0ae7724325-1524074777315/ffd3f7db-d7c8-4184-a444-7cbdafcfbcc5.png" alt="koalafication" loading="lazy" data-uw-rm-ima-original="koalafication" />
+                                                    </figure>
+                                                </div>
+                                            </span>
+                                            <div className="seller-identifiers">
+                                                <div className="seller-name-and-country">
+                                                    <div className="seller-name">
+                                                        <a href="/koalafication?source=gig_cards&amp;referrer_gig_slug=create-an-amazing-art-from-your-imagination-using-midjourney-ai&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;imp_id=706b1e5b-917d-4083-8755-3bcac84e7296" target="_self" className="text-semi-bold" title="" rel="nofollow noopener noreferrer" data-uw-rm-brl="false">koalafication</a>
+                                                    </div>
+                                                </div>
+                                                <span className="level level-two-seller">
+                                                    <div className="jEW3B9z Y_05slf seller-name-tooltip">
+                                                        <span className="HsyURQF">Vendedor Nivel 2</span>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        <a href="/koalafication/create-an-amazing-art-from-your-imagination-using-midjourney-ai?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=3&amp;context_alg=t2g_dfm&amp;imp_id=706b1e5b-917d-4083-8755-3bcac84e7296" target="_self" title="Crearé un arte conceptual asombroso usando Midjourney ai" rel="" data-uw-rm-brl="false">Crearé un arte conceptual asombroso usando Midjourney ai</a>
+                                    </h3>
+                                    <div className="content-info">
+                                        <div className="rating-wrapper">
+                                            <span className="gig-rating text-body-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15"><path fill="currentColor" d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"></path></svg>4,9<span>(56)</span></span>
+                                        </div>
+                                    </div>
+                                    <footer>
+                                        <div className="collect-package">
+                                            <div className="jEW3B9z Y_05slf">
+                                                <span className="HsyURQF">
+                                                    <button className="iyKO0_a" delay="120" content="[object Object]" position="top" boxclassnamename="n8k5Ydl" boxcontentclassnamename="xZqc_Ec tooltip-box-content" containerclassnamename="collect-package-tooltip" aria-label="button" data-uw-rm-empty-ctrl="">
+                                                        <span className="glAQDp5 WO3uerB" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.4469 1.95625C12.7344 0.496875 10.1875 0.759375 8.61561 2.38125L7.99999 3.01562L7.38436 2.38125C5.81561 0.759375 3.26561 0.496875 1.55311 1.95625C-0.409388 3.63125 -0.512513 6.6375 1.24374 8.45312L7.29061 14.6969C7.68124 15.1 8.31561 15.1 8.70624 14.6969L14.7531 8.45312C16.5125 6.6375 16.4094 3.63125 14.4469 1.95625Z"></path></svg></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <a href="/koalafication/create-an-amazing-art-from-your-imagination-using-midjourney-ai?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=3&amp;context_alg=t2g_dfm&amp;imp_id=706b1e5b-917d-4083-8755-3bcac84e7296" target="_self" className="price line-break" title="" rel="" data-uw-rm-brl="false"><small className="text-body-3">A partir de</small><span>23<sup>95</sup>&nbsp;€</span></a>
+                                    </footer>
+                                </div>
+                                {/* *********************************************************** */}
+                                <div className="gig-wrapper-impressions gig-wrapper card" data-gig-id="98873698" data-impression-collected="true">
+                                    <a href="/amhaxdesigner/design-a-feminine-cosmetic-logo-for-you?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=1&amp;context_alg=t2g_dfm&amp;imp_id=fe6e251e-4f8f-47cf-bd0d-fc65c7fb1d93" target="_self" className="media" title="" rel="" data-uw-rm-brl="false">
+                                        <div className="slider first-slide">
+                                            <div className="slides preview" style={{}}>
+                                                <Carousel {...paramsCarousel}>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage07} alt="create stunning concept art and character with midjourney ai" loading="lazy" data-uw-rm-ima-original="create stunning concept art and character with midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage08} alt="create stunning concept art and character with midjourney ai" loading="lazy" data-uw-rm-ima-original="create stunning concept art and character with midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage09} alt="create stunning concept art and character with midjourney ai" loading="lazy" data-uw-rm-ima-original="create stunning concept art and character with midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage10} alt="create stunning concept art and character with midjourney ai" loading="lazy" data-uw-rm-ima-original="create stunning concept art and character with midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage11} alt="create stunning concept art and character with midjourney ai" loading="lazy" data-uw-rm-ima-original="create stunning concept art and character with midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage12} alt="create stunning concept art and character with midjourney ai" loading="lazy" data-uw-rm-ima-original="create stunning concept art and character with midjourney ai" />
+                                                    </div>
+                                               </Carousel>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div className="seller-info text-body-2">
+                                        <div className="inner-wrapper">
+                                            <span className="seller-image">
+                                                <div className="UCQ0bV4" style={{borderRadius: "50%"}}>
+                                                    <figure className="Febe2dk seller-avatar" title="amhaxdesigner" style={{fontSize: "24px", backgroundColor: "rgb(227, 118, 39)"}}>
+                                                        <figcaption className="KFSQ0ji">a</figcaption>
+                                                        <img className="_YszT7W" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/2844bf9c9c31d4c6e29e8c13e694c361-1679218568039/4991a593-c630-4b59-9ccc-3beb8181ae8a.jpg" alt="amhaxdesigner" loading="lazy" data-uw-rm-ima-original="amhaxdesigner" />
+                                                    </figure>
+                                                </div>
+                                            </span>
+                                            <div className="seller-identifiers">
+                                                <div className="seller-name-and-country">
+                                                    <div className="seller-name">
+                                                        <a href="/amhaxdesigner?source=gig_cards&amp;referrer_gig_slug=design-a-feminine-cosmetic-logo-for-you&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;imp_id=fe6e251e-4f8f-47cf-bd0d-fc65c7fb1d93" target="_self" className="text-semi-bold" title="" rel="nofollow noopener noreferrer" data-uw-rm-brl="false">amhaxdesigner</a>
+                                                    </div>
+                                                </div>
+                                                <span className="level level-two-seller">
+                                                    <div className="jEW3B9z Y_05slf seller-name-tooltip">
+                                                        <span className="HsyURQF">Vendedor Nivel 2</span>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3><a href="/amhaxdesigner/design-a-feminine-cosmetic-logo-for-you?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=1&amp;context_alg=t2g_dfm&amp;imp_id=fe6e251e-4f8f-47cf-bd0d-fc65c7fb1d93" target="_self" title="Crearé arte conceptual y personajes asombrosos con Midjourney ai" rel="" data-uw-rm-brl="false">Crearé arte conceptual y personajes asombrosos con Midjourney ai</a>
+                                    </h3>
+                                    <div className="content-info">
+                                        <div className="rating-wrapper">
+                                            <span className="gig-rating text-body-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15"><path fill="currentColor" d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"></path></svg>4,9<span>(233)</span></span>
+                                        </div>
+                                    </div>
+                                    <footer>
+                                        <div className="collect-package">
+                                            <div className="jEW3B9z Y_05slf">
+                                                <span className="HsyURQF">
+                                                    <button className="iyKO0_a" delay="120" content="[object Object]" position="top" boxclassnamename="n8k5Ydl" boxcontentclassnamename="xZqc_Ec tooltip-box-content" containerclassnamename="collect-package-tooltip" aria-label="button" data-uw-rm-empty-ctrl="">
+                                                        <span className="glAQDp5 WO3uerB" aria-hidden="true" style={{width: "16ppx", height: "16px"}}><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.4469 1.95625C12.7344 0.496875 10.1875 0.759375 8.61561 2.38125L7.99999 3.01562L7.38436 2.38125C5.81561 0.759375 3.26561 0.496875 1.55311 1.95625C-0.409388 3.63125 -0.512513 6.6375 1.24374 8.45312L7.29061 14.6969C7.68124 15.1 8.31561 15.1 8.70624 14.6969L14.7531 8.45312C16.5125 6.6375 16.4094 3.63125 14.4469 1.95625Z"></path></svg></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <a href="/amhaxdesigner/design-a-feminine-cosmetic-logo-for-you?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=1&amp;context_alg=t2g_dfm&amp;imp_id=fe6e251e-4f8f-47cf-bd0d-fc65c7fb1d93" target="_self" className="price line-break" title="" rel="" data-uw-rm-brl="false"><small className="text-body-3">A partir de</small><span>14<sup>37</sup>&nbsp;€</span></a>
+                                    </footer>
+                                </div>
+                                {/* **************************************************** */}
+                                <div className="gig-wrapper-impressions gig-wrapper card" data-gig-id="289758028" data-impression-collected="true">
+                                    <a href="/goldone2012/create-art-characters-and-illustrations-using-ai-generated-images?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=2&amp;context_alg=t2g_dfm&amp;seller_online=true&amp;imp_id=8187652e-c5d6-4ea9-b9be-20781c63d06c" target="_self" className="media" title="" rel="" data-uw-rm-brl="false">
+                                        <div className="slider first-slide">
+                                            <div className="slides preview" style={{}}>
+                                                <Carousel {...paramsCarousel}>
+                                                    <div className="slide-item">
+                                                        <img src={SliderImage13} alt="create fast awesome characters and art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create fast awesome characters and art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item">
+                                                        <img src={SliderImage14} alt="create fast awesome characters and art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create fast awesome characters and art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item">
+                                                        <img src={SliderImage15} alt="create fast awesome characters and art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create fast awesome characters and art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item">
+                                                        <img src={SliderImage16} alt="create fast awesome characters and art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create fast awesome characters and art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item">
+                                                        <img src={SliderImage17} alt="create fast awesome characters and art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create fast awesome characters and art using midjourney ai" />
+                                                    </div>
+                                                    <div className="slide-item">
+                                                        <img src={SliderImage18} alt="create fast awesome characters and art using midjourney ai" loading="lazy" data-uw-rm-ima-original="create fast awesome characters and art using midjourney ai" />
+                                                    </div>
+                                                </Carousel>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div className="seller-info text-body-2">
+                                        <div className="inner-wrapper">
+                                            <span className="seller-image">
+                                                <span className="is-online"></span>
+                                                <div className="UCQ0bV4" style={{borderRadius: "50%"}}>
+                                                    <figure className="Febe2dk seller-avatar" title="goldone2012" style={{fontSize: "24px", backgroundColor: "rgb(196, 51, 51)"}}>
+                                                        <figcaption className="KFSQ0ji">g</figcaption>
+                                                        <img className="_YszT7W" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/c1609c155888364a14ca768ccf0a8725-1381927981674205884.782265/0CDF2C4C-1BEF-4A38-AF76-FDAB716FE418" alt="goldone2012" loading="lazy" data-uw-rm-ima-original="goldone2012" />
+                                                    </figure>
+                                                </div>
+                                            </span>
+                                            <div className="seller-identifiers">
+                                                <div className="seller-name-and-country">
+                                                    <div className="seller-name">
+                                                        <a href="/goldone2012?source=gig_cards&amp;referrer_gig_slug=create-art-characters-and-illustrations-using-ai-generated-images&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;imp_id=8187652e-c5d6-4ea9-b9be-20781c63d06c" target="_self" className="text-semi-bold" title="" rel="nofollow noopener noreferrer" data-uw-rm-brl="false">goldone2012</a>
+                                                    </div>
+                                                </div>
+                                                <span className="level level-two-seller">
+                                                    <div className="jEW3B9z Y_05slf seller-name-tooltip">
+                                                        <span className="HsyURQF">Vendedor Nivel 2</span>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        <a href="/goldone2012/create-art-characters-and-illustrations-using-ai-generated-images?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=2&amp;context_alg=t2g_dfm&amp;seller_online=true&amp;imp_id=8187652e-c5d6-4ea9-b9be-20781c63d06c" target="_self" title="Crearé personajes y arte increíbles y rápidos usando Midjourney ai" rel="" data-uw-rm-brl="false">Crearé personajes y arte increíbles y rápidos usando Midjourney ai</a>
+                                    </h3>
+                                    <div className="content-info">
+                                        <div className="rating-wrapper">
+                                            <span className="gig-rating text-body-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15"><path fill="currentColor" d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"></path></svg>5,0<span>(101)</span></span>
+                                        </div>
+                                    </div>
+                                    <footer>
+                                        <div className="collect-package">
+                                            <div className="jEW3B9z Y_05slf">
+                                                <span className="HsyURQF">
+                                                    <button className="iyKO0_a" delay="120" content="[object Object]" position="top" boxclassnamename="n8k5Ydl" boxcontentclassnamename="xZqc_Ec tooltip-box-content" containerclassnamename="collect-package-tooltip" aria-label="button" data-uw-rm-empty-ctrl=""><span className="glAQDp5 WO3uerB" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.4469 1.95625C12.7344 0.496875 10.1875 0.759375 8.61561 2.38125L7.99999 3.01562L7.38436 2.38125C5.81561 0.759375 3.26561 0.496875 1.55311 1.95625C-0.409388 3.63125 -0.512513 6.6375 1.24374 8.45312L7.29061 14.6969C7.68124 15.1 8.31561 15.1 8.70624 14.6969L14.7531 8.45312C16.5125 6.6375 16.4094 3.63125 14.4469 1.95625Z"></path></svg></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <a href="/goldone2012/create-art-characters-and-illustrations-using-ai-generated-images?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=0cd46aebc0ede21d4322b08db4a8967d&amp;context=recommendation&amp;pckg_id=1&amp;pos=2&amp;context_alg=t2g_dfm&amp;seller_online=true&amp;imp_id=8187652e-c5d6-4ea9-b9be-20781c63d06c" target="_self" className="price line-break" title="" rel="" data-uw-rm-brl="false"><small className="text-body-3">A partir de</small><span>28<sup>73</sup>&nbsp;€</span></a>
+                                    </footer>
+                                </div>
+                                {/* **************************************************** */}
+                                <div className="gig-wrapper-impressions gig-wrapper card" data-gig-id="285202554" data-impression-collected="true">
+                                    <a href="/hatchan/create-a-steampunk-character-design-for-you-using-midjourney-ai?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=257da80ea966bd13b31285c57f0d3ee5&amp;context=recommendation&amp;pckg_id=1&amp;pos=10&amp;context_alg=t2g_dfm&amp;imp_id=2f6c1c19-6661-4c0a-ade0-a201ed5c6a00" target="_self" className="media" title="" rel="" data-uw-rm-brl="false">
+                                        <div className="slider">
+                                            <div className="slides" style={{}}>
+                                                <Carousel {...paramsCarousel}>
+
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage19} alt="create ai art with midjourney for you" loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage20} alt="create ai art with midjourney for you" loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage21} alt="create ai art with midjourney for you"  loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage22} alt="create ai art with midjourney for you" loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage23} alt="create ai art with midjourney for you" loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage24} alt="create ai art with midjourney for you" loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage25} alt="create ai art with midjourney for you" loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                    <div className="slide-item" style={{}}>
+                                                        <img src={SliderImage26} alt="create ai art with midjourney for you" loading="lazy" data-uw-rm-ima-original="create ai art with midjourney for you" />
+                                                    </div>
+                                                </Carousel>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div className="seller-info text-body-2">
+                                        <div className="inner-wrapper">
+                                            <span className="seller-image">
+                                                <div className="UCQ0bV4" style={{borderRadius: "50%"}}>
+                                                    <figure className="Febe2dk seller-avatar" title="hatchan" style={{fontSize: "24px", backgroundColor: "rgb(155, 105, 40)"}}>
+                                                        <figcaption className="KFSQ0ji">h</figcaption>
+                                                        <img className="_YszT7W" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/1597754/original/36721_1327895957682_51544_n.jpg" alt="hatchan" loading="lazy" data-uw-rm-ima-original="hatchan" />
+                                                    </figure>
+                                                </div>
+                                            </span>
+                                            <div className="seller-identifiers">
+                                                <div className="seller-name-and-country">
+                                                    <div className="seller-name">
+                                                        <a href="/hatchan?source=gig_cards&amp;referrer_gig_slug=create-a-steampunk-character-design-for-you-using-midjourney-ai&amp;ref_ctx_id=257da80ea966bd13b31285c57f0d3ee5&amp;imp_id=2f6c1c19-6661-4c0a-ade0-a201ed5c6a00" target="_self" className="text-semi-bold" title="" rel="nofollow noopener noreferrer" data-uw-rm-brl="false">hatchan</a>
+                                                    </div>
+                                                </div>
+                                                <span className="level level-two-seller">
+                                                    <div className="jEW3B9z Y_05slf seller-name-tooltip">
+                                                        <span className="HsyURQF">Vendedor Nivel 2</span>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3><a href="/hatchan/create-a-steampunk-character-design-for-you-using-midjourney-ai?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=257da80ea966bd13b31285c57f0d3ee5&amp;context=recommendation&amp;pckg_id=1&amp;pos=10&amp;context_alg=t2g_dfm&amp;imp_id=2f6c1c19-6661-4c0a-ade0-a201ed5c6a00" target="_self" title="Crearé ai art con Midjourney para ti." rel="" data-uw-rm-brl="false">Crearé ai art con Midjourney para ti.</a>
+                                    </h3>
+                                    <div className="content-info">
+                                        <div className="rating-wrapper">
+                                            <span className="gig-rating text-body-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15"><path fill="currentColor" d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"></path></svg>5,0<span>(96)</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <footer>
+                                        <div className="collect-package">
+                                            <div className="jEW3B9z Y_05slf">
+                                                <span className="HsyURQF">
+                                                    <button className="iyKO0_a" delay="120" content="[object Object]" position="top" boxclassnamename="n8k5Ydl" boxcontentclassnamename="xZqc_Ec tooltip-box-content" containerclassnamename="collect-package-tooltip" aria-label="button" data-uw-rm-empty-ctrl="">
+                                                        <span className="glAQDp5 WO3uerB" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.4469 1.95625C12.7344 0.496875 10.1875 0.759375 8.61561 2.38125L7.99999 3.01562L7.38436 2.38125C5.81561 0.759375 3.26561 0.496875 1.55311 1.95625C-0.409388 3.63125 -0.512513 6.6375 1.24374 8.45312L7.29061 14.6969C7.68124 15.1 8.31561 15.1 8.70624 14.6969L14.7531 8.45312C16.5125 6.6375 16.4094 3.63125 14.4469 1.95625Z"></path></svg></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <a href="/hatchan/create-a-steampunk-character-design-for-you-using-midjourney-ai?context_referrer=gig_page&amp;source=similar_gigs&amp;ref_ctx_id=257da80ea966bd13b31285c57f0d3ee5&amp;context=recommendation&amp;pckg_id=1&amp;pos=10&amp;context_alg=t2g_dfm&amp;imp_id=2f6c1c19-6661-4c0a-ade0-a201ed5c6a00" target="_self" className="price line-break" title="" rel="" data-uw-rm-brl="false"><small className="text-body-3">A partir de</small><span>28<sup>73</sup>&nbsp;€</span></a>
+                                    </footer>
+                                </div>
+                            </Slide>
+                        </section>
                         <div className="gig-page-reviews desktop-view" id='reviews-section'>
                             <div className="gig-page-reviews-title">Reseñas</div>
                             <div className="reviews-package">
@@ -823,10 +1654,21 @@ function Gig() {
                     <div className="right-sticky-sidebar">
                         <aside className="sidebar-content">
                             <div className="packages-tabs triple">
+                                {/* <input id="package-tab-1" name="package-tab-group" type="radio" />
+                                <input id="package-tab-2" name="package-tab-group" type="radio" />
+                                <input id="package-tab-3" name="package-tab-group" type="radio" /> */}
+                                <div className="nav-container">
+                                    <label htmlFor="package-tab-1" tabIndex="0" role="tab" aria-selected="true" className={`tab ${checkActive(1, "active")}`}
+          onClick={() => handleClick(1)}>Básico</label>
+                                    <label htmlFor="package-tab-2" tabIndex="0" role="tab" aria-selected="false" className={`tab ${checkActive(2, "active")}`}
+          onClick={() => handleClick(2)}>Estándar</label>
+                                    <label htmlFor="package-tab-3" tabIndex="0" role="tab" aria-selected="false" className={`tab ${checkActive(3, "active")}`}
+          onClick={() => handleClick(3)}>Premium</label>
+                                </div>
                                 <div className="TEpHpiF">
                                     <div className="package-content zxTHQ6r">
                                         <header className="header-default">
-                                            <div className="content-tab">
+                                            <div className={`content-tab ${checkActive(1, "active")}`}>
                                                 <h3>
                                                     <b className="title">Básico</b>
                                                     <div className="price-wrapper">
@@ -835,7 +1677,25 @@ function Gig() {
                                                 </h3>
                                                 <p>Un diseño digital personalizado **Por favor, póngase en contacto conmigo antes de
                                                     realizar un pedido :)**</p>
-                                            </div>                                            
+                                            </div>
+                                            <div className={`content-tab ${checkActive(2, "active")}`}>
+                                                <h3>
+                                                    <b className="title">Estándar</b>
+                                                    <div className="price-wrapper">
+                                                        <span className="price">66,49&nbsp;€</span>
+                                                    </div>
+                                                </h3>
+                                                <p>Tres diseños digitales personalizados **Por favor, póngase en contacto conmigo antes de realizar un pedido :)**</p>
+                                            </div>
+                                            <div className={`content-tab ${checkActive(3, "active")}`}>
+                                                <h3>
+                                                    <b className="title">Premium</b>
+                                                    <div className="price-wrapper">
+                                                        <span className="price">142,48&nbsp;€</span>
+                                                    </div>
+                                                </h3>
+                                                <p>Siete diseños digitales personalizados **Por favor, póngase en contacto conmigo antes de realizar un pedido :)**</p>
+                                            </div>
                                         </header>
                                         <article>
                                             <div className="additional-info">
