@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useRef, useState } from 'react';
 import './Gig.scss';
 import Slide from '../../components/Slide/Slide';
@@ -1751,7 +1750,6 @@ function Gig() {
     );
     }
 
-=======
 import React, { useRef, useState } from 'react';
 import './Gig.scss';
 import Slide from '../../components/Slide/Slide';
@@ -3504,5 +3502,4 @@ function Gig() {
     );
     }
 
->>>>>>> b8e69b2a58ec2ce4471312a93251581d6835847d
 export default Gig;
