@@ -11,6 +11,8 @@
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@tanstack/react-query": "^4.29.5",
+    "axios": "^1.4.0",
     "i18next": "^22.4.14",
     "i18next-browser-languagedetector": "^7.0.1",
     "infinite-react-carousel": "^1.2.11",
@@ -25,6 +27,7 @@
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
     "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.7.3",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {

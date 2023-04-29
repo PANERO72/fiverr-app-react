@@ -12,27 +12,33 @@ import MyGigs from './pages/mygigs/MyGigs';
 import Adding from "./pages/adding/Adding";
 import Messages from './pages/messages/Messages';
 import Message from './pages/message/Message';
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+
+import {QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 
 function App() {
-  const { t, i18n } = useTranslation();
-  useEffect(() => { 
-		document.title = t('appTitle'); 
-	}, []);
-  const Layout = () => {
+    const { t, i18n } = useTranslation();
+    const queryClient = new QueryClient();
+    useEffect(() => { 
+        document.title = t('appTitle'); 
+    }, []);
+    const Layout = () => {
+        
     return (
-      <div className="app">
-        <NavBar />
-        <Outlet />
-        <Footer />
-      </div>
+        <div className="app">
+            <QueryClientProvider client={queryClient}>
+                <NavBar />
+                <Outlet />
+                <Footer />
+            </QueryClientProvider>
+        </div>
     );
-  }
+}
 
-
-
-  const router = createBrowserRouter([
+const router = createBrowserRouter([
     {
-      path: '/', element: <Layout />, children: [
+    path: '/', element: <Layout />, children: [
         {
           path: '/', element: <Home />
         },
@@ -57,15 +63,21 @@ function App() {
         {
           path: '/message/:id', element: <Message />
         },
+        {
+          path: '/login/', element: <Login />
+        },
+        {
+          path: '/register', element: <Register />
+        }
       ]
     }
   ]);
 
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+        <>
+        <RouterProvider router={router} />
+        </>
+    );
 }
 
 export default App;

@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect} from 'react';
+import { useQuery } from '@tanstack/react-query';
+import newRequest from '../../utils/newRequest';
 import './Gigs.scss';
 import GigCard from '../../components/GigCard/GigCard';
 import DownArrowImage from '../../assets//img/down.png';
 import UpArrowImage from '../../assets//img/up.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
+// DATOS CARGADOS SOLO PARA DESAROLLO
 import {gigsCA} from '../../data/dummyDataCA';
 import {gigsDE} from '../../data/dummyDataDE';
 import {gigsEN} from '../../data/dummyDataEN';
@@ -14,12 +18,31 @@ import i18n from '../../i18n';
 function Gigs() {
   const [openSubmenu, setOpenSubmenu] = useState(false);
   const [sort, setSort] = useState("sales");
+  const minRef = useRef();
+  const maxRef = useRef();
+
+  const {search} = useLocation();
+
+  const {isLoading, error, data, refetch } = useQuery({
+    queryKey: ['gigs'], queryFn: () => newRequest.get(`/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`).then((res) => {
+      return res.data;
+    }),
+  });
 
   const reSort = (type) => {
     setSort(type);
     setOpenSubmenu(false);
   }
 
+  useEffect(() => {
+    refetch();
+  },[sort]);
+
+  const apply = () => {
+    refetch();
+  }
+
+  // CAMBIAR La VARIABLE 'data' EN EL MÉTODO 'map()' EN EL COMPOMENTE RENDERIZADO 'GigCard'
   let gigs;
 
   if (i18n.language === "ca") {
@@ -44,9 +67,9 @@ function Gigs() {
         <div className="menu">
           <div className="left">
             <span>Presupuesto:</span>
-            <input type="number" name="minPrice" id="" placeholder='Precio mínimo' />
-            <input type="number" name="maxPrice" id="" placeholder='Precio máximo' />
-            <button type='button'>Aplicar</button>
+            <input type="number" name="minPrice" id="" placeholder='Precio mínimo' ref={minRef} />
+            <input type="number" name="maxPrice" id="" placeholder='Precio máximo' ref={maxRef} />
+            <button type='button' onClick={apply}>Aplicar</button>
           </div>
           <div className="right">
             <span className="sortBy">Ordenar por:</span>
@@ -55,11 +78,12 @@ function Gigs() {
             {openSubmenu && <div className="dropdownMenu">
               {sort === "sales" ? (<Link className='link optionLink bordersTop' to="" onClick={()=> reSort("createdAt")}>Lo más nuevo</Link>) :
               (<Link className='link optionLink bordersBottom' to="" onClick={() => reSort("sales")}>Más vendido</Link>)}
+              <Link className='link optionLink bordersBottom' to="" onClick={() => reSort("sales")}>Popular</Link>
             </div>}
           </div>
         </div>
         <div className="gigCardContainer">
-          {gigs.map((gig) => (<GigCard key={gig.id} item={gig}></GigCard>))}
+          {isLoading ? "loading" : error ? "¡Algo salió mal!" : data.map((gig) => (<GigCard key={gig._id} item={gig}></GigCard>))}
         </div>
       </div>
     </div>

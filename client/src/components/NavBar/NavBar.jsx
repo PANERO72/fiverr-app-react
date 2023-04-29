@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './NavBar.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LanguageSwitch from '../LanguageSwitch/LanguageSwitch';
 import UserImage from '../../assets/img/user-01.png';
 import { useTranslation } from 'react-i18next';
+import newRequest from '../../utils/newRequest';
 
 function NavBar() {
+  const navigate = useNavigate();
   const [activeSubmenu, setActiveSubmenu] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(false);
   const {pathname} = useLocation();
@@ -20,8 +22,20 @@ function NavBar() {
     }
   },[]);
 
-  const currentUser = {
-    id: 1, username: "José Panero", isSeller: true
+  // const currentUser = {
+  //   id: 1, username: "José Panero", isSeller: true
+  // }
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const {t} = useTranslation();
@@ -38,11 +52,9 @@ function NavBar() {
                 <Link className='link' to='/'><span className='linkItem'>{t('fiverrBusinessLink')}</span></Link>
                 <Link className='link' to='/'><span className='linkItem'>{t('exploreLink')}</span></Link>
                 <Link className='link' to='/'><span className='linkItem'>{t('languageEsp')}</span></Link>
-                {!currentUser?.isSeller && <Link className='link' to='/'> <span className='linkItem'>{t('becomeSeller')}</span></Link>}
-                <Link className='link' to='/'> <span className='linkItem'>{t('loginBtn')}</span></Link>
-                {!currentUser && <button className='button' type='button'>{t('Beitreten')}</button>}
-                {currentUser && (<div className='userContainer' onClick={() => setOpenSubmenu(!openSubmenu)}>
-                  <img src={UserImage} alt="" />
+                {!currentUser?.isSeller && <Link className='link' to='/'> <span className='linkItem'>{t('becomeSeller')}</span></Link>}                
+                {currentUser ? (<div className='userContainer' onClick={() => setOpenSubmenu(!openSubmenu)}>
+                  <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
                   <span className='userName'>{currentUser?.username}</span>
                   {openSubmenu && <div className="optionsContainer">
                     {currentUser?.isSeller && (<>
@@ -52,9 +64,10 @@ function NavBar() {
                     <Link className='link optionLink' to='/orders'>{t('ordersLink')}</Link>
                     <Link className='link optionLink' to='/messages'>{t('messagesLink')}</Link>
                     <hr className='divider' />
-                    <Link className='link optionLink bordersBottom' to='/'>{t('logoutBtn')}</Link>
+                    <Link className='link optionLink bordersBottom' onClick={handleLogout}>{t('logoutBtn')}</Link>
                   </div>}
-                </div>)}
+                </div>) : (<><Link className='link' to='/login'> <span className='linkItem'>{t('loginBtn')}</span></Link>
+                <Link className='link' to="/register"><button className='button' type='button'>{t('joinBtn')}</button></Link></>)}
             </div>
             <div className="languageSwitchContainer">
               <LanguageSwitch></LanguageSwitch>

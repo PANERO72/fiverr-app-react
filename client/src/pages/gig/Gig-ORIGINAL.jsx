@@ -115,11 +115,12 @@ function Gig() {
                 </div>
                 <div className="gigContent">
                     <div className="left">
+                        {/* <h1>Crearé arte de IA personalizado rápido usando Midjourney advanced</h1> */}
                         <h1>{data.title}</h1>
                         <div className="sellerOverviewContainer">
                             <div className="sellerOverviewWrapper">
                                 <div className="sellerImageProfile">                                    
-                                    <img className="_YszT7W" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/c5323d1e3c30bbac2c31a905b5bd8cb2-1675191168940/22bca898-8c41-4832-be06-ac78f7d044a4.png" alt="ai_lani" loading="lazy" data-uw-rm-ima-original="ai_lani" />
+                                    <img className="_YszT7W" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/c5323d1e3c30bbac2c31a905b5bd8cb2-1675191168940/22bca898-8c41-4832-be06-ac78f7d044a4.PNG" alt="ai_lani" loading="lazy" data-uw-rm-ima-original="ai_lani" />
                                 </div>
                                 <div className="sellerInfoContainer">
                                     <div className="flex flex-items-baseline">
