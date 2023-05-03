@@ -346,241 +346,245 @@
                     font-weight: 700;
                 }
 
-                .sellerOverviewContainer {
-                    padding-bottom: 0;
-                    width: 100%;
-                    // display: flex;
-                    // flex-direction: row;
-                    // justify-content: space-evenly;
+                .sellerOverviewMain{
 
-                    .sellerOverviewWrapper{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: flex-start;
-
-
-                        .sellerImageProfile{
-                            margin: 0px;
-                            padding: 0px;
+                    .sellerOverviewContainer {
+                        padding-bottom: 0;
+                        width: 100%;
+                        // display: flex;
+                        // flex-direction: row;
+                        // justify-content: space-evenly;
+    
+                        .sellerOverviewWrapper{
                             display: flex;
-                            margin-right: 16px;
-
-                            img{
-                                border-radius: 50%;
-                                background-color: #b5b6ba;
-                                height: 45px;
-                                object-fit: cover;
-                                position: relative;
-                                width: 45px;
-        
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: flex-start;
+    
+    
+                            .sellerImageProfile{
+                                margin: 0px;
+                                padding: 0px;
+                                display: flex;
+                                margin-right: 16px;
+    
+                                img{
+                                    border-radius: 50%;
+                                    background-color: #b5b6ba;
+                                    height: 45px;
+                                    object-fit: cover;
+                                    position: relative;
+                                    width: 45px;
+            
+                                }
                             }
+                            
                         }
-                        
-                    }
-                    .sellerInfoContainer{
-                        display: flex;
-                        flex-direction: row;
-
-                        -webkit-box-align: baseline;
-                        -ms-flex-align: baseline;
-                        -webkit-align-items: baseline;
-                        align-items: baseline;
-  
-                        -webkit-flex-wrap: wrap;
-                        -ms-flex-wrap: wrap;
-                        flex-wrap: wrap;
-                        font-size: 14px;
-                        line-height: 21px;
-
-                        .flex-items-baseline {
+                        .sellerInfoContainer{
+                            display: flex;
+                            flex-direction: row;
+    
                             -webkit-box-align: baseline;
                             -ms-flex-align: baseline;
                             -webkit-align-items: baseline;
                             align-items: baseline;
-
-                            .LBuVtkY {
-                                color: #404145;
-                                cursor: pointer;
-                                font-weight: 700;
-                                margin-right: 8px;
-
-                                &:hover {
-                                    text-decoration: underline;
-                                }
-
-                                .a2vZSDs {
-                                    color: #74767e;
-                                    font-weight: 400;
-                                }
-                            }
-
-                            .tbody-4 {
-                                font-size: 18px;
-                                line-height: 26px;
-                            }
-                        }
-                        
-                        .flex, .flex-center {
-                            display: -webkit-box;
-                            display: -webkit-flex;
-                            display: -ms-flexbox;
-                            display: flex;
-                        }
-
-                        .Waqjn3u {
-                            width: -webkit-fit-content;
-                            width: -moz-fit-content;
-                            width: fit-content;
-
-                            .user-profile-level{
-                                display: flex;
-                                margin-right: 8px;
-                            }
-                        }
-                        .Waqjn3u, .odrCBh7.h4TtxoV {
-                            max-width: 100%;
-                        }
-                        .orca-rating {
-                            -webkit-box-align: center;
-                            -ms-flex-align: center;
-                            -webkit-align-items: center;
-                            align-items: center;
-                            display: -webkit-box;
-                            display: -webkit-flex;
-                            display: -ms-flexbox;
-                            display: flex;
-    
-                            margin-right: 8px;
-    
-                            cursor: pointer;
-    
+      
+                            -webkit-flex-wrap: wrap;
+                            -ms-flex-wrap: wrap;
+                            flex-wrap: wrap;
                             font-size: 14px;
                             line-height: 21px;
     
-                            &:before {
+                            .flex-items-baseline {
+                                -webkit-box-align: baseline;
+                                -ms-flex-align: baseline;
+                                -webkit-align-items: baseline;
+                                align-items: baseline;
+    
+                                .LBuVtkY {
+                                    color: #404145;
+                                    cursor: pointer;
+                                    font-weight: 700;
+                                    margin-right: 8px;
+    
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+    
+                                    .a2vZSDs {
+                                        color: #74767e;
+                                        font-weight: 400;
+                                    }
+                                }
+    
+                                .tbody-4 {
+                                    font-size: 18px;
+                                    line-height: 26px;
+                                }
+                            }
+                            
+                            .flex, .flex-center {
+                                display: -webkit-box;
+                                display: -webkit-flex;
+                                display: -ms-flexbox;
+                                display: flex;
+                            }
+    
+                            .Waqjn3u {
+                                width: -webkit-fit-content;
+                                width: -moz-fit-content;
+                                width: fit-content;
+    
+                                .user-profile-level{
+                                    display: flex;
+                                    margin-right: 8px;
+                                }
+                            }
+                            .Waqjn3u, .odrCBh7.h4TtxoV {
+                                max-width: 100%;
+                            }
+                            .orca-rating {
+                                -webkit-box-align: center;
+                                -ms-flex-align: center;
+                                -webkit-align-items: center;
+                                align-items: center;
+                                display: -webkit-box;
+                                display: -webkit-flex;
+                                display: -ms-flexbox;
+                                display: flex;
+        
+                                margin-right: 8px;
+        
+                                cursor: pointer;
+        
+                                font-size: 14px;
+                                line-height: 21px;
+        
+                                &:before {
+                                    margin-right: 8px;
+                                }
+        
+                                &:not(:first-child):before {
+                                    color: #c5c6c9;
+                                    content: "|";
+                                }
+                                
+        
+                                .stars {
+                                    display: -webkit-inline-box;
+                                    display: -webkit-inline-flex;
+                                    display: -ms-inline-flexbox;
+                                    display: inline-flex;
+                                    padding-bottom: 0px;
+        
+                                    .glAQDp5 {
+                                        fill: #74767e;
+                                        background: none;
+                                        border: none;
+                                        display: inline-block;
+                                        margin: 0;
+                                        padding: 0;
+                                    }
+        
+                                    .orca-star {
+                                        fill: #ffb33e;
+        
+                                        svg {
+                                            float: left;
+                                            height: 100%;
+                                            width: 100%;
+                                        }
+                                    }
+                                }         
+                                .rating-score {
+                                    color: #ffb33e;
+                                    font-weight: bold;
+                                }
+                                
+                                .rating-score, .ratings-count {
+                                    padding-left: 4px;
+        
+                                    font-weight: 700;
+                                }
+                            }
+                            .sfNimsX {
+                                color: #74767e;
                                 margin-right: 8px;
                             }
     
-                            &:not(:first-child):before {
-                                color: #c5c6c9;
-                                content: "|";
-                            }
-                            
-    
-                            .stars {
+                            .jEW3B9z, .jEW3B9z .HsyURQF {
                                 display: -webkit-inline-box;
                                 display: -webkit-inline-flex;
                                 display: -ms-inline-flexbox;
                                 display: inline-flex;
-                                padding-bottom: 0px;
-    
-                                .glAQDp5 {
-                                    fill: #74767e;
-                                    background: none;
-                                    border: none;
-                                    display: inline-block;
-                                    margin: 0;
-                                    padding: 0;
-                                }
-    
-                                .orca-star {
-                                    fill: #ffb33e;
-    
-                                    svg {
-                                        float: left;
-                                        height: 100%;
-                                        width: 100%;
-                                    }
-                                }
-                            }         
-                            .rating-score {
-                                color: #ffb33e;
-                                font-weight: bold;
                             }
-                            
-                            .rating-score, .ratings-count {
-                                padding-left: 4px;
     
-                                font-weight: 700;
-                            }
+                           
                         }
-                        .sfNimsX {
-                            color: #74767e;
-                            margin-right: 8px;
+                        .sellerFiverrChoice{
+                            margin-top: -5px;
+                            margin-left: 60px;
                         }
-
                         .jEW3B9z, .jEW3B9z .HsyURQF {
                             display: -webkit-inline-box;
                             display: -webkit-inline-flex;
                             display: -ms-inline-flexbox;
                             display: inline-flex;
                         }
-
-                       
+                        .jEW3B9z .HsyURQF {
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                        }
+                        .S4xqSKa {
+                            background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/fiverr-choice-badge.7de36f6.svg) no-repeat 0 0;
+                            display: inline;
+                            height: 20px;
+                            margin-left: 12px;
+                            width: 104px;
+                        }
                     }
-                    .sellerFiverrChoice{
-                        margin-top: -5px;
-                        margin-left: 60px;
-                    }
-                    .jEW3B9z, .jEW3B9z .HsyURQF {
-                        display: -webkit-inline-box;
-                        display: -webkit-inline-flex;
-                        display: -ms-inline-flexbox;
-                        display: inline-flex;
-                    }
-                    .jEW3B9z .HsyURQF {
-                        -webkit-box-sizing: border-box;
-                        box-sizing: border-box;
-                    }
-                    .S4xqSKa {
-                        background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/fiverr-choice-badge.7de36f6.svg) no-repeat 0 0;
-                        display: inline;
-                        height: 20px;
-                        margin-left: 12px;
-                        width: 104px;
-                    }
-                }
-
-                .loyalty-and-notable-clients{
-                    display: -webkit-box;
-                    display: -webkit-flex;
-                    display: -ms-flexbox;
-                    display: flex;
-                    width: 100%;
-
-                    border-top: 1px solid #efeff0;
-                    margin-top: 0px;
-                    margin-bottom: 16px;
-                    padding-top: 0px;
-
-                    .seller-loyalty-banner {
-                        -webkit-box-align: center;
-                        -ms-flex-align: center;
-                        -webkit-align-items: center;
-                        align-items: center;
-                        justify-content: flex-start;
-                        color: #404145;
-                        display: -webkit-inline-box;
-                        display: -webkit-inline-flex;
-                        display: -ms-inline-flexbox;
-                        display: inline-flex;
-                        font-size: 16px;
-                        column-gap: 10px;
-                        padding-left: 4px;
+    
+                    .loyalty-and-notable-clients{
+                        display: -webkit-box;
+                        display: -webkit-flex;
+                        display: -ms-flexbox;
+                        display: flex;
                         width: 100%;
-
-                        img {
-                            height: 68px;
-                            margin-right: 12px;
+    
+                        border-top: 1px solid #efeff0;
+                        margin-top: 0px;
+                        margin-bottom: 16px;
+                        padding-top: 0px;
+    
+                        .seller-loyalty-banner {
+                            -webkit-box-align: center;
+                            -ms-flex-align: center;
+                            -webkit-align-items: center;
+                            align-items: center;
+                            justify-content: flex-start;
+                            color: #404145;
+                            display: -webkit-inline-box;
+                            display: -webkit-inline-flex;
+                            display: -ms-inline-flexbox;
+                            display: inline-flex;
+                            font-size: 16px;
+                            column-gap: 10px;
+                            padding-left: 4px;
+                            width: 100%;
+    
+                            img {
+                                height: 68px;
+                                margin-right: 12px;
+                            }
+    
+                            strong{
+                                font-weight: 900;
+                            }
                         }
-
-                        strong{
-                            font-weight: 900;
-                        }
+    
                     }
-
                 }
+
 
                
                 .gigCardContainer{
@@ -755,300 +759,304 @@
 
                     margin-bottom: 30px;
 
-                    .section-title {
-                        font-size: 24px;
-                        line-height: 28px;
-                        margin: 0px;
-                        padding: 0px;
-                    }
+                    .aboutSellerContainer{
 
-                    .profileSellerCard{
-                        display: flex;
-                        flex-direction: column;
-                        gap: 20px;
-                        .profile-info{
+                        .section-title {
+                            font-size: 24px;
+                            line-height: 28px;
+                            margin: 0px;
+                            padding: 0px;
+                        }
+    
+                        .profileSellerCard{
                             display: flex;
-                            flex-direction: row;
+                            flex-direction: column;
                             gap: 20px;
-
-                            .user-profile-image {
-
+                            .profile-info{
                                 display: flex;
-                                justify-content: center;
-                                margin-bottom: 15px;
-
-                                .profile-pict {
-                                    position: relative;
-                                    width:110px;
-                                    height:110px;
-                                    font-size:2.2em;
+                                flex-direction: row;
+                                gap: 20px;
+    
+                                .user-profile-image {
+    
                                     display: flex;
-
-                                    .profile-pict-img {
-                                        border-radius: 50%;
-                                        display: block;
-                                        height: 100%;
-                                        position: absolute;
-                                        width: 100%;
-                                        z-index: 1;
-                                    }
-                                    .user-badge-round {
-                                        border-radius: 50%;
-                                        bottom: 0;
-                                        overflow: hidden;
-                                        position: absolute;
-                                        right: 0;
-                                        z-index: 7;
-                                   
-                                        background-position: 0 0;
-                                        background-repeat: no-repeat;
-                                        background-size: 400%;
-                                        height: 54px;
-                                        width: 54px;
-                                    }
-                                    .user-badge-round.md {
-                                        height: 40px;
-                                        width: 40px;
-
-                                    }
-                                    .user-badge-round.locale-es {
-                                        background-image: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/badges_spanish.5f1d3ac.svg);
+                                    justify-content: center;
+                                    margin-bottom: 15px;
+    
+                                    .profile-pict {
+                                        position: relative;
+                                        width:110px;
+                                        height:110px;
+                                        font-size:2.2em;
+                                        display: flex;
+    
+                                        .profile-pict-img {
+                                            border-radius: 50%;
+                                            display: block;
+                                            height: 100%;
+                                            position: absolute;
+                                            width: 100%;
+                                            z-index: 1;
+                                        }
+                                        .user-badge-round {
+                                            border-radius: 50%;
+                                            bottom: 0;
+                                            overflow: hidden;
+                                            position: absolute;
+                                            right: 0;
+                                            z-index: 7;
+                                       
+                                            background-position: 0 0;
+                                            background-repeat: no-repeat;
+                                            background-size: 400%;
+                                            height: 54px;
+                                            width: 54px;
+                                        }
+                                        .user-badge-round.md {
+                                            height: 40px;
+                                            width: 40px;
+    
+                                        }
+                                        .user-badge-round.locale-es {
+                                            background-image: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/badges_spanish.5f1d3ac.svg);
+                                        }
                                     }
                                 }
-                            }
-                            .user-profile-label {
-                                -webkit-box-orient: vertical;
-                                -webkit-box-direction: normal;
-                                -webkit-box-align: start;
-                                -ms-flex-align: start;
-                                -webkit-align-items: flex-start;
-                                align-items: flex-start;
-                                display: -webkit-box;
-                                display: -webkit-flex;
-                                display: -ms-flexbox;
-                                display: flex;
-                                -webkit-flex-direction: column;
-                                -ms-flex-direction: column;
-                                flex-direction: column;
-                                padding-left: 15px;
-
-                                .username-line {
-                                    -webkit-box-pack: center;
-                                    -ms-flex-pack: center;
+                                .user-profile-label {
+                                    -webkit-box-orient: vertical;
+                                    -webkit-box-direction: normal;
+                                    -webkit-box-align: start;
+                                    -ms-flex-align: start;
+                                    -webkit-align-items: flex-start;
+                                    align-items: flex-start;
                                     display: -webkit-box;
                                     display: -webkit-flex;
                                     display: -ms-flexbox;
                                     display: flex;
-                                    -webkit-justify-content: center;
-                                    justify-content: center;
-                                    padding: 0px;
-
-                                    .flex-items-baseline {
-                                        display: flex;
-                                        -webkit-box-align: baseline;
-                                        -ms-flex-align: baseline;
-                                        -webkit-align-items: baseline;
-                                        align-items: baseline;
-
-                                        .LBuVtkY {
-                                            color: #404145;
-                                            cursor: pointer;
-                                            font-weight: 700;
-                                            margin-right: 8px;
-                                            &:hover {
-                                                text-decoration: underline;
-                                            }
-                                        }
-                                        .tbody-4 {
-                                            font-size: 18px;
-                                            line-height: 26px;
-                                        }
-                                        .a2vZSDs {
-                                            color: #74767e;
-                                            font-weight: 400;
-                                        }
-                                    }
-                                    
-                                }
-                                .one-liner-rating-wrapper {
-                                    
-                                    align-items: center;
-                                    justify-content: flex-start;
-                                    
-                                    display: flex;
-                                    
+                                    -webkit-flex-direction: column;
+                                    -ms-flex-direction: column;
                                     flex-direction: column;
-
-                                    .color-yellow .orca-star {
-                                        fill: #ffb33e;
-                                    }
-
-                                    .one-liner {
-                                        text-align: left;
-                                        font-size: 16px;
-                                    }
-                                    .orca-rating {
-                                        
-                                        align-items: center;
+                                    padding-left: 15px;
+    
+                                    .username-line {
+                                        -webkit-box-pack: center;
+                                        -ms-flex-pack: center;
+                                        display: -webkit-box;
+                                        display: -webkit-flex;
+                                        display: -ms-flexbox;
                                         display: flex;
-                                        flex-direction: row;
-                                        justify-content: flex-start;
-
-                                        .stars {
-                                            display: inline-flex;
-                                            flex-direction: row;
-                                            align-items: center;
-                                            justify-content: flex-start;
-                                            margin-left: -15px;
-                                            margin-right: 5px;
-                                            margin-bottom: 4px;
-                                            padding: 0px;
-                                            gap: 5px;
-
-                                            .glAQDp5 {
-                                                // fill: #74767e;
-                                                background: none;
-                                                border: none;
-                                                display: inline-block;
-                                                margin: 0;
-                                                padding: 0;
-
-                                                svg {
-                                                    float: left;
-                                                    height: 100%;
-                                                    width: 100%;
+                                        -webkit-justify-content: center;
+                                        justify-content: center;
+                                        padding: 0px;
+    
+                                        .flex-items-baseline {
+                                            display: flex;
+                                            -webkit-box-align: baseline;
+                                            -ms-flex-align: baseline;
+                                            -webkit-align-items: baseline;
+                                            align-items: baseline;
+    
+                                            .LBuVtkY {
+                                                color: #404145;
+                                                cursor: pointer;
+                                                font-weight: 700;
+                                                margin-right: 8px;
+                                                &:hover {
+                                                    text-decoration: underline;
                                                 }
                                             }
+                                            .tbody-4 {
+                                                font-size: 18px;
+                                                line-height: 26px;
+                                            }
+                                            .a2vZSDs {
+                                                color: #74767e;
+                                                font-weight: 400;
+                                            }
                                         }
-
-                                        .rating-score {
-                                            color: #ffb33e;
-                                            font-weight: 800;
+                                        
+                                    }
+                                    .one-liner-rating-wrapper {
+                                        
+                                        align-items: center;
+                                        justify-content: flex-start;
+                                        
+                                        display: flex;
+                                        
+                                        flex-direction: column;
+    
+                                        .color-yellow .orca-star {
+                                            fill: #ffb33e;
+                                        }
+    
+                                        .one-liner {
+                                            text-align: left;
                                             font-size: 16px;
-                                            margin-top: -2px;
                                         }
-
-                                        .ratings-count {
-                                            margin-left: 5px;
-                                            padding: 0px;
-                                            font-weight: 900;
+                                        .orca-rating {
+                                            
+                                            align-items: center;
+                                            display: flex;
+                                            flex-direction: row;
+                                            justify-content: flex-start;
+    
+                                            .stars {
+                                                display: inline-flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                justify-content: flex-start;
+                                                margin-left: -15px;
+                                                margin-right: 5px;
+                                                margin-bottom: 4px;
+                                                padding: 0px;
+                                                gap: 5px;
+    
+                                                .glAQDp5 {
+                                                    // fill: #74767e;
+                                                    background: none;
+                                                    border: none;
+                                                    display: inline-block;
+                                                    margin: 0;
+                                                    padding: 0;
+    
+                                                    svg {
+                                                        float: left;
+                                                        height: 100%;
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+    
+                                            .rating-score {
+                                                color: #ffb33e;
+                                                font-weight: 800;
+                                                font-size: 16px;
+                                                margin-top: -2px;
+                                            }
+    
+                                            .ratings-count {
+                                                margin-left: 5px;
+                                                padding: 0px;
+                                                font-weight: 900;
+                                            }
                                         }
+                                        .tbody-6, .text-body-2 {
+                                            font-size: 14px;
+                                            line-height: 21px;
+                                        }
+                                        
                                     }
-                                    .tbody-6, .text-body-2 {
-                                        font-size: 14px;
-                                        line-height: 21px;
-                                    }
-                                    
-                                }
-                                .btn-contact-me {
-                                    -webkit-box-sizing: border-box;
-                                    box-sizing: border-box;
-                                    margin-top: 20px;
-                                    width: 100%;
-
-                                    background: none;
-                                    // border-color: currentColor;
-
-                                    border: 1px solid rgb(98, 100, 106);
-                                    border-radius: 4px;
-
-                                    color: #62646a;
-                                    
-                                    cursor: pointer;
-                                    display: inline-block;
-                                    font-size: 16px;
-                                    font-weight: 600;
-                                    line-height: 100%;
-                                    padding: 12px 24px;
-                                    position: relative;
-                                    text-align: center;
-                                    text-decoration: none;
-                                    -webkit-transition: 70ms cubic-bezier(.75,0,.25,1);
-                                    -o-transition: 70ms cubic-bezier(.75,0,.25,1);
-                                    transition: 70ms cubic-bezier(.75,0,.25,1);
-
-
-                                    &:hover {
-                                        background: #74767e;
-                                
-                                        border-color: transparent;
-                                        color: #fff;
-                                    }
-                                    
-                                }
-                            }
-                        }
-
-                        .stats-desc {
-                            border: 1px solid #dadbdd;
-                            border-radius: 3px;
-                            margin-top: 0;
-                            padding: 24px;
-
-                            .user-stats {
-                                -webkit-box-orient: vertical;
-                                -webkit-box-direction: normal;
-                               
-                                display: grid;
-                                grid-template-columns: auto auto;
-                                grid-template-rows: auto auto auto;
-                               
-                                list-style: none;
-                                list-style-image: none;
-                                margin: 0;
-                                padding: 0;
-
-                                li {
-                                    width: 50%;
-
-                                    font-size: 16px;
-
-                                    display: flex;
-                                    flex-direction: column;
-                               
-                                    -webkit-box-sizing: border-box;
-                                    box-sizing: border-box;
-                                    color: #74767e;
-                                    margin-bottom: 16px;
-                                    padding: 0px;
-
-                                    strong {
+                                    .btn-contact-me {
+                                        -webkit-box-sizing: border-box;
+                                        box-sizing: border-box;
+                                        margin-top: 20px;
+                                        width: 100%;
+    
+                                        background: none;
+                                        // border-color: currentColor;
+    
+                                        border: 1px solid rgb(98, 100, 106);
+                                        border-radius: 4px;
+    
                                         color: #62646a;
-                                        display: block;
-                                        padding-top: 4px;
-                                   
-                                        font-weight: 700;
+                                        
+                                        cursor: pointer;
+                                        display: inline-block;
+                                        font-size: 16px;
+                                        font-weight: 600;
+                                        line-height: 100%;
+                                        padding: 12px 24px;
+                                        position: relative;
+                                        text-align: center;
+                                        text-decoration: none;
+                                        -webkit-transition: 70ms cubic-bezier(.75,0,.25,1);
+                                        -o-transition: 70ms cubic-bezier(.75,0,.25,1);
+                                        transition: 70ms cubic-bezier(.75,0,.25,1);
+    
+    
+                                        &:hover {
+                                            background: #74767e;
+                                    
+                                            border-color: transparent;
+                                            color: #fff;
+                                        }
+                                        
                                     }
-
+                                }
+                            }
+    
+                            .stats-desc {
+                                border: 1px solid #dadbdd;
+                                border-radius: 3px;
+                                margin-top: 0;
+                                padding: 24px;
+    
+                                .user-stats {
+                                    -webkit-box-orient: vertical;
+                                    -webkit-box-direction: normal;
+                                   
+                                    display: grid;
+                                    grid-template-columns: auto auto;
+                                    grid-template-rows: auto auto auto;
+                                   
+                                    list-style: none;
+                                    list-style-image: none;
+                                    margin: 0;
+                                    padding: 0;
+    
+                                    li {
+                                        width: 50%;
+    
+                                        font-size: 16px;
+    
+                                        display: flex;
+                                        flex-direction: column;
+                                   
+                                        -webkit-box-sizing: border-box;
+                                        box-sizing: border-box;
+                                        color: #74767e;
+                                        margin-bottom: 16px;
+                                        padding: 0px;
+    
+                                        strong {
+                                            color: #62646a;
+                                            display: block;
+                                            padding-top: 4px;
+                                       
+                                            font-weight: 700;
+                                        }
+    
+                                        
+                                    }
+                                    
                                     
                                 }
-                                
-                                
-                            }
-
-                            .seller-desc {
-                                border-top: 1px solid #dadbdd;
-                                line-height: 150%;
-                                margin: 0;
-                                padding-top: 15px;
-                                text-align: left;
-
-                                .inner {
-                                    max-height: 70px;
-                                    overflow: hidden;
-                                    white-space: pre-line;
-
-                                    p{
-                                        font-size: 16px;
+    
+                                .seller-desc {
+                                    border-top: 1px solid #dadbdd;
+                                    line-height: 150%;
+                                    margin: 0;
+                                    padding-top: 15px;
+                                    text-align: left;
+    
+                                    .inner {
+                                        max-height: 70px;
+                                        overflow: hidden;
+                                        white-space: pre-line;
+    
+                                        p{
+                                            font-size: 16px;
+                                        }
                                     }
+                                    
                                 }
-                                
                             }
                         }
                     }
+
                 }
 
-                .gig-page-reviews{
+                /*.gig-page-reviews{
                     width: 100%;
                     height: 100%;
                     margin-top: 30px;
@@ -1070,16 +1078,9 @@
                             display: flex;
                             flex-direction: row;
                             .details {
-                                // -webkit-box-pack: justify;
-                                // -ms-flex-pack: justify;
-                                
-                                // display: flex;
-                                // flex-direction: row;
                                
-                                // justify-content: space-between;
                                 padding-bottom: 12px;
-                            
-                                // // padding-bottom: 10px;
+                               
                                 width: 100%;
 
                                 h2 {
@@ -1093,8 +1094,7 @@
                                     font-weight: 700;
 
                                     .vUmzpwS {
-                                        // -webkit-box-orient: horizontal;
-                                        // -webkit-box-direction: normal;
+                                        
                                         display: flex;
                                         flex-direction: row;
                                         gap: 12px;
@@ -1400,7 +1400,6 @@
                             border-spacing: 0;
                             text-indent: 0;
                         }
-                        
 
                         .reviews-wrap {
                             margin-top: 40px;
@@ -2371,7 +2370,7 @@
                             }
                         }
                     }
-                }
+                }*/
             }
             .right-sticky-sidebar{
                 width: 40%;

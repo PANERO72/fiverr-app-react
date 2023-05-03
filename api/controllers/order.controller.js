@@ -2,6 +2,7 @@ import createError from "../utils/createError.js";
 import Order from "../models/order.model.js";
 import Gig from "../models/gig.model.js";
 import Stripe from "stripe";
+
 export const intent = async (req, res, next) => {
   const stripe = new Stripe(process.env.STRIPE);
 
@@ -19,6 +20,7 @@ export const intent = async (req, res, next) => {
     gigId: gig._id,
     img: gig.cover,
     title: gig.title,
+    des: gig.desc,
     buyerId: req.userId,
     sellerId: gig.userId,
     price: gig.price,

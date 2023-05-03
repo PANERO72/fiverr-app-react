@@ -24,6 +24,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  flag: {
+    type: String,
+    required: true
+  },
   phone: {
     type: String,
     required: false,
@@ -32,6 +36,10 @@ const userSchema = new Schema({
     type: String,
     required: false,
   },
+  // fiverrName: {
+  //   type: String,
+  //   required: true,
+  // },
   isSeller: {
     type: Boolean,
     default:false

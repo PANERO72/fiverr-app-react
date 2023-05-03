@@ -73,7 +73,7 @@
                                 height: auto;
                                 object-fit: cover;
                             }
-    
+
                             .asRead-mark, .asUnread-mark{
                                 width: 25px;
                                 cursor: pointer;
@@ -88,11 +88,18 @@
                                 }
                             }
 
-                            .asRead-mark:hover, .asRead-mark.active-mark{ 
-                                fill: #159258;
-                            }
-                            .asUnread-mark:hover, .asUnread-mark.active-mark{
-                                fill: brown;
+
+                            &.button {
+                                button{
+                                    background: none;
+                                    .asRead-mark:hover, .asRead-mark.active-mark{ 
+                                        fill: #159258;
+                                    }
+
+                                    .asUnread-mark:hover, .asUnread-mark.active-mark{
+                                        fill: brown;
+                                    }
+                                }
                             }
                         }
                         .image{

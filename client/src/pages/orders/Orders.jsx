@@ -3,14 +3,47 @@ import './Orders.scss';
 // import { Link } from 'react-router-dom';
 import GigImage from '../../assets/img/slide-19.webp';
 import EmailImage from '../../assets/img/message.png';
+import {useQuery} from '@tanstack/react-query';
+import newRequest from '../../utils/newRequest';
+import { useNavigate } from 'react-router-dom';
 
 function Orders() {
-    const currentUser = {
-        id: 1, username: 'José Panero', isSeller: true
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    const navigate = useNavigate();
+
+    const {isLoadig, error, data} = useQuery({
+        queryKey: ["orders"], queryFn: () => {
+            newRequest.get("/orders").then((res => {
+                return res.data;
+            }));
+        },
+    });
+
+    const handleContact = async (order) => {
+        const sellerId = order.sellerId;
+        const buyerId = order.buyerId;
+        const id = sellerId + buyerId;
+
+        try {
+            const res = await newRequest.get(`/conversations/single/${id}`);
+            navigate(`/messages/${res.data.id}`);
+            
+        } catch (error) {
+            if(error.respopnse.status === 404){
+
+                const res = await newRequest.post(`/conversations`, {
+                    to: currentUser.seller ? buyerId : sellerId,
+                });
+                navigate(`/messages/${res.data.id}`);
+            }
+        }
+
     }
+
     return (
         <div className='ordersContainer'>
-            <div className='ordersWrapper'>
+            {isLoadig ? ("Cargando...") : error ? ("¡Algo salión mal!") : (<div className='ordersWrapper'>
                 <div className="ordersTitleContainer">
                     <h1>Pedidos</h1>
                     {/* <Link className='link addNewGigBtn' to="/add">Agregar Nuevo Servicio</Link> */}
@@ -23,56 +56,26 @@ function Orders() {
                                 <th>Título</th>
                                 <th>Descripción</th>
                                 <th>Precio</th>
-                                <th>{ currentUser?.isSeller ? "Comprador" : "Vendedor"}</th>
+                                {/* <th>{ currentUser?.isSeller ? "Comprador" : "Vendedor"}</th> */}
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td className='image'><img className='gigImage' src={GigImage} alt="" /></td>
-                                <td className='title'>Título del servicio ofrecido</td>
-                                <td className='desc'>Descripción del servicio que realizo...</td>
-                                <td className='price'>20,99 €</td>
-                                <td className='sales'>{currentUser?.isSeller ? currentUser.username : " 15"}</td>
-                                <td><a href=""><img className='gigEdit' src={EmailImage} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td><img className='gigImage' src={GigImage} alt="" /></td>
-                                <td>Título del servicio ofrecido</td>
-                                <td>Descripción del servicio que realizo...</td>
-                                <td>20,99 €</td>
-                                <td>{currentUser?.isSeller ? currentUser.username : " 15"}</td>
-                                <td><a href=""><img className='gigEdit' src={EmailImage} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td><img className='gigImage' src={GigImage} alt="" /></td>
-                                <td>Título del servicio ofrecido</td>
-                                <td>Descripción del servicio que realizo...</td>
-                                <td>20,99 €</td>
-                                <td>{currentUser?.isSeller ? currentUser.username : " 15"}</td>
-                                <td><a href=""><img className='gigEdit' src={EmailImage} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td><img className='gigImage' src={GigImage} alt="" /></td>
-                                <td>Título del servicio ofrecido</td>
-                                <td>Descripción del servicio que realizo...</td>
-                                <td>20,99 €</td>
-                                <td>{currentUser?.isSeller ? currentUser.username : " 15"}</td>
-                                <td><a href=""><img className='gigEdit' src={EmailImage} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td><img className='gigImage' src={GigImage} alt="" /></td>
-                                <td>Título del servicio ofrecido</td>
-                                <td>Descripción del servicio que realizo...</td>
-                                <td>20,99 €</td>
-                                <td>{currentUser?.isSeller ? currentUser.username : " 15"}</td>
-                                <td><a href=""><img className='gigEdit' src={EmailImage} alt="" /></a></td>
-                            </tr>
+                            {data.map((order) => (
+                               <tr key={order._id}>
+                                    <td className='image'><img className='gigImage' src={order.img} alt="" /></td>
+                                    <td className='title'>{order.title}</td>
+                                    <td className='desc'>{order.desc}</td>
+                                    <td className='price'>{order.price} €</td>
+                                    {/* <td className='sales'>{currentUser?.isSeller ? currentUser.username : " 15"}</td> */}
+                                    <td><a href="" onClick={() =>handleContact(order)}><img className='gigEdit' src={EmailImage} alt="" /></a></td>
+                                </tr> 
+                            ))}
+                            
                         </tbody>
                     </table>
                 </div>
-
-            </div>
+            </div>)}
         </div> 
     );
 }

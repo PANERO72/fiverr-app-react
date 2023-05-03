@@ -4,6 +4,15 @@
 
 *** DATOS PARA LA CONEXIÓN A LA BASE DE DATOS: USUARIO: panero72 | CONTRASEÑA: 1972PANERO ***
 
+*** DATOS DE ACCESO A LA CUENTA DE LA PLATAFORMA 'STRIPE' DE DESARROLLADOR PARA PAGOS POR INTERNET: 
+
+    • EMAIL: panerootero@gmail.com
+    • CONTRASEÑA: PANEROpanero1972
+
+    *(Hay que instalar 'Stripe' en el Backend, ejecuntando este comando: npm install --save stripe).
+
+***
+
 *** SEGUIR EN EL MINUTO 2:10:20 DEL VÍDEO => https://www.youtube.com/watch?v=csUM7yfiaMw ***
 
 *** CONTINUAR CON EL 'BACKEND' EN EL DIRECTORIO 'api' EN EL ARCHIVO 'gig.route.js' ***

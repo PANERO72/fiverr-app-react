@@ -67,6 +67,27 @@
                             //     border: 2px solid #17a563;
                             // }
                         }
+                        .form-control-select{
+                            padding: 15px;
+                            color: gray;
+                            appearance: auto;
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: rgb(173, 173, 173);
+                            border-image: initial;
+                            border-radius: 4px;
+                        }
+
+                        .form-control-select:focus{
+                            outline: #17a563 auto 0.1px;                            
+                        }
+                        // .form-control-select.select-border{
+                        //     border: #17a563 solid 2px;   
+                        //     border-radius: 2px;       
+                        // }
+                        .ui.dropdown:not(.button)>.default.text {
+                            color: inherit !important;
+                        }
                         .form-control-button{
                             background-color: #1dbf73;
                             padding: 10px;

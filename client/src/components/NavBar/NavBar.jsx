@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './NavBar.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LanguageSwitch from '../LanguageSwitch/LanguageSwitch';
-import UserImage from '../../assets/img/user-01.png';
+import NoavatarImage from '../../assets/img/noavatar.jpg';
 import { useTranslation } from 'react-i18next';
 import newRequest from '../../utils/newRequest';
 
@@ -54,7 +54,7 @@ function NavBar() {
                 <Link className='link' to='/'><span className='linkItem'>{t('languageEsp')}</span></Link>
                 {!currentUser?.isSeller && <Link className='link' to='/'> <span className='linkItem'>{t('becomeSeller')}</span></Link>}                
                 {currentUser ? (<div className='userContainer' onClick={() => setOpenSubmenu(!openSubmenu)}>
-                  <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
+                  <img src={currentUser.img || NoavatarImage} alt="" />
                   <span className='userName'>{currentUser?.username}</span>
                   {openSubmenu && <div className="optionsContainer">
                     {currentUser?.isSeller && (<>
