@@ -12,13 +12,17 @@ function Orders() {
 
     const navigate = useNavigate();
 
-    const {isLoadig, error, data} = useQuery({
+    const {isLoading, error, data} = useQuery({
+
         queryKey: ["orders"], queryFn: () => {
-            newRequest.get("/orders").then((res => {
+            newRequest.get(`/orders`).then((res) => {
                 return res.data;
-            }));
-        },
+            });
+        }
     });
+
+
+    // console.log(data);
 
     const handleContact = async (order) => {
         const sellerId = order.sellerId;
@@ -43,7 +47,7 @@ function Orders() {
 
     return (
         <div className='ordersContainer'>
-            {isLoadig ? ("Cargando...") : error ? ("¡Algo salión mal!") : (<div className='ordersWrapper'>
+            {isLoading ? ("Cargando...") : error ? ("¡Algo salión mal!") : (<div className='ordersWrapper'>
                 <div className="ordersTitleContainer">
                     <h1>Pedidos</h1>
                     {/* <Link className='link addNewGigBtn' to="/add">Agregar Nuevo Servicio</Link> */}
@@ -61,7 +65,7 @@ function Orders() {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((order) => (
+                            {data?.map((order) => (
                                <tr key={order._id}>
                                     <td className='image'><img className='gigImage' src={order.img} alt="" /></td>
                                     <td className='title'>{order.title}</td>

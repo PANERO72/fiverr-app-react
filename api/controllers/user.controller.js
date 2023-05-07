@@ -26,6 +26,10 @@ export const deleteUser = async (req, res, next) => {
         langMessage1 = "¡Solo puedes borrar tu cuenta!";
         langMessage2 = "¡Has eliminado tu cuenta!";
         langMessage3 = "¡El usuario ya ha sido eliminado!";
+     }else{
+        langMessage1 = "You can delete only your account!";
+        langMessage2 = "You have deleted your account!";
+        langMessage3 = "User has already been removed!";
      }
 
     if (req.userId !== user._id.toString()) {

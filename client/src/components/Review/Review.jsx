@@ -2,6 +2,9 @@ import React from 'react';
 import './Review.scss';
 import { useQuery } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
+import NoavatarImage from '../../assets/img/noavatar.jpg';
+
+const UrlImages = '../src/assets/img/flags/';
 
 function Review({review}) {
   const {isLoading, error, data } = useQuery({
@@ -19,14 +22,14 @@ function Review({review}) {
                             <div className="flex flex-items-center">
                                 <div className="user-profile-image m-r-16 profile-img desktop-only">
                                     <label className="profile-pict" style={{width:"48px",height:"48px",fontSize:"1em"}} htmlFor="profile_image_4396144511271">
-                                        <img src={data.img || '/img/noavatar.jpg'} alt={data.username} loading="lazy" data-uw-rm-ima-original={data.username} />
+                                        <img src={data.img || NoavatarImage} alt={data.username} loading="lazy" data-uw-rm-ima-original={data.username} />
                                     </label>
                                 </div>
                                 <div className="user-profile-flag">
                                     <div className="user-info-flag">
                                         <div className="user-profile-image m-r-16 profile-img mobile-web-only">
                                             <label className="profile-pict" style={{width:"48px",height:"48px",fontSize:"1em"}} htmlFor="profile_image_0736388611271">
-                                                <img src={data.img || '/img/noavatar.jpg'} className="profile-pict-img tbody-6 custom-profile-image" alt={data.username} loading="lazy" data-uw-rm-ima-original={data.username} />
+                                                <img src={data.img || NoavatarImage} className="profile-pict-img tbody-6 custom-profile-image" alt={data.username} loading="lazy" data-uw-rm-ima-original={data.username} />
                                             </label>
                                         </div>
                                         <div className="reviewer-details">
@@ -34,7 +37,7 @@ function Review({review}) {
                                         </div>
                                         <div className="reviewer-sub-details flex">
                                             <div className="country">
-                                                <img className="country-flag" src={`/img/flag-${data.flag}.png`} alt={data.flag} loading="lazy" />
+                                                <img className="country-flag" src={UrlImages+`${data.flag}.svg`} alt={data.flag} loading="lazy" />
                                                 <div className="country-name tbody-6">{data.country}</div>
                                             </div>
                                         </div>

@@ -54,7 +54,7 @@ function Register() {
                             <h1>Crear una Nueva Cuenta</h1>
                             <div className="form-group">
                                 <label htmlFor="username" className="form-control-label">Nombre de Usuario:</label>
-                                <input type="text" name="username" id="username" className="form-control-input" placeholder="ej: pepe72" onChange={handleChange}/>
+                                <input type="text" name="username" id="username" className="form-control-input" placeholder="ej: pepe72" onChange={handleChange} required/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email" className="form-control-label">Correo Electrónico:</label>

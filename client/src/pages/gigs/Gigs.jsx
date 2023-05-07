@@ -24,10 +24,22 @@ function Gigs() {
   const {search} = useLocation();
 
   const {isLoading, error, data, refetch } = useQuery({
-    queryKey: ['gigs'], queryFn: () => newRequest.get(`/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`).then((res) => {
-      return res.data;
-    }),
+    queryKey: ['gigs'], queryFn: () => {
+
+      newRequest.get(`/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`).then((res) => {
+        return res.data;
+      });
+    } 
+      
   });
+
+  // const {isLoading, error, data, refetch } = useQuery({
+  //   queryKey: ['gigs'], queryFn: () => newRequest.get(`/gigs${search}`).then((res) => {
+  //     return res.data;
+  //   })
+  // });
+
+  console.log(data);
 
   const reSort = (type) => {
     setSort(type);
@@ -45,7 +57,7 @@ function Gigs() {
   // CAMBIAR La VARIABLE 'data' EN EL MÉTODO 'map()' EN EL COMPOMENTE RENDERIZADO 'GigCard'
   let gigs;
 
-  if (i18n.language === "ca") {
+  if (i18n.language === "cat") {
     gigs = gigsCA;
   } else if(i18n.language === "de") {
     gigs = gigsDE;

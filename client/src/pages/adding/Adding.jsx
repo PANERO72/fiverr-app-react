@@ -34,7 +34,7 @@ function Adding() {
                         <div className="left">
                             <div className="form-group">
                                 <label className='form-label' htmlFor="gigTitle">Título:</label>
-                                <input type="text" className="form-control-input" id="gigTitle" aria-describedby="emailHelp" placeholder="Título del servicio..." />
+                                <input type="text" className="form-control-input" id="gigTitle" placeholder="Título del servicio..." />
                             </div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor="gigCategory">Categoría:</label>
@@ -61,7 +61,7 @@ function Adding() {
                         </div>
                         <div className="right">
                             <div className="form-group">
-                                <label className='form-label' htmlFor="serviceTitle">Título del servicio:</label>
+                                <label className='form-label' htmlFor="serviceTitle">Título breve:</label>
                                 <input type="text" className="form-control-input" id="serviceTitle" aria-describedby="serviceTitle" placeholder="Título del servicio..." />
                             </div>
                             <div className="form-group">

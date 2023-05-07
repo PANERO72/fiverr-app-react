@@ -31,9 +31,7 @@ function Login() {
         // { key: 'bz', value: 'bz', flag: 'bz', text: 'Belize' },
         // { key: 'bj', value: 'bj', flag: 'bj', text: 'Benin' },
 
-      ]
-
-
+    ];
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");

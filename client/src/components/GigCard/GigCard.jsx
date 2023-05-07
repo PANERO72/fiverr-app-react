@@ -22,7 +22,7 @@ function GigCard({item}) {
                 <img className='backgroundImage' src={item.cover} alt="" />
             </Link>
             <div className="gigCardInfo">
-                {isLoading ? ("loading") : error ? ("¡Algo salió mal!") : (<div className="gigCardUser">
+                {isLoading ? "loading" : error ? "¡Algo salió mal!" : <div className="gigCardUser">
                     <Link to="/">
                         {/* <img className='infoImage' src={item.profilePicture} alt="" /> */}
                         <img className='infoImage' src={data.img || "/img/noavatar.jpg"} alt="" />
@@ -32,7 +32,7 @@ function GigCard({item}) {
                         <span className="username">{data.username}</span>
                     </Link>
                     
-                </div>)}
+                </div>}
                 <div className="cardTextsContainer">
                     <span>{item.desc}</span>
                 </div>

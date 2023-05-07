@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Reviews.scss';
 import Review from '../Review/Review';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
+import Swal from 'sweetalert2';
 
 function Reviews({gigId}) {
- const queryClint = useQueryClient();
+  const queryClint = useQueryClient();
 
   const {isLoading, error, data } = useQuery({
         queryKey: ['reviews'], queryFn: () => newRequest.get(`/reviews/${gigId}`).then((res) => {
@@ -16,17 +17,31 @@ function Reviews({gigId}) {
     mutationFn: (review) => {
         return newRequest.post("/reviews", review);
     },
-    onSuccess: () => {
+    onSuccess: (response) => {
         queryClint.invalidateQueries(["reviews"]);
+    }, onError: (error) => {
+        console.log(error.response.data);
+        handleAlert(error.response.data);
     }
   }); 
 
   const [isActiveSelect, setIsActiveSelect] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const desc = e.target[0].value;
-    const sort = e.target[1].value;
-    mutation.mutate({gigId, desc, sort});
+    const star = e.target[1].value;
+    mutation.mutate({gigId, desc, star});
+  }
+
+  const handleAlert = (error) => {
+    Swal.fire({
+        title: "Error",
+        text: error,
+        icon: "error",
+        confirmButtonText: "Aceptar",
+    });
+
   }
 
   return (
@@ -112,12 +127,12 @@ function Reviews({gigId}) {
             <h3>Agregar una Reseña</h3>
             <form action="" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label className='form-label' htmlFor="reviewDesc">Reseña:</label>
-                    <textarea name="reviewDesc" id="reviewDesc" className="form-control-textarea" cols="30" rows="16" placeholder='Escriba su reseña...'></textarea>
+                    <label className='form-label' htmlFor="desc">Reseña:</label>
+                    <textarea name="desc" id="desc" className="form-control-textarea" cols="30" rows="16" placeholder='Escriba su reseña...'></textarea>
                 </div>
                 <div className="form-group">
-                    <label className='form-label' htmlFor="reviewSort">Valoración:</label>
-                    <select name="reviewSort" className={isActiveSelect ? "form-control-select select-border" : "form-control-select"} id="reviewSort" onClick={() => setIsActiveSelect(!isActiveSelect)}>
+                    <label className='form-label' htmlFor="star">Valoración:</label>
+                    <select name="star" className={isActiveSelect ? "form-control-select select-border" : "form-control-select"} id="star" onClick={() => setIsActiveSelect(!isActiveSelect)}>
                         <option value="">-- Seleccione una valoración --</option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
@@ -127,7 +142,7 @@ function Reviews({gigId}) {
                     </select>
                 </div>
                 <div className="form-group">
-                    <button type="button" className="form-control-button">Enviar</button>
+                    <button type="submit" className="form-control-button">Enviar</button>
                 </div>
             </form>
         </div>

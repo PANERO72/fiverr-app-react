@@ -33,7 +33,7 @@ function Home() {
   let testimonials;
   let projects;
 
-  if (i18n.language === "ca") {
+  if (i18n.language === "cat") {
 		cards = cardsCA;
     testimonials = testimonialsCA;
     projects = projectsCA;

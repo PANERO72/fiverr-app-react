@@ -14,15 +14,17 @@ export const register = async (req, res, next) => {
     });
 
     if(newUser.flag === "ca"){
-      langMessage1 = "L'usuari ha estat creat!";
+        langMessage1 = "L'usuari ha estat creat!";
       
     }else if(newUser.flag === "de"){
-      langMessage1 = "Benutzer wurde erstellt!";
+        langMessage1 = "Benutzer wurde erstellt!";
       
     }else if(newUser.flag === "en"){
-      langMessage1 = "User has been created!";
+        langMessage1 = "User has been created!";
     }else if(newUser.flag === "es"){
         langMessage1 = "¡El usuario ha sido creado!";
+    }else{
+        langMessage1 = "User has been created!";
     }
     await newUser.save();
     // res.status(201).send("User has been created.");
@@ -49,6 +51,9 @@ export const login = async (req, res, next) => {
     }else if(user.flag === "es"){
        langMessage2 = "¡No se encontró el usuario!";
        langMessage3 = "¡Contraseña o nombre de usuario incorrectos!";
+    }else{
+      langMessage2 = "User not found!";
+      langMessage3 = "Wrong password or username!";
     }
 
     // if (!user) return next(createError(404, "User not found!"));
@@ -89,6 +94,8 @@ export const logout = async (req, res) => {
     langMessage4 = "User has been logged out.";
   }else if(usuario.flag === "es"){
      langMessage4 = "Se ha cerrado la sesión del usuario.";
+  }else{
+    langMessage4 = "User has been logged out.";
   }
 
   res.clearCookie("accessToken", { 

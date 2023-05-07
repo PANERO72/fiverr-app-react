@@ -399,6 +399,10 @@
     }
 
     .addNewReviewContainer{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         h3{
             color: dimgrey;
             font-weight: 700;
@@ -406,8 +410,8 @@
 
         form{
             display: flex;
-            flex-direction: row;
-            gap: 100px;
+            flex-direction: column;
+            row-gap: 40px;
             input[type=email], input[type=password], input[type=search], input[type=text] {
                 -moz-appearance: textfield !important;
                 appearance: textfield !important;

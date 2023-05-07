@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
 import './Gig.scss';
+import NoavatarImage from '../../assets/img/noavatar.jpg';
 import Slide from '../../components/Slide/Slide';
 // import './Gig.css';
 import Carousel from "nuka-carousel";
@@ -24,7 +25,7 @@ function Gig() {
     const userId = data?.userId;
 
     const {isLoading: isLoadingUser, error: errorUser, data: dataUser } = useQuery({
-        queryKey: ['user'], queryFn: () => newRequest.get(`/users/${userId}`).then((res) => {
+        queryKey: ['user'], queryFn: () => newRequest.get(`/users/${data.userId}`).then((res) => {
           return res.data;
         }), enabled: !!userId,
     });
@@ -138,18 +139,6 @@ function Gig() {
                                 {data.images.map((img) => (
                                     <img src={img} key={img} alt="" />
                                 ))}
-                                {/* <img src="https://picsum.photos/id/1/200/300" alt="" />
-                                <img src="https://picsum.photos/id/10/200/300" alt="" />
-                                <img src="https://picsum.photos/id/23/200/300" alt="" />
-                                <img src="https://picsum.photos/id/5/200/300" alt="" />
-                                <img src="https://picsum.photos/id/25/200/300" alt="" />
-                                <img src="https://picsum.photos/id/28/200/300" alt="" />
-                                <img src="https://picsum.photos/id/59/200/300" alt="" />
-                                <img src="https://picsum.photos/id/64/200/300" alt="" />
-                                <img src="https://picsum.photos/id/88/200/300" alt="" />
-                                <img src="https://picsum.photos/id/116/200/300" alt="" />
-                                <img src="https://picsum.photos/id/155/200/300" alt="" />
-                                <img src="https://picsum.photos/id/169/200/300" alt="" /> */}
                             </Slide>
                         </div>
                         
@@ -185,7 +174,7 @@ function Gig() {
                                     <div className="profile-info">
                                         <div className="user-profile-image">
                                             <label className="profile-pict" htmlFor="profile_image_2035966769090">
-                                                <img src={dataUser.img || '/img/noavatar.jpg'} className="profile-pict-img" alt="ai_lani" data-uw-rm-ima-original="ai_lani" />
+                                                <img src={dataUser.img || NoavatarImage} className="profile-pict-img" alt="ai_lani" data-uw-rm-ima-original="ai_lani" />
                                                 <a href="/levels" rel="nofollow" className="user-badge-round md locale-es level-one-seller" data-uw-rm-brl="false" aria-label="es.fiverr.com" data-uw-rm-empty-ctrl=""></a>
                                             </label>
                                         </div>
@@ -218,7 +207,7 @@ function Gig() {
                                     </div>
                                     <div className="stats-desc">
                                         <ul className="user-stats">
-                                            <li><span>De</span> <strong>Alemania</strong></li>
+                                            <li><span>De:</span> <strong>{dataUser.country}</strong></li>
                                             <li><span>Miembro desde</span> <strong>ene 2023</strong></li>
                                             <li><span>Responde aprox. en:</span> <strong>1 hora</strong></li>
                                             <li><span>Última entrega</span> <strong>aproximadamente 4 horas</strong></li>
@@ -237,7 +226,7 @@ function Gig() {
                                         </ul>
                                         <article className="seller-desc">
                                             {/* <div className="inner"><p>Hi there &amp; welcome to my shop.&nbsp; I'm ai_lani - a digital artist who creates fully customizable images based on your specific needs and vision.&nbsp; You send me the photo or description, and I will present to you a one of a kind - AI generated piece of art.&nbsp; If you have any questions, send me a message anytime :)</p></div> */}
-                                            <div className="inner"><p>{dataUser.desc}</p></div>
+                                            {!dataUser.desc ? <div className="inner"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div> : <div className="inner"><p>{dataUser.desc}</p></div>}
                                             {/* <button className="read-more">+ Ver más</button> */}
                                         </article>
                                     </div>
@@ -257,7 +246,7 @@ function Gig() {
                                         <header className="header-default">
                                             <div className="content-tab">
                                                 <h3>
-                                                    <b className="title">Básico &nbsp; {data.shortTitle}</b>
+                                                    <b className="title">Básico &mdash; {data.shortTitle}</b>
                                                     <div className="price-wrapper">
                                                         {/* <span className="price">28,50&nbsp;€</span> */}
                                                         <span className="price">{data.price} &nbsp;€</span>
@@ -272,7 +261,7 @@ function Gig() {
                                                 <div className="delivery-wrapper">
                                                     <span className="glAQDp5 delivery-icon" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"></path><path d="M9 4H7v5h5V7H9V4z"></path></svg>
                                                     </span>
-                                                    <b className="delivery">Entrega en {data.deliveryDate} días</b>
+                                                    <b className="delivery">Entrega en {data.deliveryTime} días</b>
                                                 </div>
                                                 {isActiveRevision && <div className="revisions-wrapper">
                                                     <span className="glAQDp5 revisions-icon" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M4.50001 11.4999C6.40001 13.3999 9.60001 13.3999 11.5 11.4999C12.2 10.7999 12.7 9.7999 12.9 8.7999L14.9 9.0999C14.7 10.5999 14 11.8999 13 12.8999C10.3 15.5999 5.90001 15.5999 3.10001 12.8999L0.900012 15.0999L0.200012 8.6999L6.60001 9.3999L4.50001 11.4999Z"></path><path d="M15.8 7.2999L9.40001 6.5999L11.5 4.4999C9.60001 2.5999 6.40001 2.5999 4.50001 4.4999C3.80001 5.1999 3.30001 6.1999 3.10001 7.1999L1.10001 6.8999C1.30001 5.3999 2.00001 4.0999 3.00001 3.0999C4.40001 1.6999 6.10001 1.0999 7.90001 1.0999C9.70001 1.0999 11.5 1.7999 12.8 3.0999L15 0.899902L15.8 7.2999Z"></path></svg></span>
@@ -281,11 +270,11 @@ function Gig() {
                                                 </div>}
                                             </div>
                                             <ul className="features">
-                                                {data.feature.map((feature) => (
+                                                {data.features.map((feature) => (
                                                     <li className="qSePHwK flex flex-items-center" key={feature}>
                                                         <span className="glAQDp5 bvg2_O1 ZbQv8bb" aria-hidden="true" style={{width: "16px", height: "16px"}}><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg>
                                                         </span>
-                                                        <span>{data.feature}</span>
+                                                        <span>{feature}</span>
                                                     </li>
                                                 ))}
                                                 {/* <li className="qSePHwK flex flex-items-center">

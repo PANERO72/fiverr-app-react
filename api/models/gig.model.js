@@ -11,6 +11,18 @@ const GigSchema = new Schema(
       type: String,
       required: true,
     },
+    cat: {
+      type: String,
+      required: true,
+    }, 
+    cover: {
+      type: String,
+      required: true,
+    },
+    images: {
+      type: [String],
+      required: false,
+    },
     desc: {
       type: String,
       required: true,
@@ -23,26 +35,10 @@ const GigSchema = new Schema(
       type: Number,
       default: 0,
     },
-    cat: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    cover: {
-      type: String,
-      required: true,
-    },
-    images: {
-      type: [String],
-      required: false,
-    },
-    userId: {
-      type: String,
-      required: true,
-    },
+    // userId: {
+    //   type: String,
+    //   required: true,
+    // },
     shortTitle: {
       type: String,
       required: true,
@@ -62,6 +58,10 @@ const GigSchema = new Schema(
     features: {
       type: [String],
       required: false,
+    },
+    price: {
+      type: Number,
+      required: true,
     },
     sales: {
       type: Number,
