@@ -40,7 +40,7 @@ function Register() {
         const url = await upload(file);
         try {
             await newRequest.post("/auth/register", {...user, img: url});
-            navigate("/");
+            navigate("/login");
         } catch (error) {
             console.log(error);
         }

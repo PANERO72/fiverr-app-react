@@ -14,11 +14,10 @@ function Orders() {
 
     const {isLoading, error, data} = useQuery({
 
-        queryKey: ["orders"], queryFn: () => {
+        queryKey: ["orders"], queryFn: () => 
             newRequest.get(`/orders`).then((res) => {
                 return res.data;
-            });
-        }
+            }),
     });
 
 

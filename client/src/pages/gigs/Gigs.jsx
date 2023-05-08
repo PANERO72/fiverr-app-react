@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
 import './Gigs.scss';
 import GigCard from '../../components/GigCard/GigCard';
-import DownArrowImage from '../../assets//img/down.png';
-import UpArrowImage from '../../assets//img/up.png';
+import DownArrowImage from '../../assets/img/down.png';
+import UpArrowImage from '../../assets/img/up.png';
 import { Link, useLocation } from 'react-router-dom';
 
 // DATOS CARGADOS SOLO PARA DESAROLLO
@@ -24,13 +24,10 @@ function Gigs() {
   const {search} = useLocation();
 
   const {isLoading, error, data, refetch } = useQuery({
-    queryKey: ['gigs'], queryFn: () => {
-
+    queryKey: ['gigs'], queryFn: () => 
       newRequest.get(`/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`).then((res) => {
         return res.data;
-      });
-    } 
-      
+      }),
   });
 
   // const {isLoading, error, data, refetch } = useQuery({

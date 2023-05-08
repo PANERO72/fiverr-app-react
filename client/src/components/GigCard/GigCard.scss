@@ -8,7 +8,8 @@
 // }
 .gigCardWrapper{
     width: 324px;
-    height: 430px;
+    // height: 430px;
+    height: 500px;
     border-radius: 5px;
     display: flex;
     // cursor: pointer;
@@ -21,7 +22,7 @@
         height: 100%;
         object-fit: cover;
         border-radius: 5px;
-        position: relative;
+       position: relative;
 
     }
     .gigCardInfo{
@@ -29,7 +30,8 @@
         flex-direction: column;
         gap: 5px;
         width: 100%;
-        height: 240px;
+        // height: 240px;
+        height: 350px;
         align-items: start;
         bottom: -10px;
         position: absolute;
@@ -71,10 +73,11 @@
             margin: 0px;
             padding: 10px;
             .desc{
-                font-weight: 800;
-                font-size: 18px;
+                font-weight: 500;
+                font-size: 14px;
                 margin: 0px;
                 padding: 0px;
+                text-align: justify;
             }
         }
         .gigCardStartContainer{
@@ -135,6 +138,5 @@
             }
         }
     }
-
 
 }
