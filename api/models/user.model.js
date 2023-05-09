@@ -34,7 +34,7 @@ const userSchema = new Schema({
   },
   desc: {
     type: String,
-    required: false,
+    required: true,
   },
   // fiverrName: {
   //   type: String,

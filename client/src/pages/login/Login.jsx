@@ -55,9 +55,10 @@ function Login() {
         try {
             const res = await newRequest.post("/auth/login", {username,password});
             localStorage.setItem("currentUser", JSON.stringify(res.data));
+            setLanguage(res.data.flag);
             navigate('/');
             console.log(res.data);
-            console.log(language.toLocaleLowerCase());
+            console.log(res.data.flag);
         } catch (error) {
             setError(error.response.data + 'error...');
             setError('error...');

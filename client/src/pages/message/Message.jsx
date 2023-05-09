@@ -13,11 +13,10 @@ function Message() {
     const queryClient = useQueryClient();
 
     const {isLoading, error, data} = useQuery({
-        queryKey: ["messages"], queryFn: () => {
+        queryKey: ["messages"], queryFn: () => 
             newRequest.get(`/messages/${id}`).then((res) => {
                 return res.data;
-            });
-        },
+            }),
     });
 
     const mutation = useMutation({
