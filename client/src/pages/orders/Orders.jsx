@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Orders() {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(currentUser);
 
     const navigate = useNavigate();
 
@@ -30,15 +31,15 @@ function Orders() {
 
         try {
             const res = await newRequest.get(`/conversations/single/${id}`);
-            navigate(`/messages/${res.data.id}`);
+            navigate(`/message/${res.data.id}`);
             
         } catch (error) {
             if(error.respopnse.status === 404){
 
-                const res = await newRequest.post(`/conversations`, {
-                    to: currentUser.seller ? buyerId : sellerId,
+                const res = await newRequest.post(`/conversations/`, {
+                    to: currentUser.isSeller ? buyerId : sellerId,
                 });
-                navigate(`/messages/${res.data.id}`);
+                navigate(`/message/${res.data.id}`);
             }
         }
 
@@ -71,7 +72,7 @@ function Orders() {
                                     <td className='desc'>{order.desc}</td>
                                     <td className='price'>{order.price} €</td>
                                     {/* <td className='sales'>{currentUser?.isSeller ? currentUser.username : " 15"}</td> */}
-                                    <td><a href="" onClick={() =>handleContact(order)}><img className='gigEdit' src={EmailImage} alt="" /></a></td>
+                                    <td><img className='gigEdit' src={EmailImage} alt=""  onClick={() =>handleContact(order)}/></td>
                                 </tr> 
                             ))}
                             

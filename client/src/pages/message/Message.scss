@@ -35,7 +35,7 @@
                     max-width: 600px;
                     font-size: 18px;
 
-                    .usserInfo{
+                    .userInfo{
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -48,12 +48,17 @@
     
                            
                         }
-                        span{
+                        .userName{
                            font-size: 15px;
+                        }
+                        .messageDate{
+                            font-size: 13px;
+                            font-style: italic;
                         }
                     }
 
                     p{
+                        margin: 0px;
                         padding: 20px;
                         background-color: rgb(228, 228, 228);
                         border-radius: 0px 20px 20px 20px;
@@ -118,36 +123,47 @@
             }
 
             .writeContainer{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+                // display: flex;
+                
+                width: 100%;
+                padding: 0px 10px;
 
-                textarea{
-                    width: 80%;
-                    height: 120px;
-                    padding: 10px;
-                    border: 1px solid lightgray;
-                    border-radius: 10px;
-                    resize: none;
+                form{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0px;
 
-                    &:focus-visible{
-                       outline: #17a563 auto 0.1px;
-                    //    outline: -webkit-focus-ring-color auto 1px;
+                    textarea{
+                        width: 90%;
+                        height: 120px;
+                        padding: 10px;
+                        border: 1px solid lightgray;
+                        border-radius: 10px;
+                        resize: none;
+    
+                        &:focus-visible{
+                           outline: #17a563 auto 0.1px;
+                        //    outline: -webkit-focus-ring-color auto 1px;
+                        }
+                    }
+                    button{
+                        background-color: #1dbf73;
+                        padding: 10px;
+                        color: white;
+                        font-weight: 600;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 100px;
+    
+                        &:hover{background-color: #17a563;}
                     }
                 }
 
-                button{
-                    background-color: #1dbf73;
-                    padding: 10px;
-                    color: white;
-                    font-weight: 600;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    width: 100px;
 
-                    &:hover{background-color: #17a563;}
-                }
             }
         }
     }

@@ -15,7 +15,7 @@ const resources = {
     // de: { translation: { "welcome": "Willkommen", "title": "Germany"}},
     // en: { translation: { "welcome": "Welcome", "title": "English"}},
     // es: { translation: { "welcome": "Bienvenid@", "title": "Español"}}
-    ca: { translation: languageCAT },
+    cat: { translation: languageCAT },
     de: { translation: languageDE },
     en: { translation: languageEN },
     es: { translation: languageES }

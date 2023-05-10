@@ -4,11 +4,25 @@ import { Link, useParams } from 'react-router-dom';
 import UserImage from '../../assets/img/user-01.png';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
+import moment from 'moment';
+import ca from 'moment/dist/locale/ca';
+import de from 'moment/dist/locale/de';
+import es from 'moment/dist/locale/es';
 
 function Message() {
     const {id} = useParams();
 
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser.flag === "cat") {
+        moment.updateLocale('ca', ca);
+    } else if (currentUser.flag === "de") {
+        moment.updateLocale('de', de);
+    }else if (currentUser.flag === "es") {
+        moment.updateLocale('es', es);
+    }else{
+        moment.updateLocale('en');
+    }
 
     const queryClient = useQueryClient();
 
@@ -23,7 +37,7 @@ function Message() {
         mutationFn: (message) => {
             return newRequest.post(`/messages`, message);
         }, onSuccess: () => {
-            queryClient.invalidateQueries("messages");
+            queryClient.invalidateQueries(["messages"]);
         }
     });
 
@@ -31,9 +45,9 @@ function Message() {
         e.preventDefault();
 
         mutation.mutate({
-            conversationId: id, desc: e.taget[0].value,
+            conversationId: id, desc: e.target[0].value,
         });
-        e.taget[0].value = "";
+        e.target[0].value = "";
     }
 
     return (
@@ -48,27 +62,21 @@ function Message() {
                     {isLoading? ("Cargando...") : error ? ("¡Algo salió mal!") : ( <div className="messagesWrapper">
                         {data.map((message) => (
                             <div className={message.userId === currentUser._id ? "massageItem ownerMessage" : "massageItem"} key={message._id}>
-                                <div className="usserInfo">
+                                <div className="userInfo">
                                     <img src={UserImage} alt="" />
-                                    <span>José Panero</span>
+                                    <span className='userName'>José Panero</span>
+                                    {/* <span className='userName'>{message.userId === currentUser.username} </span> */}
+                                    <span className='messageDate'>{moment(message.updatedAt).fromNow()}</span>
                                 </div>
                                 <p>{message.desc}</p>
                             </div>
                         ))}
-                        
-                        <div className="massageItem">
-                            <div className="usserInfo">
-                                <img src={UserImage} alt="" />
-                                <span>José Panero</span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illum velit perferendis asperiores excepturi. Voluptatem animi omnis fuga saepe hic magni unde est reprehenderit assumenda, dolorum dolores obcaecati similique quam?</p>
-                        </div>
-                        
+                    
                     </div>)}
                     <hr />
                     <div className="writeContainer">
                         <form action="" onSubmit={handleSubmit}>
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder='Escriba su mensaje...'></textarea>
+                            <textarea name="message" id="message" cols="30" rows="10" placeholder='Escriba su mensaje...' required></textarea>
                             <button type='submit'>Enviar</button>
                         </form>
                     </div>

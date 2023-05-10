@@ -74,32 +74,67 @@
                                 object-fit: cover;
                             }
 
-                            .asRead-mark, .asUnread-mark{
-                                width: 25px;
-                                cursor: pointer;
-                                display: flex;
-                                font-weight: bold;
-                                svg{
-                                    float: left;
-                                    height: 100%;
-                                    width: 100%;
-                                    font-weight: bold;
-                                   
-                                }
-                            }
-
-
                             &.button {
-                                button{
+                                .button-mark-read-svg, .button-mark-unread-svg{
                                     background: none;
-                                    .asRead-mark:hover, .asRead-mark.active-mark{ 
+                                    appearance: none;
+                                    border: none;
+                                    padding: 0px;
+                                    margin: 0px;
+                                    width: 100%;
+
+                                    .asRead-mark-svg, .asUnread-mark-svg{
+                                        width: 25px;
+                                        cursor: pointer;
+                                        display: flex;
+                                        font-weight: bold;
+                                        svg{
+                                            float: left;
+                                            height: 100%;
+                                            width: 100%;
+                                            font-weight: bold;
+                                           
+                                        }
+                                    }
+                                    .asRead-mark-svg:hover, .asRead-mark-svg.active-mark{ 
                                         fill: #159258;
                                     }
 
-                                    .asUnread-mark:hover, .asUnread-mark.active-mark{
+                                    .asUnread-mark-svg:hover, .asUnread-mark-svg.active-mark{
                                         fill: brown;
                                     }
+
                                 }
+
+                                .button-mark-read, .button-mark-unread{
+                                    background-color: #1ab86e;
+                                    appearance: auto;
+                                    border: none;
+                                    padding: 5px;
+                                    margin: 0px;
+                                    border-radius: 5px;
+                                    width: auto;                                   
+
+                                    .asRead-mark, .asUnread-mark{
+                                        width: auto;
+                                        cursor: pointer;
+                                        font-weight: bold;
+                                        padding: 5px;
+                                    }
+
+                                    /******************************************/
+
+                                    .asRead-mark:hover, .asRead-mark.active-mark{ 
+                                        background-color: #17c976;
+                                    }
+
+
+                                    .asUnread-mark:hover, .asUnread-mark.active-mark{
+                                        background-color: brown;
+                                    }
+
+                                }
+
                             }
                         }
                         .image{
