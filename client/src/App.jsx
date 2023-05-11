@@ -14,8 +14,10 @@ import Messages from './pages/messages/Messages';
 import Message from './pages/message/Message';
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import Success from "./pages/success/Success";
 
 import {QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import Payment from "./pages/payment/Payment";
 
 function App() {
     const { t, i18n } = useTranslation();
@@ -68,7 +70,13 @@ const router = createBrowserRouter([
         },
         {
           path: '/register', element: <Register />
-        }
+        },
+        {
+          path: '/payment', element: <Payment />
+        }, 
+        {
+          path: '/success', element: <Success />
+        },
       ]
     }
   ]);
