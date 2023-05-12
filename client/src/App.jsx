@@ -72,7 +72,7 @@ const router = createBrowserRouter([
           path: '/register', element: <Register />
         },
         {
-          path: '/payment', element: <Payment />
+          path: '/payment/:id', element: <Payment />
         }, 
         {
           path: '/success', element: <Success />

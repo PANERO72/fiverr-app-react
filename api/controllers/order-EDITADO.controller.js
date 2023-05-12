@@ -1,22 +1,11 @@
 import createError from "../utils/createError.js";
 import Order from "../models/order.model.js";
-import Gig from "../models/gig.model.js";
-import Stripe from "stripe"; 
+import Gig from "../models/gig.model.js"; 
 
-export const intent = async (req, res, next) => {
+export const createOrder = async (req, res, next) => {
   try {
-    const stripe = new Stripe(process.env.STRIPE);
 
-    const gig = await Gig.findById(req.params.id);
-
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: gig.price * 100,
-      currency: "eur",
-      /**currency: usd */
-      automatic_payment_methods: {
-        enabled: true,
-      },
-    });
+    const gig = await Gig.findById(req.params.gigId);
 
     const newOrder = new Order({
       gigId: gig._id,
@@ -26,14 +15,13 @@ export const intent = async (req, res, next) => {
       price: gig.price,
       sellerId: gig.userId,
       buyerId: req.userId,
-      payment_intent: paymentIntent.id,
+      payment_intent: "temporary",
     });
 
     await newOrder.save();
 
-    res.status(200).send({
-       clientSecret: paymentIntent.client_secret,
-    }
+    res.status(200).send(
+      "¡Éxito!"
     );
   } catch (error) {
     next(error);

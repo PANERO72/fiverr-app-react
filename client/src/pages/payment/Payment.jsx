@@ -5,7 +5,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import newRequest from '../../utils/newRequest';
 
-const stripePromise = loadStripe("pk_test_Dt4ZBItXSZT1EzmOd8yCxonL");
+// const stripe_key = process.env.REACT_APP_STRIPE_KEY;
+
+const stripePromise = loadStripe("sk_test_51LxZ7oCPYYMpnnZlVz40Akmr6O18jyNK3ZZJeHzWKEy4Rac0qbpHFJeR6mhJWkf4hABzDALiA9ssYOe0dQTMpMCq001SHqD3F2");
 
 function Payment() {
   const [clientSecret, setClientSecret] = useState("");
