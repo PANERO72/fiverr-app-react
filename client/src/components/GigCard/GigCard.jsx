@@ -6,8 +6,10 @@ import HeartImage from '../../assets/img/heart.png';
 import NoavatarInage from '../../assets/img/noavatar.jpg';
 import { useQuery } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
+import { useTranslation } from 'react-i18next';
 
 function GigCard({item}) {
+    const {t, i18n} = useTranslation();
     const {isLoading, error, data} = useQuery({
         queryKey: [item.userId], queryFn: () => 
             newRequest.get(`/users/${item.userId}`).then((res) => {
@@ -22,10 +24,10 @@ function GigCard({item}) {
                 <img className='backgroundImage' src={item.cover} alt="" />
             </Link>
             <div className="gigCardInfo">
-                {isLoading ? "loading" : error ? "¡Algo salió mal!" : <div className="gigCardUser">
+                {isLoading ? t("loadingMessage") : error ? t("somethingWentWrongMessage") : <div className="gigCardUser">
                     <Link to="/">
                         {/* <img className='infoImage' src={item.profilePicture} alt="" /> */}
-                        <img className='infoImage' src={data.img || NoavatarInage} alt="" />
+                        <img className='infoImage' src={data.img || NoavatarInage} alt={t("altUserImage")} />
                     </Link>
                     <Link to="/">
                         {/* <span className="username">{item.username}</span> */}
@@ -44,7 +46,7 @@ function GigCard({item}) {
                 <div className="gigCardDetails">
                     <img src={HeartImage} alt="" />
                     <div className="gigCardPrice">
-                        <span>STARTING AT</span>
+                        <span>{t("startingAtPriceText")}</span>
                         <h3>{item.price} &euro;</h3>
                     </div>
                 </div>

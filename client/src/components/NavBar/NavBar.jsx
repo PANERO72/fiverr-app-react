@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useTransition } from 'react';
 import './NavBar.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LanguageSwitch from '../LanguageSwitch/LanguageSwitch';
@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import newRequest from '../../utils/newRequest';
 
 function NavBar() {
+  const {t, i18n} = useTranslation();
   const navigate = useNavigate();
   const [activeSubmenu, setActiveSubmenu] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(false);
@@ -38,7 +39,6 @@ function NavBar() {
     }
   }
 
-  const {t} = useTranslation();
   return (
     <div className={activeSubmenu || pathname !== "/" ? 'navbarContainer activeSubmenu' : 'navbarContainer'}>
         <div className="navbarWrapper">

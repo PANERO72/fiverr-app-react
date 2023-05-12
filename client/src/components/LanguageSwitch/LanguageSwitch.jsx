@@ -24,7 +24,7 @@ const LanguageSwitch = () => {
           <div className={classes.languageContainer}> 
               <Dropdown fluid floating direction='left' className={classes.languageSwitchDropdown} icon='globe' text={t('selectLanguage')} noderef={nodeRef}>
                 <Dropdown.Menu>
-                  <Dropdown.Item flag='' className={classes.languageSwitchFlagIcon} text={t('languageCat')} onClick={() => changeLanguage('ca')}></Dropdown.Item>
+                  <Dropdown.Item flag='' className={classes.languageSwitchFlagIcon} text={t('languageCat')} onClick={() => changeLanguage('cat')}></Dropdown.Item>
                   <Dropdown.Item flag='gb' text={t('languageEng')} onClick={() => changeLanguage('en')}></Dropdown.Item>
                   <Dropdown.Item flag='de' text={t('languageDen')} onClick={() => changeLanguage('de')}></Dropdown.Item>
                   <Dropdown.Item flag='es' text={t('languageEsp')} onClick={() => changeLanguage('es')}></Dropdown.Item>

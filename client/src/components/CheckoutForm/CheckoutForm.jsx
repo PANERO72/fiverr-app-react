@@ -6,8 +6,10 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import './CheckoutForm.scss';
+import { useTranslation } from "react-i18next";
 
 export default function CheckoutForm() {
+  const {t, i18n} = useTranslation();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -31,16 +33,20 @@ export default function CheckoutForm() {
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
         case "succeeded":
-          setMessage("Payment succeeded!");
+          // setMessage("Payment succeeded!");
+          setMessage(t("paymentSucceededMessage"));
           break;
         case "processing":
-          setMessage("Your payment is processing.");
+          // setMessage("Your payment is processing.");
+          setMessage(t("paymentIsProcessingMessage"));
           break;
         case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
+          // setMessage("Your payment was not successful, please try again.");
+          setMessage(t("paymentWasNoSuccessfulTryAgainMessage"));
           break;
         default:
-          setMessage("Something went wrong.");
+          // setMessage("Something went wrong.");
+          setMessage(t("somethingWentWrongMessage"));
           break;
       }
     });
@@ -73,7 +79,8 @@ export default function CheckoutForm() {
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
-      setMessage("An unexpected error occurred.");
+      // setMessage("An unexpected error occurred.");
+      setMessage(t("unexpectedErrorOccurred"));
     }
 
     setIsLoading(false);
@@ -91,7 +98,8 @@ export default function CheckoutForm() {
                 <PaymentElement id="payment-element" options={paymentElementOptions} />
                 <button disabled={isLoading || !stripe || !elements} id="submit">
                     <span id="button-text">
-                        {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+                        {/* {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"} */}
+                        {isLoading ? <div className="spinner" id="spinner"></div> : t("paymentButton")}
                     </span>
                 </button>
                 {/* Show any error or success messages */}

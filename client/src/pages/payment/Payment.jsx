@@ -5,6 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import newRequest from '../../utils/newRequest';
 import CheckoutForm from '../../components/CheckoutForm/CheckoutForm';
+import i18n from '../../i18n';
 
 // const REACT_APP_STRIPE_KEY = process.env.REACT_APP_STRIPE_KEY;
 
@@ -16,6 +17,17 @@ function Payment() {
 
   const {id} = useParams();
 
+  let idioma;
+
+  if (i18n.language === "cat") {
+    idioma = "ca";
+  } else if(i18n.language === "de") {
+    idioma = "de";
+  } else if(i18n.language === "en") {
+    idioma = "en";
+  }else if(i18n.language === "es") {
+    idioma = "es";
+  }
 
   useEffect(() => {
 
@@ -37,7 +49,7 @@ function Payment() {
   const options = {
     clientSecret,
     appearance,
-    locale: 'pt',
+    locale: idioma,
   
   };
 
