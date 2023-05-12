@@ -1,4 +1,8 @@
 .paymentContainer{
-
-    .paymentWrapper{}
+    display: flex;
+    justify-content: center;
+    .paymentWrapper{
+        width: 1400px;
+        margin:20px 0px 50px 0px;
+    }
 }

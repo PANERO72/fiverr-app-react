@@ -34,10 +34,10 @@ function Orders() {
             navigate(`/message/${res.data.id}`);
             
         } catch (error) {
-            if(error.respopnse.status === 404){
+            if(error.response.status === 404){
 
                 const res = await newRequest.post(`/conversations/`, {
-                    to: currentUser.isSeller ? buyerId : sellerId,
+                    to: currentUser.seller ? buyerId : sellerId,
                 });
                 navigate(`/message/${res.data.id}`);
             }

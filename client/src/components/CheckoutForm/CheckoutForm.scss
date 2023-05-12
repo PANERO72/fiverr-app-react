@@ -3,6 +3,10 @@
     align-items: center;
 
     .paymentFormWrapper{
+        width: 1400px;
+        margin:20px 0px 0px 0px;
+        justify-content: center;
+        display: flex;
 
         #payment-form {
             width: 30vw;
@@ -13,6 +17,10 @@
             border-radius: 7px;
             padding: 40px;
 
+            .p-Field{
+                margin-bottom: 15px !important;
+            }
+
             #link-authentication-element{}
 
             #payment-element {
@@ -20,7 +28,7 @@
             }
 
             /* Buttons and links */
-            button {
+            #submit {
                 background: #5469d4;
                 font-family: Arial, sans-serif;
                 color: #ffffff;
