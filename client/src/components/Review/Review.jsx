@@ -47,7 +47,7 @@ function Review({review}) {
             <span className="review-item-component-wrapper">
                 <li className="review-item-component review-item" data-impression-collected="true">
                     <div className="review-header-container">
-                        {isLoading ? t("loadingMessage") : error ? t("somethingWentWrongMessage") : <div className='review-user-container'>
+                        {isLoading ? t("loadingContentMessage") : error ? t("somethingWentWrongContentMessage") : <div className='review-user-container'>
                             <div className="flex flex-items-center">
                                 <div className="user-profile-image m-r-16 profile-img desktop-only">
                                     <label className="profile-pict" style={{width:"48px",height:"48px",fontSize:"1em"}} htmlFor="profile_image_4396144511271">

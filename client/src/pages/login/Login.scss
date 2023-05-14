@@ -16,7 +16,9 @@
         }
         form{
             // width: 460px;
-            padding: 100px 0px;
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -30,6 +32,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 gap: 10px;
+
                 .form-control-label{
                     color: gray;
                     font-weight: 800;
@@ -72,6 +75,9 @@
 
                     &:hover{background-color: #17a563;}
                 }
+            }
+            .flex-row{
+                flex-direction: row !important;
             }
         }
     }

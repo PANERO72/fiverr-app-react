@@ -10,19 +10,19 @@ function MyGigs() {
         <div className='myGigsContainer'>
             <div className='myGigsWrapper'>
                 <div className="myGigsTitleContainer">
-                    <h1>Mis Servicios</h1>
-                    <Link className='link addNewGigBtn' to="/add">Agregar Nuevo Servicio</Link>
+                    <h1>{t("myGigsPageTitle")}</h1>
+                    <Link className='link addNewGigBtn' to="/add">{t("addingNewGigBtn")}</Link>
                 </div>
                 <div className="myGigsTableContainer">
                     <table> 
                         <thead>
                             <tr>
-                                <th>Imagen</th>
-                                <th>Título</th>
-                                <th>Descripción</th>
-                                <th>Precio</th>
-                                <th>Ventas</th>
-                                <th>Acciones</th>
+                                <th>{t("myGigsTableHeadingImage")}</th>
+                                <th>{t("myGigsTableHeadingTitle")}</th>
+                                <th>{t("myGigsTableHeadingDescription")}</th>
+                                <th>{t("myGigsTableHeadingPrice")}</th>
+                                <th>{t("myGigsTableHeadingSales")}</th>
+                                <th>{t("myGigsTableHeadingActions")}</th>
                             </tr>
                         </thead>
                         <tbody>

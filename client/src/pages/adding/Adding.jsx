@@ -6,9 +6,10 @@ import {gigsCategoryDE} from '../../data/dummyDataDE';
 import {gigsCategoryEN} from '../../data/dummyDataEN';
 import {gigsCategoryES} from '../../data/dummyDataES';
 
-import i18n from '../../i18n';
+import { useTranslation } from 'react-i18next';
 
 function Adding() {
+    const {t, i18n} = useTranslation();
 
     let gigsCategory;
 
@@ -28,69 +29,69 @@ function Adding() {
     return (
         <div className='addingContainer'>
             <div className="addingWrapper">
-                <h1>Agregar Nuevo Servicio</h1>
+                <h1>{t("addingGigTitle")}</h1>
                 <div className="addingSections">
                     <form action="">
                         <div className="left">
                             <div className="form-group">
-                                <label className='form-label' htmlFor="gigTitle">Título:</label>
-                                <input type="text" className="form-control-input" id="gigTitle" placeholder="Título del servicio..." />
+                                <label className='form-label' htmlFor="gigTitle">{t("gigTitleLabel")}</label>
+                                <input type="text" className="form-control-input" id="gigTitle" placeholder={t("gigTitlePlaceholder")} />
                             </div>
                             <div className="form-group">
-                                <label className='form-label' htmlFor="gigCategory">Categoría:</label>
+                                <label className='form-label' htmlFor="gigCategory">{t("gigCategoryLabel")}</label>
                                 <select name="gigCategory" className={isActiveSelect ? "form-control-select select-border" : "form-control-select"} id="gigCategory" onClick={() => setIsActiveSelect(!isActiveSelect)}>
-                                    <option value="">-- Seleccione una categoría --</option>
+                                    <option value="">-- {t("gigSelectCategoryPlaceholder")} --</option>
                                     {gigsCategory.map((category) => (<option key={category.id} value={category.cat}>{category.title}</option>))}
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label className='form-label' htmlFor="gigCoverImage">Imagen de portada:</label>
+                                <label className='form-label' htmlFor="gigCoverImage">{t("gigCoverImageLabel")}</label>
                                 <input type="file" className={isActiveInput ? "form-control-input-file file-border" : "form-control-input-file"} id="gigCoverImage" onClick={() => setIsActiveInput(!isActiveInput)} />
                             </div>
                             <div className="form-group">
-                                <label className='form-label' htmlFor="gigUploadImages">Imágenes subidas:</label>
+                                <label className='form-label' htmlFor="gigUploadImages">{t("gigUploadImagesLabel")}</label>
                                 <input type="file" className={isActiveInput ? "form-control-input-file file-border" : "form-control-input-file"} id="gigUploadImages" multiple onClick={() => setIsActiveInput(!isActiveInput)} />
                             </div>
                             <div className="form-group">
-                                <label className='form-label' htmlFor="gigDescription">Descripción:</label>
-                                <textarea name="gigDescription" id="gigDescription" className="form-control-textarea" cols="30" rows="16" placeholder='Breve dexripción del servicio ofrecido...'></textarea>
+                                <label className='form-label' htmlFor="gigDescription">{t("gigDescriptionLabel")}</label>
+                                <textarea name="gigDescription" id="gigDescription" className="form-control-textarea" cols="30" rows="16" placeholder={t("gigDescriptionPlaceholder")}></textarea>
                             </div>
                             <div className="form-group">
-                                <button type="button" className="form-control-button">Crear</button>
+                                <button type="button" className="form-control-button">{t("gigCreateButton")}</button>
                             </div>
                         </div>
                         <div className="right">
                             <div className="form-group">
-                                <label className='form-label' htmlFor="serviceTitle">Título breve:</label>
-                                <input type="text" className="form-control-input" id="serviceTitle" aria-describedby="serviceTitle" placeholder="Título del servicio..." />
+                                <label className='form-label' htmlFor="serviceTitle">{t("shortServiceTitleLabel")}</label>
+                                <input type="text" className="form-control-input" id="serviceTitle" aria-describedby="serviceTitle" placeholder={t("shortServiceTitlePlaceholder")} />
                             </div>
                             <div className="form-group">
-                                <label className='form-label' htmlFor="gigShortDescription">Descripción breve:</label>
-                                <textarea name="gigShortDescription" id="gigShortDescription" className="form-control-textarea" cols="30" rows="16" placeholder='Breve descripción del servicio ofrecido...'></textarea>
+                                <label className='form-label' htmlFor="gigShortDescription">{t("shortServiceDescriptionLabel")}</label>
+                                <textarea name="gigShortDescription" id="gigShortDescription" className="form-control-textarea" cols="30" rows="16" placeholder={t("shortServiceDescriptionPlaceholder")}></textarea>
                             </div>
                             <div className="form-group-delivery-revision">
                                 <div className="delivery-revision">
-                                    <label className='form-label' htmlFor="deliveryTime">Tiempo de entrega <span className='delivery-time'>(ej: 3 días)</span>:</label>
+                                    <label className='form-label' htmlFor="deliveryTime">{t("deliveryTimeLabel")} <span className='delivery-time'>{t("deliveryTimeExampleText")}</span>:</label>
                                     <input type="number" className="form-control-input" id="deliveryTime" aria-describedby="deliveryTime" min={1} placeholder="1" />
                                 </div>
                                 <div className="delivery-revision">
-                                    <label className='form-label' htmlFor="revisionNumber">Número de revisión:</label>
+                                    <label className='form-label' htmlFor="revisionNumber">{t("revisionNumberLabel")}</label>
                                     <input type="number" className="form-control-input" id="revisionNumber" aria-describedby="revisionNumber" min={1} placeholder="1" />
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label className='form-label' htmlFor="serviceSkills">Agregar habilidades:</label>
+                                <label className='form-label' htmlFor="serviceSkills">{t("serviceSkillsLabel")}</label>
                                 <div className="form-group-skills">
-                                    <input type="text" className="form-control-input" name='serviceSkills' id="serviceSkills1" aria-describedby="serviceSkills" placeholder="ej: Diseño web..." />
-                                    <input type="text" className="form-control-input" name='serviceSkills' id="serviceSkills2" aria-describedby="serviceSkills" placeholder="ej: Adobe Photoshop..." />
-                                    <input type="text" className="form-control-input" name='serviceSkills' id="serviceSkills3" aria-describedby="serviceSkills" placeholder="ej: Arte de personajes..." />
-                                    <input type="text" className="form-control-input" name='serviceSkills' id="serviceSkills4" aria-describedby="serviceSkills" placeholder="ej: Diseño gráfico..." />
-                                    <input type="text" className="form-control-input" name='serviceSkills' id="serviceSkills5" aria-describedby="serviceSkills" placeholder="ej: Ilustración gráfica..." />
-                                    <input type="text" className="form-control-input" name='serviceSkills' id="serviceSkills6" aria-describedby="serviceSkills" placeholder="ej: Arte de IA..." />
+                                    <input type="text" className="form-control-input" name='serviceSkills1' id="serviceSkills1" aria-describedby="serviceSkills" placeholder={t("serviceSkillsPlaceholder1")} />
+                                    <input type="text" className="form-control-input" name='serviceSkills2' id="serviceSkills2" aria-describedby="serviceSkills" placeholder={t("serviceSkillsPlaceholder2")} />
+                                    <input type="text" className="form-control-input" name='serviceSkills3' id="serviceSkills3" aria-describedby="serviceSkills" placeholder={t("serviceSkillsPlaceholder3")} />
+                                    <input type="text" className="form-control-input" name='serviceSkills4' id="serviceSkills4" aria-describedby="serviceSkills" placeholder={t("serviceSkillsPlaceholder4")} />
+                                    <input type="text" className="form-control-input" name='serviceSkills5' id="serviceSkills5" aria-describedby="serviceSkills" placeholder={t("serviceSkillsPlaceholder5")} />
+                                    <input type="text" className="form-control-input" name='serviceSkills6' id="serviceSkills6" aria-describedby="serviceSkills" placeholder={t("serviceSkillsPlaceholder6")} />
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label className='form-label' htmlFor="priceService">Precio:</label>
+                                <label className='form-label' htmlFor="priceService">{t("priceServiceLabel")}</label>
                                 <input type="number" className="form-control-input" id="priceService" aria-describedby="priceService" min={2} placeholder="10,00" />
                             </div>
                         </div>

@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import UserImage from '../../assets/img/user-01.png';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import ca from 'moment/dist/locale/ca';
 import de from 'moment/dist/locale/de';
@@ -12,15 +13,19 @@ import es from 'moment/dist/locale/es';
 function Message() {
     const {id} = useParams();
 
+    const {t, i18n} = useTranslation();
+
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-    if (currentUser.flag === "cat") {
+    if (i18n.language === "cat") {
         moment.updateLocale('ca', ca);
-    } else if (currentUser.flag === "de") {
+    } else if (i18n.language === "de") {
         moment.updateLocale('de', de);
-    }else if (currentUser.flag === "es") {
+    }else if (i18n.language === "es") {
         moment.updateLocale('es', es);
-    }else{
+    } else if (i18n.language === "eN"){
+        moment.updateLocale('en');
+    } else {
         moment.updateLocale('en');
     }
 
@@ -59,7 +64,7 @@ function Message() {
                     </span> 
                 </div>
                 <div className="messageContent">
-                    {isLoading? ("Cargando...") : error ? ("¡Algo salió mal!") : ( <div className="messagesWrapper">
+                    {isLoading? (t("loadingContentMessage")) : error ? (t("somethingWentWrongContentMessage")) : ( <div className="messagesWrapper">
                         {data.map((message) => (
                             <div className={message.userId === currentUser._id ? "massageItem ownerMessage" : "massageItem"} key={message._id}>
                                 <div className="userInfo">
@@ -75,9 +80,10 @@ function Message() {
                     </div>)}
                     <hr />
                     <div className="writeContainer">
+                        <h4>{t("writeMessageTitle")}</h4>
                         <form action="" onSubmit={handleSubmit}>
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder='Escriba su mensaje...' required></textarea>
-                            <button type='submit'>Enviar</button>
+                            <textarea name="message" id="message" cols="30" rows="10" placeholder={t("writeMessagePlaceholder")} required></textarea>
+                            <button type='submit'>{t("sendMessageButton")}</button>
                         </form>
                     </div>
                 </div>

@@ -24,7 +24,7 @@ function GigCard({item}) {
                 <img className='backgroundImage' src={item.cover} alt="" />
             </Link>
             <div className="gigCardInfo">
-                {isLoading ? t("loadingMessage") : error ? t("somethingWentWrongMessage") : <div className="gigCardUser">
+                {isLoading ? t("loadingContentMessage") : error ? t("somethingWentWrongContentMessage") : <div className="gigCardUser">
                     <Link to="/">
                         {/* <img className='infoImage' src={item.profilePicture} alt="" /> */}
                         <img className='infoImage' src={data.img || NoavatarInage} alt={t("altUserImage")} />

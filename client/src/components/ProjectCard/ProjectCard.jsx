@@ -7,11 +7,11 @@ function ProjectCard({item}) {
         <>
         <div className="projectCardWrapper">
             <Link to="/">
-                <img className='backgroundImage' src={item.img} alt="" />
+                <img className='backgroundImage' src={item.img} alt={t("altBackgroundImage")} />
             </Link>
             <div className="projectCardInfo">
                 <Link to="/">
-                    <img className='infoImage' src={item.profilePicture} alt="" />
+                    <img className='infoImage' src={item.profilePicture} alt={t("altProfileImage")} />
                 </Link>
                 <div className="projectCardTexts">
                     <Link to="/" className='link'>

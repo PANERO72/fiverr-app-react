@@ -2,8 +2,10 @@ import React, { useEffect }from 'react';
 import './Success.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 import newRequest from '../../utils/newRequest';
+import { useTranslation } from 'react-i18next';
 
 function Success() {
+  const {t, i18n} = useTranslation();
   const {search} = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(search);
@@ -26,7 +28,7 @@ function Success() {
   return (
     <div className='successContainer'>
       <div className="successWrapper">
-        <h4>¡Pago exitoso! Usted será redirigido a la página de pedidos. Por favor, no cierre esta página.</h4>
+        <h4>{t("successPageDescription")}</h4>
       </div>
     </div>
   )

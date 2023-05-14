@@ -54,7 +54,7 @@ function NavBar() {
                 <Link className='link' to='/'><span className='linkItem'>{t('languageEsp')}</span></Link>
                 {!currentUser?.isSeller && <Link className='link' to='/'> <span className='linkItem'>{t('becomeSeller')}</span></Link>}                
                 {currentUser ? (<div className='userContainer' onClick={() => setOpenSubmenu(!openSubmenu)}>
-                  <img src={currentUser.img || NoavatarImage} alt="" />
+                  <img src={currentUser.img || NoavatarImage} alt={t("altUserImage")} />
                   <span className='userName'>{currentUser?.username}</span>
                   {openSubmenu && <div className="optionsContainer">
                     {currentUser?.isSeller && (<>

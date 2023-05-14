@@ -29,53 +29,57 @@ import i18n from '../../i18n';
 
 function Home() {
 
-  let cards;
-  let testimonials;
-  let projects;
+    let cards;
+    let testimonials;
+    let projects;
 
-  if (i18n.language === "cat") {
-		cards = cardsCA;
-    testimonials = testimonialsCA;
-    projects = projectsCA;
-	} else if(i18n.language === "de") {
-		cards = cardsDE;
-    testimonials = testimonialsDE;
-    projects = projectsDE;
-	} else if(i18n.language === "en") {
-		cards = cardsEN;
-    testimonials = testimonialsEN;
-     projects = projectsEN;
-	} else if (i18n.language === "es") {
-		cards = cardsES;
-    testimonials = testimonialsES;
-     projects = projectsES;
-	}
-  return (
-    <>
-      <Featured />
-      <TrustedBy />
-      <Slide slidesToShow={5} arrowsScroll={5}>
-          {cards.map((card) => (
-              <CategoryCard item={card} key={card.id} />
-          ))}
-      </Slide>
-      <FeaturesOne />
-      <ExplorePlatform />
-      <FeaturesTwo />
-      <Slide slidesToShow={1} arrowsScroll={1}>
-        {testimonials.map((testimonial) => (
-          <TestimonialsCard item={testimonial} key={testimonial.id} />
-        ))}
-      </Slide>
-      <div className='projectCardContainer'>
-        <Slide slidesToShow={4} arrowsScroll={4}>
-          {projects.map((project) => (
-            <ProjectCard item={project} key={project.id} />
-          ))}
-        </Slide>
-      </div>
-    </>
-  );
+    if (i18n.language === "cat") {
+        cards = cardsCA;
+        testimonials = testimonialsCA;
+        projects = projectsCA;
+    } else if(i18n.language === "de") {
+        cards = cardsDE;
+        testimonials = testimonialsDE;
+        projects = projectsDE;
+    } else if(i18n.language === "en") {
+        cards = cardsEN;
+        testimonials = testimonialsEN;
+        projects = projectsEN;
+    } else if (i18n.language === "es") {
+        cards = cardsES;
+        testimonials = testimonialsES;
+        projects = projectsES;
+    } else {
+        cards = cardsES;
+        testimonials = testimonialsES;
+        projects = projectsES;
+    }
+    return (
+        <>
+            <Featured />
+            <TrustedBy />
+            <Slide slidesToShow={5} arrowsScroll={5}>
+                {cards.map((card) => (
+                    <CategoryCard item={card} key={card.id} />
+                ))}
+            </Slide>
+            <FeaturesOne />
+            <ExplorePlatform />
+            <FeaturesTwo />
+            <Slide slidesToShow={1} arrowsScroll={1}>
+                {testimonials.map((testimonial) => (
+                <TestimonialsCard item={testimonial} key={testimonial.id} />
+                ))}
+            </Slide>
+            <div className='projectCardContainer'>
+                <Slide slidesToShow={4} arrowsScroll={4}>
+                {projects.map((project) => (
+                    <ProjectCard item={project} key={project.id} />
+                ))}
+                </Slide>
+            </div>
+        </>
+    );
 }
 
 export default Home;

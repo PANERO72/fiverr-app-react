@@ -15,9 +15,10 @@ import Message from './pages/message/Message';
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Success from "./pages/success/Success";
+import Payment from "./pages/payment/Payment";
+import ForgotPasswod from "./pages/forgotpasswod/ForgotPasswod";
 
 import {QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
-import Payment from "./pages/payment/Payment";
 
 function App() {
     const { t, i18n } = useTranslation();
@@ -70,6 +71,9 @@ const router = createBrowserRouter([
         },
         {
           path: '/register', element: <Register />
+        },
+        {
+          path: '/forgotPassword', element: <ForgotPasswod />
         },
         {
           path: '/payment/:id', element: <Payment />

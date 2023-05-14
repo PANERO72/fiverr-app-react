@@ -3,6 +3,7 @@ import './Messages.scss';
 import { Link } from 'react-router-dom';
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
+import {useTranslation} from 'react-i18next';
 import moment from 'moment';
 import ca from 'moment/dist/locale/ca';
 import de from 'moment/dist/locale/de';
@@ -13,15 +14,17 @@ import es from 'moment/dist/locale/es';
 
 function Messages() {
 
+    const {t, i18n} = useTranslation();
+
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     // const bandera = currentUser;
 
-    if (currentUser.flag === "cat") {
+    if (i18n.language === "cat") {
         moment.updateLocale('ca', ca);
-    } else if (currentUser.flag === "de") {
+    } else if (i18n.language === "de") {
         moment.updateLocale('de', de);
-    }else if (currentUser.flag === "es") {
+    }else if (i18n.language === "es") {
         moment.updateLocale('es', es);
     }else{
         moment.updateLocale('en');
@@ -50,19 +53,19 @@ function Messages() {
     
     return (
         <div className='messagesContainer'>
-            {isLoadig ? ("Cargando...") : error ? ("¡Algo salió mal!") : (<div className='messagesWrapper'>
+            {isLoadig ? (t("loadingContentMessage")) : error ? (t("somethingWentWrongContentMessage")) : (<div className='messagesWrapper'>
                 <div className="messagesTitleContainer">
-                    <h1>Mensajes</h1>
+                    <h1>{t("messagesPageTitle")}</h1>
                     {/* <Link className='link addNewGigBtn' to="/add">Agregar Nuevo Servicio</Link> */}
                 </div>
                 <div className="messagesTableContainer">
                     <table> 
                         <thead>
                             <tr>
-                                <th>{currentUser.isSeller ? "Comprador" : "Vendedor"}</th>
-                                <th>Ultimo mensaje</th>
-                                <th>Fecha</th>
-                                <th>Acciones</th>
+                                <th>{currentUser.isSeller ? t("userIsSellerText") : t("userIsBuyerText")}</th>
+                                <th>{t("lastMessagText")}</th>
+                                <th>{t("messageDateText")}</th>
+                                <th>{t("messageActionsText")}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -71,7 +74,7 @@ function Messages() {
                                 <td className='message'><Link to={`/message/${conversation.id}`} className='link'>{conversation?.lastMessage?.substring(0, 200)}...</Link></td>
                                 <td className='date'>{moment(conversation.updatedAt).fromNow()} </td>
                                 
-                                <td className='button'>{((currentUser.isSeller && !conversation.readBySeller) || (!currentUser.isSeller && !conversation.readByBuyer)) &&(<button type='button' className='button-mark-read' onClick={()=>handleRead(conversation.id)}><span className='asRead-mark'>Marcar como leido</span></button>) }</td>
+                                <td className='button'>{((currentUser.isSeller && !conversation.readBySeller) || (!currentUser.isSeller && !conversation.readByBuyer)) &&(<button type='button' className='button-mark-read' onClick={()=>handleRead(conversation.id)}><span className='asRead-mark'>{t("markAsReadBtn")}</span></button>) }</td>
 
                                 {/* <button type='button' className='button-mark-unread' onClick={()=>handleRead(conversation.id)}><span className='asUnread-mark'>Marcar como no leido</span></button> */}
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './Login.scss';
 import newRequest from '../../utils/newRequest';
 import Swal from 'sweetalert2';
+import {useTranslation} from 'react-i18next';
 
 function Login() {
 
@@ -33,6 +34,8 @@ function Login() {
 
     ];
 
+    const {t, i18n} = useTranslation();
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -55,7 +58,7 @@ function Login() {
         try {
             const res = await newRequest.post("/auth/login", {username,password});
             localStorage.setItem("currentUser", JSON.stringify(res.data));
-            setLanguage(res.data.flag);
+            setLanguage(i18n.language);
             navigate('/');
             console.log(res.data);
             console.log(res.data.flag);
@@ -72,17 +75,21 @@ function Login() {
         <div className='loginContainer'>
             <div className="loginWrapper">
                 <form action="" onSubmit={handleSubmit}>
-                    <h1>Inicie Sesión en su Cuenta</h1>
+                    <h1>{t("loginTitle")}</h1>
                     <div className="form-group">
-                        <label htmlFor="username" className="form-control-label">Nombre de Usuario:</label>
-                        <input type="text" name="username" id="username" className="form-control-input" placeholder='ej: panero72' onChange={(e)=>setUsername(e.target.value)} required />
+                        <label htmlFor="username" className="form-control-label">{t("usernameLabelLoginText")}</label>
+                        <input type="text" name="username" id="username" className="form-control-input" placeholder={t("usernameInputLoginPlaceholder")} onChange={(e)=>setUsername(e.target.value)} required />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="password" className="form-control-label">Contraseña:</label>
-                        <input type="password" name="password" id="password" className="form-control-input" placeholder='ej: panero1972' onChange={(e)=>setPassword(e.target.value)} required />
+                        <label htmlFor="password" className="form-control-label">{t("passwordLabelLoginText")}</label>
+                        <input type="password" name="password" id="password" className="form-control-input" placeholder={t("passwordInputLoginPlaceholder")} onChange={(e)=>setPassword(e.target.value)} required />
                     </div>
                     <div className="form-group">
-                        <button type="submit" className="form-control-button">Inciar Sesión</button>
+                        <button type="submit" className="form-control-button">{t("loginBtn")}</button>
+                    </div>
+                    <div className='form-group flex-row'>
+                        <Link className='' to={'/register'}>{t("notHaveAcountYetText")}</Link>
+                        <Link className='' to={'/forgotPassword'}>{t("forgotYourPassword")}</Link>
                     </div>
                     {/* <div>{error && error}</div> */}
                     {/* <div>{handleAlert()}</div> */}

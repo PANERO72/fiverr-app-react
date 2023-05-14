@@ -6,10 +6,14 @@ import EmailImage from '../../assets/img/message.png';
 import {useQuery} from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
 import { useNavigate } from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 
 function Orders() {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
     console.log(currentUser);
+
+    const {t, i18n} = useTranslation();
 
     const navigate = useNavigate();
 
@@ -47,21 +51,21 @@ function Orders() {
 
     return (
         <div className='ordersContainer'>
-            {isLoading ? ("Cargando...") : error ? ("¡Algo salión mal!") : (<div className='ordersWrapper'>
+            {isLoading ? (t("loadingContentMessage")) : error ? (t("somethingWentWrongContentMessage")) : (<div className='ordersWrapper'>
                 <div className="ordersTitleContainer">
-                    <h1>Pedidos</h1>
+                    <h1>{t("ordersPageTitle")}</h1>
                     {/* <Link className='link addNewGigBtn' to="/add">Agregar Nuevo Servicio</Link> */}
                 </div>
                 <div className="ordersTableContainer">
                     <table> 
                         <thead>
                             <tr>
-                                <th>Imagen</th>
-                                <th>Título</th>
-                                <th>Descripción</th>
-                                <th>Precio</th>
-                                {/* <th>{ currentUser?.isSeller ? "Comprador" : "Vendedor"}</th> */}
-                                <th>Acciones</th>
+                                <th>{t("ordersTableHeadingImage")}</th>
+                                <th>{t("ordersTableHeadingTitle")}</th>
+                                <th>{t("ordersTableHeadingDescription")}</th>
+                                <th>{t("ordersTableHeadingPrice")}</th>
+                                {/* <th>{ currentUser?.isSeller ? t("ordersTableHeadingUserIsSeller") : t("ordersTableHeadingUserIsBuyer")}</th> */}
+                                <th>{t("ordersTableHeadingActions")}</th>
                             </tr>
                         </thead>
                         <tbody>

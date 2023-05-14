@@ -49,7 +49,7 @@ function Reviews({gigId}) {
   return (
     <div className="gig-page-reviews desktop-view" id='reviews-section'>
         <div className="gig-page-reviews-title">{t("reviewsTitlePage")}</div>
-        {isLoading ? t("loadingMessage") : error ? t("somethingWentWrongMessage") : <div className="reviews-package">
+        {isLoading ? t("loadingContentMessage") : error ? t("somethingWentWrongContentMessage") : <div className="reviews-package">
             <div className="reviews-header breakdown-header">
                 <div className="details">
                     <h2 className="text-display-7">
@@ -126,16 +126,16 @@ function Reviews({gigId}) {
             </div>
         </div>}
         <div className="addNewReviewContainer">
-            <h3>Agregar una Reseña</h3>
+            <h3>{t("addNewReviewTitle")}</h3>
             <form action="" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label className='form-label' htmlFor="desc">Reseña:</label>
-                    <textarea name="desc" id="desc" className="form-control-textarea" cols="30" rows="16" placeholder='Escriba su reseña...'></textarea>
+                    <label className='form-label' htmlFor="desc">{t("addNewReviewLabel")}</label>
+                    <textarea name="desc" id="desc" className="form-control-textarea" cols="30" rows="16" placeholder={t("addNewReviewPlaceholder")}></textarea>
                 </div>
                 <div className="form-group">
-                    <label className='form-label' htmlFor="star">Valoración:</label>
+                    <label className='form-label' htmlFor="star">{t("addNewReviewRatingLabel")}:</label>
                     <select name="star" className={isActiveSelect ? "form-control-select select-border" : "form-control-select"} id="star" onClick={() => setIsActiveSelect(!isActiveSelect)}>
-                        <option value="">-- Seleccione una valoración --</option>
+                        <option value="">-- {t("addNewReviewRatingSelectPlaceholder")} --</option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -144,7 +144,7 @@ function Reviews({gigId}) {
                     </select>
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="form-control-button">Enviar</button>
+                    <button type="submit" className="form-control-button">{t("addNewReviewRatingSendBtn")}</button>
                 </div>
             </form>
         </div>
