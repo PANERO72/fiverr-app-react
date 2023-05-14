@@ -57,7 +57,7 @@ function Payment() {
     <div className='paymentContainer'>
         <div className="paymentWrapper">
         {clientSecret && (
-          <Elements options={options} stripe={stripePromise}>
+          <Elements options={options} stripe={stripePromise} key={options.clientSecret}>
             <CheckoutForm />
           </Elements>
         )}
