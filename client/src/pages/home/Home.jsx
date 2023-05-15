@@ -19,6 +19,7 @@ import {projectsDE} from '../../data/dummyDataDE';
 import {projectsEN} from '../../data/dummyDataEN';
 import {projectsES} from '../../data/dummyDataES';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
+import CategoryCardOne from '../../components/CategoryCardOne/CategoryCardOne';
 import FeaturesOne from '../../components/FeaturesOne/FeaturesOne';
 import FeaturesTwo from '../../components/FeaturesTwo/FeaturesTwo';
 import ExplorePlatform from '../../components/ExplorePlatform/ExplorePlatform';
@@ -26,8 +27,13 @@ import TestimonialsCard from '../../components/TestimonialsCard/TestimonialsCard
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 
 import i18n from '../../i18n';
+import { useQuery } from '@tanstack/react-query';
+import newRequest from '../../utils/newRequest';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
+
+    const {t, i18n} = useTranslation();
 
     let cards;
     let testimonials;
@@ -54,29 +60,51 @@ function Home() {
         testimonials = testimonialsES;
         projects = projectsES;
     }
+
+    const {isLoading, error, data} = useQuery({
+        queryKey: ['gigs'], queryFn: () => 
+            newRequest.get(`gigs`).then((res) => {
+                return res.data;
+            }),
+    });
+    console.log(data);
     return (
         <>
             <Featured />
             <TrustedBy />
-            <Slide slidesToShow={5} arrowsScroll={5}>
-                {cards.map((card) => (
-                    <CategoryCard item={card} key={card.id} />
-                ))}
-            </Slide>
+            <div className="categoryCardContainer">
+                {isLoading ? (t("loadingContentMessage")) : error ? (t("somethingWentWrongContentMessage")) : (<div className="categoryCardWrapper">
+                    <h2>Servicios populares</h2>
+                    <Slide slidesToShow={5} arrowsScroll={5}>
+                        {/* LOS DATOS SE MOSTRADOS AQUÍ SE OBTENIAN DE LOS ARCHIVOS cardsCA, cardsDE, cardsEN Y cardsES */}
+                        {data?.map((card) => (
+                            <CategoryCard item={card} key={card._id} />
+                        ))}
+                    </Slide>
+                </div>)}
+                <Slide slidesToShow={5} arrowsScroll={5}>
+                    {cards.map((card) => (
+                        <CategoryCardOne item={card} key={card.id} />
+                    ))}
+                </Slide>
+            </div>
             <FeaturesOne />
             <ExplorePlatform />
             <FeaturesTwo />
             <Slide slidesToShow={1} arrowsScroll={1}>
                 {testimonials.map((testimonial) => (
-                <TestimonialsCard item={testimonial} key={testimonial.id} />
+                    <TestimonialsCard item={testimonial} key={testimonial.id} />
                 ))}
             </Slide>
             <div className='projectCardContainer'>
-                <Slide slidesToShow={4} arrowsScroll={4}>
-                {projects.map((project) => (
-                    <ProjectCard item={project} key={project.id} />
-                ))}
-                </Slide>
+                <div className="projectCardWrapper">
+                    <h2>Trabajo inspirador Made on Fiverr</h2>
+                    <Slide slidesToShow={4} arrowsScroll={4}>
+                        {projects.map((project) => (
+                            <ProjectCard item={project} key={project.id} />
+                        ))}
+                    </Slide>
+                </div>
             </div>
         </>
     );

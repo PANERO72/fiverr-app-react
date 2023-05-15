@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Featured.scss';
 import SearchIcon from '../../assets/img/search.png';
 import ManImage from '../../assets/img/man.png';
-
 import { useTranslation, Trans } from 'react-i18next';
+import {useNavigate} from 'react-router-dom';
 
 function Featured() {
     const { t,} = useTranslation();
+    const [input, setInput] = useState("");
+    const navigate = useNavigate();
+    const handleSubmit = () => {
+        navigate(`/gigs?search=${input}`);
+    }
     return (
         <div className='featuredContainer'>
             <div className="featuredWrapper">
@@ -19,9 +24,9 @@ function Featured() {
                     <div className="searchContainer">
                         <div className="searchInput">
                             <img src={SearchIcon} alt="" />
-                            <input type="search" name="search" id="search" placeholder={t('topBarInputPlaceholder')} />
+                            <input type="search" name="search" id="search" placeholder={t('topBarInputPlaceholder')} onChange={(e) => setInput(e.target.value)} />
                         </div>
-                        <button type='button'>{t('searchBtn')}</button>
+                        <button type='button' onClick={handleSubmit}>{t('searchBtn')}</button>
                     </div>
                     <div className="popular">
                         <span>{t('popularSearchText')}:</span>

@@ -1,11 +1,13 @@
 import React from 'react';
 import './ProjectCard.scss';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function ProjectCard({item}) {
+    const {t} = useTranslation();
     return (
         <>
-        <div className="projectCardWrapper">
+        <div className="projectCardItem">
             <Link to="/">
                 <img className='backgroundImage' src={item.img} alt={t("altBackgroundImage")} />
             </Link>
