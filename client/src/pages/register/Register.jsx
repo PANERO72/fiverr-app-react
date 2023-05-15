@@ -56,15 +56,15 @@ function Register() {
                             <h1>{t("registerTitle")}</h1>
                             <div className="form-group">
                                 <label htmlFor="username" className="form-control-label">{t("userNameLabelText")}</label>
-                                <input type="text" name="username" id="username" className="form-control-input" placeholder={t("userNameInputPlaceholder")} onChange={handleChange} required/>
+                                <input type="text" name="username" id="username" className="form-control-input" placeholder={t("userNameInputPlaceholder")} onChange={handleChange} required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email" className="form-control-label">{t("emailLabelText")}</label>
-                                <input type="email" name="email" id="email" className="form-control-input" placeholder={t("emailInputPlaceholder")} onChange={handleChange}/>
+                                <input type="email" name="email" id="email" className="form-control-input" placeholder={t("emailInputPlaceholder")} onChange={handleChange} required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password" className="form-control-label">{t("passwordLabelText")}</label>
-                                <input type="password" name="password" id="password" className="form-control-input" placeholder={t("passwordInpuPlaceholder")} onChange={handleChange}/>
+                                <input type="password" name="password" id="password" className="form-control-input" placeholder={t("passwordInpuPlaceholder")} onChange={handleChange} required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="profilePicture" className="form-control-label">{t("profilePictureLabelText")}</label>
@@ -73,7 +73,7 @@ function Register() {
                             <div className="form-group">
                                 {/*  */}
                                 <label htmlFor="country" className="form-control-label">{t("countryLabelText")}</label>
-                                <Dropdown name="country" className='form-control-select' placeholder={t("countrySelectPlaceholder")} fluid selection closeOnChange options={CountriesSelect} onChange={handleDropdown}/>
+                                <Dropdown name="country" className='form-control-select' placeholder={t("countrySelectPlaceholder")} fluid selection closeOnChange options={CountriesSelect} onChange={handleDropdown} required />
                             </div>
                             <div className="form-group">
                                 <button type="submit" className="form-control-button">{t("registerBtn")}</button>
@@ -96,7 +96,7 @@ function Register() {
                             </div>
                             <div className="form-group">
                                 <label className='form-control-label' htmlFor="desc">{t("descriptionLabelText")}</label>
-                                <textarea name="desc" id="desc" className="form-control-textarea" cols="30" rows="16" placeholder={t("descriptionPlaceholder")} onChange={handleChange}></textarea>
+                                <textarea name="desc" id="desc" className="form-control-textarea" cols="30" rows="16" placeholder={t("descriptionPlaceholder")} onChange={handleChange} required></textarea>
                             </div>
                         </div>
                      </form>

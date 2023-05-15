@@ -48,8 +48,8 @@ export const cardsES = [
     },
     {
       id: 8,
-      title: "Ilustración",
-      desc: "Colorea tus sueños",
+      title: "Ilustraciones",
+      desc: "Dale color a tus sueños",
       img: "https://images.pexels.com/photos/15032623/pexels-photo-15032623.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
     },
   ];
@@ -229,7 +229,7 @@ export const gigsCategoryES = [
   {
     id: 2, 
     title: "Marketing Digital",
-    cat: "didital-marketing",
+    cat: "digital-marketing",
   },
   {
     id: 3,

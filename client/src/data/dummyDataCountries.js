@@ -267,9 +267,9 @@ export const CountriesSelect = [
     
     },
     {
-        key: "ct",
-        value: "ct",
-        flag: "ct",
+        key: "cat",
+        value: "cat",
+        flag: "cat",
         text: "Catalonia",
     },
     {

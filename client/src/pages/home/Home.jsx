@@ -82,11 +82,6 @@ function Home() {
                         ))}
                     </Slide>
                 </div>)}
-                <Slide slidesToShow={5} arrowsScroll={5}>
-                    {cards.map((card) => (
-                        <CategoryCardOne item={card} key={card.id} />
-                    ))}
-                </Slide>
             </div>
             <FeaturesOne />
             <ExplorePlatform />

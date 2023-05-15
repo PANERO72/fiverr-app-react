@@ -17,3 +17,14 @@
 *** 2) HE AGREGADO LAS TRADUCCIONES DE LOS TEXTOS, FALTAN ALGUNAS ***
 
 *** 3) SEGUIR AQUI EN EL COMPONENTE CategoryCard.jsx' CAMBIANDO EL CONTENIDO DE LA TABLA 'gigs' POR EL QUE APARECE EN LA PÁGINA DE FIVERR ***
+
+****************************************************************************************************************************************
+
+*** seller1 => id: 6454373cd78ea5b971fcc8fe => cat: ai-services         => Gig (Servicio) 1
+*** seller2 => id: 64543d8a921fa1024cb6747c => cat: graphics-design     => Gig (Servicio) 2, => Gig (Servicio) 8, => Gig (Servicio) 11
+*** seller3 => id: 64629f684adac76f5dac4398 => cat: programming-tech    => Gig (Servicio) 3
+*** seller4 => id: 6462a1884adac76f5dac439f => cat: music-audio         => Gig (Servicio) 4
+*** seller5 => id: 6462b03bd46d49efdbe2da32 => cat: video-animation     => Gig (Servicio) 5
+*** seller6 => id: 6462b18ad46d49efdbe2da34 => cat: digital-marketing   => Gig (Servicio) 6, => Gig (Servicio) 7
+*** seller7 => id: 6462b591d46d49efdbe2da36 => cat: writing-translation => Gig (Servicio) 9
+*** seller8 => id: 6462b8ecd46d49efdbe2da38 => cat: data                => Gig (Servicio) 10
