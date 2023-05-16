@@ -41,8 +41,8 @@ export const register = async (req, res, next) => {
     return next(createError(201, langMessage1));
 
   } catch (err) {
-    // next(err.response);
-    return next(createError(500, err));
+    // next(err);
+    res.status(500).json(err);
 
   }
 };

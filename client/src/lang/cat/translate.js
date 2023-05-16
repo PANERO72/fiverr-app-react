@@ -39,6 +39,7 @@ export const languageCAT = {
     descriptionLabelText: "Descripció:",
     descriptionPlaceholder: "Una breu descripció de tu mateix...",
     userSuccesfullcreatedMessage: "L'usuari ha estat creat!",
+    userAlreadyExistsMessage: "L'usuari ja existeix!",
     /* PÁGINA 'FORGOTPASSWORD' */ 
     /* NO HAY TEXTOS TODAVÍA */
     /* */

@@ -32,6 +32,23 @@ function Register() {
         });
 
     }
+
+    const handleAlertError = () => {
+        Swal.fire({
+            title: "¡Error!",
+            text: t("userAlreadyExistsMessage"),
+            icon: 'error',
+            confirmButtonText: t("okButton"),
+            allowOutsideClick: false
+        });
+        
+        // .then((result) => {
+        //     if (result.isConfirmed) {
+        //         navigate("/login");
+        //     ;}
+        // });
+
+    }
      
     const handleChange = (e) => {
         setUser((prev) => {
@@ -62,7 +79,10 @@ function Register() {
             // navigate("/login");
             handleAlertSuccess();
         } catch (error) {
-            console.log(error);
+            if(error.response.status === 500){
+                handleAlertError();
+            }
+            console.log(error.response.status);
         }
     }
     return (

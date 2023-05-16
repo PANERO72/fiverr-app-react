@@ -39,6 +39,7 @@ export const languageDE = {
     descriptionLabelText: "Beschreibung:",
     descriptionPlaceholder: "Eine kurze Beschreibung Ihrer Person...",
     userSuccesfullcreatedMessage: "Benutzer wurde erstellt!",
+    userAlreadyExistsMessage: "Benutzer existiert bereits!",
     /* PÁGINA 'FORGOTPASSWORD' */ 
     /* NO HAY TEXTOS TODAVÍA */
     /* */

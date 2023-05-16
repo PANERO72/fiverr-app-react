@@ -39,6 +39,7 @@ export const languageEN = {
     descriptionLabelText: "Description:",
     descriptionPlaceholder: "A brief description of yourself...",
     userSuccesfullcreatedMessage: "User has been created!",
+    userAlreadyExistsMessage: "User already exists!",
     /* PÁGINA 'FORGOTPASSWORD' */ 
     /* NO HAY TEXTOS TODAVÍA */
     /* */
