@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { CountriesSelect } from '../../data/dummyDataCountries';
 import { Dropdown } from 'semantic-ui-react'
 import { useTranslation } from 'react-i18next';
+import Swal from 'sweetalert2';
 
 function Register() {
     const {t, i18n}= useTranslation();
@@ -16,6 +17,21 @@ function Register() {
     });
 
     const [isActiveSelect, setIsActiveSelect] = useState(false);
+
+    const handleAlertSuccess = () => {
+        Swal.fire({
+            title: "¡Éxito!",
+            text: t("userSuccesfullcreatedMessage"),
+            icon: 'success',
+            confirmButtonText: t("okButton"),
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate("/login");
+            ;}
+        });
+
+    }
      
     const handleChange = (e) => {
         setUser((prev) => {
@@ -41,8 +57,10 @@ function Register() {
         e.preventDefault();
         const url = await upload(file);
         try {
+            console.log(file);
             await newRequest.post("/auth/register", {...user, img: url});
-            navigate("/login");
+            // navigate("/login");
+            handleAlertSuccess();
         } catch (error) {
             console.log(error);
         }

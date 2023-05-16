@@ -49,7 +49,7 @@ function Login() {
             title: "Error",
             text: error,
             icon: "error",
-            confirmButtonText: "Aceptar",
+            confirmButtonText: t("okButton"),
         });
 
     }

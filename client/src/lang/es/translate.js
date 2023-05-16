@@ -38,6 +38,7 @@ export const languageES = {
     phoneNumberPlaceholder: "ej.: +34 666 12 34 56",
     descriptionLabelText: "Descripción:",
     descriptionPlaceholder: "Una breve descripción de ti mismo...",
+    userSuccesfullcreatedMessage: "¡El usuario ha sido creado!",
     /* PÁGINA 'FORGOTPASSWORD' */ 
     /* NO HAY TEXTOS TODAVÍA */
     /* */

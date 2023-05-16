@@ -38,6 +38,7 @@ export const languageCAT = {
     phoneNumberPlaceholder: "ex.: +34 666 12 34 56",
     descriptionLabelText: "Descripció:",
     descriptionPlaceholder: "Una breu descripció de tu mateix...",
+    userSuccesfullcreatedMessage: "L'usuari ha estat creat!",
     /* PÁGINA 'FORGOTPASSWORD' */ 
     /* NO HAY TEXTOS TODAVÍA */
     /* */
@@ -320,5 +321,5 @@ export const languageCAT = {
     somethingWentWrongContentMessage: "Alguna cosa ha anat malament.",
     /* */
     /* TEXTO DEL BOTÓN DE SWEETALERT */
-    okButton: "Acceptar",
+    okButton: "Aceptar",
 }
