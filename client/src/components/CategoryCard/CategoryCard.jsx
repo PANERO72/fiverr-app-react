@@ -12,7 +12,8 @@ function CategoryCard({item}) {
         <div className='categoryCardItem'>
             <img src={item.cover} alt="" />
             <span className="desc">{item.shortDesc}</span>
-            <span className="title">{item.shortTitle}</span>
+            {item.shortDesc.length >= 62 ? (<span className="title title-top">{item.shortTitle}</span>) : (<span className="title">{item.shortTitle}</span>)}
+            {/* <span className="title">{item.shortTitle}</span> */}
             {/* <div className="categoryCardWrapper"></div> */}
         </div>
     </Link>

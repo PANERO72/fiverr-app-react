@@ -18,7 +18,7 @@
         position: absolute;
         top: 15px;
         left: 15px;
-        text-shadow: black 0.1em 0.1em 0.2em
+        text-shadow: black 0.1em 0.1em 0.2em;
     }
 
     .title{
@@ -26,8 +26,12 @@
         font-size: 24px;
         position: absolute;
         left: 15px;
-        top: 40px;
-        text-shadow: black 0.1em 0.1em 0.2em
+        top: 45px;
+        text-shadow: black 0.1em 0.1em 0.2em;
+
+        &.title-top{
+            top: 70px !important;
+        }
     }
    
 }
