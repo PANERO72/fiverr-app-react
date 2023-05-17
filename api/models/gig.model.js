@@ -42,10 +42,14 @@ const GigSchema = new Schema(
     shortTitle: {
       type: String,
       required: true,
+      minlength: 1,
+      maxlength: 25,
     },
     shortDesc: {
       type: String,
       required: true,
+      minlength: 1,
+      maxlength: 91,
     },
     deliveryTime: {
       type: Number,

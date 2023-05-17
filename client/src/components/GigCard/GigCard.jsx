@@ -36,7 +36,7 @@ function GigCard({item}) {
                     
                 </div>}
                 <div className="cardTextsContainer">
-                    <span className='desc'><p>{item.desc}</p></span>
+                    <span className='desc'><p>{item.shortDesc}</p></span>
                 </div>
                 <div className="gigCardStartContainer">
                     <img src={StartImage} alt="" />

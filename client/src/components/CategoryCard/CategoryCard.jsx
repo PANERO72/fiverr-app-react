@@ -6,7 +6,7 @@ function CategoryCard({item}) {
   /* LOS DATOS SE MOSTRADOS AQUÍ SE OBTENIAN DE LOS ARCHIVOS cardsCA, cardsDE, cardsEN Y cardsES
   * Objeto cardsCA => id, title, desc, img
   */
-  console.log(item);
+
   return (
     <Link to={`/gigs?cat=${item.cat}`}>
         <div className='categoryCardItem'>

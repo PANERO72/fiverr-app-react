@@ -7,6 +7,7 @@ import { CountriesSelect } from '../../data/dummyDataCountries';
 import { Dropdown } from 'semantic-ui-react'
 import { useTranslation } from 'react-i18next';
 import Swal from 'sweetalert2';
+import NoavatarImage from '../../assets/img/noavatar.jpg';
 
 function Register() {
     const {t, i18n}= useTranslation();
@@ -73,7 +74,9 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const url = await upload(file);
+        
         try {
+            
             console.log(file);
             await newRequest.post("/auth/register", {...user, img: url});
             // navigate("/login");

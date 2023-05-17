@@ -64,7 +64,7 @@ function Login() {
             console.log(res.data.flag);
         } catch (error) {
             setError(error.response.data + 'error...');
-            setError('error...');
+            // setError('error...');
             handleAlert(error.response.data);
             console.log(error.response.data);
         }

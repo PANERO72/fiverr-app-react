@@ -4,10 +4,10 @@ import Featured from '../../components/Featured/Featured';
 import TrustedBy from '../../components/TrustedBy/TrustedBy';
 import Slide from '../../components/Slide/Slide';
 // import {cards} from '../../data/dummyData';
-import {cardsCA} from '../../data/dummyDataCA';
-import {cardsDE} from '../../data/dummyDataDE';
-import {cardsEN} from '../../data/dummyDataEN';
-import {cardsES} from '../../data/dummyDataES';
+// import {cardsCA} from '../../data/dummyDataCA';
+// import {cardsDE} from '../../data/dummyDataDE';
+// import {cardsEN} from '../../data/dummyDataEN';
+// import {cardsES} from '../../data/dummyDataES';
 // import {testimonials} from '../../data/dummyData';
 import {testimonialsCA} from '../../data/dummyDataCA';
 import {testimonialsDE} from '../../data/dummyDataDE';
@@ -19,7 +19,6 @@ import {projectsDE} from '../../data/dummyDataDE';
 import {projectsEN} from '../../data/dummyDataEN';
 import {projectsES} from '../../data/dummyDataES';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
-import CategoryCardOne from '../../components/CategoryCardOne/CategoryCardOne';
 import FeaturesOne from '../../components/FeaturesOne/FeaturesOne';
 import FeaturesTwo from '../../components/FeaturesTwo/FeaturesTwo';
 import ExplorePlatform from '../../components/ExplorePlatform/ExplorePlatform';
@@ -35,28 +34,28 @@ function Home() {
 
     const {t, i18n} = useTranslation();
 
-    let cards;
+    //let cards;
     let testimonials;
     let projects;
 
     if (i18n.language === "cat") {
-        cards = cardsCA;
+        //cards = cardsCA;
         testimonials = testimonialsCA;
         projects = projectsCA;
     } else if(i18n.language === "de") {
-        cards = cardsDE;
+        //cards = cardsDE;
         testimonials = testimonialsDE;
         projects = projectsDE;
     } else if(i18n.language === "en") {
-        cards = cardsEN;
+        //cards = cardsEN;
         testimonials = testimonialsEN;
         projects = projectsEN;
     } else if (i18n.language === "es") {
-        cards = cardsES;
+        //cards = cardsES;
         testimonials = testimonialsES;
         projects = projectsES;
     } else {
-        cards = cardsES;
+        //cards = cardsES;
         testimonials = testimonialsES;
         projects = projectsES;
     }
@@ -67,7 +66,6 @@ function Home() {
                 return res.data;
             }),
     });
-    console.log(data);
     return (
         <>
             <Featured />
