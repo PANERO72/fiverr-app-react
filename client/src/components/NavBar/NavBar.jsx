@@ -1,12 +1,16 @@
-import React, { useEffect, useState, useTransition } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './NavBar.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LanguageSwitch from '../LanguageSwitch/LanguageSwitch';
 import NoavatarImage from '../../assets/img/noavatar.jpg';
 import { useTranslation } from 'react-i18next';
 import newRequest from '../../utils/newRequest';
+import getCurrentUser from '../../utils/getCurrentUser';
+
 
 function NavBar() {
+  const refDropdown = useRef();
+
   const {t, i18n} = useTranslation();
   const navigate = useNavigate();
   const [activeSubmenu, setActiveSubmenu] = useState(false);
@@ -18,16 +22,28 @@ function NavBar() {
   useEffect(() => {
     window.addEventListener("scroll", isActive);
 
+    const checkIfClickedOutside = e => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (openSubmenu && refDropdown.current && !refDropdown.current.contains(e.target)) {
+        setOpenSubmenu(false)
+      }
+    }
+
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
     return () => {
       window.removeEventListener("scroll", isActive);
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside)
     }
-  },[]);
+  },[openSubmenu]);
 
   // const currentUser = {
   //   id: 1, username: "José Panero", isSeller: true
   // }
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = getCurrentUser();
 
   const handleLogout = async () => {
     try {
@@ -52,9 +68,9 @@ function NavBar() {
                 <Link className='link' to='/'><span className='linkItem'>{t('fiverrBusinessLink')}</span></Link>
                 <Link className='link' to='/'><span className='linkItem'>{t('exploreLink')}</span></Link>
                 <Link className='link' to='/'><span className='linkItem'>{t('languageEsp')}</span></Link>
-                {!currentUser?.isSeller && <Link className='link' to='/'> <span className='linkItem'>{t('becomeSeller')}</span></Link>}                
-                {currentUser ? (<div className='userContainer' onClick={() => setOpenSubmenu(!openSubmenu)}>
-                  <img src={currentUser.img || NoavatarImage} alt={t("altUserImage")} />
+                {!currentUser?.isSeller && <Link className='link' to='/'> <span className='linkItem'>{t('becomeSeller')}</span></Link>}     
+                {currentUser ? (<div className='userContainer' onClick={() => setOpenSubmenu(!openSubmenu)} ref={refDropdown}>
+                  <img src={currentUser?.img || NoavatarImage} alt={t("altTextUserImage")} />
                   <span className='userName'>{currentUser?.username}</span>
                   {openSubmenu && <div className="optionsContainer">
                     {currentUser?.isSeller && (<>

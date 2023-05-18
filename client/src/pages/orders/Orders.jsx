@@ -7,9 +7,10 @@ import {useQuery} from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
 import { useNavigate } from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
+import getCurrentUser from '../../utils/getCurrentUser';
 
 function Orders() {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = getCurrentUser();
 
     console.log(currentUser);
 

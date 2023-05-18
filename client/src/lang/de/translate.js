@@ -69,6 +69,7 @@ export const languageDE = {
     serviceSkillsPlaceholder5: "z.B.: Grafische Illustration...",
     serviceSkillsPlaceholder6: "z.B.: KI-Kunst...",
     priceServiceLabel: "Preis:",
+    addSkillBtn: "Hinzufügen",
     /* */
     /* FLATA LA PÁGINA 'FORGOTPASSWORD' */
     /* */
@@ -127,6 +128,7 @@ export const languageDE = {
     myGigsTableHeadingPrice: "Preis",
     myGigsTableHeadingSales: "Verkäufe",
     myGigsTableHeadingActions: "Aktionen",
+    altGigCoverImage: "Bild des Dienste",
      /* FALTAN MÁS TEXTOS POR TRADUCIR QUE SE OBTINEN DE LA BASE DE DATOS */
     /* */
     /* PÁGINA 'ORDERS' */
@@ -259,7 +261,7 @@ export const languageDE = {
     fiverrBusinessLink: "Fiverr Business",
     exploreLink: "Erkunden",
     becomeSeller: "Verkäufer werden",
-    altUserImage: "Bild des Benutzers",
+    altTextUserImage: "Bild des Benutzers",
     servicesLink: "Leistungen",
     createrServiceLink: "Leistungen Erstellen",
     ordersLink: "Bestellungen",
@@ -278,8 +280,8 @@ export const languageDE = {
     /* */
     /* COMPONENTE 'PROJECTCARD' */
     /*  */
-    altBackgroundImage: "Hintergrundbild",
-    altProfileImage: "Profilbild",
+    altTextBackgroundImage: "Hintergrundbild",
+    altTextProfileImage: "Profilbild",
     /* */
     /* COMPONENTE 'REVIEW' */
     translateToText: "Übersetzen ins",

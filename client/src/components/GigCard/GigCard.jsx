@@ -16,6 +16,7 @@ function GigCard({item}) {
                 return res.data;
             }),
     });
+    console.log(data);
     return (
         <>
         <div className="gigCardWrapper">
@@ -24,17 +25,18 @@ function GigCard({item}) {
                 <img className='backgroundImage' src={item.cover} alt="" />
             </Link>
             <div className="gigCardInfo">
-                {isLoading ? t("loadingContentMessage") : error ? t("somethingWentWrongContentMessage") : <div className="gigCardUser">
+                
+                {isLoading ? (t("loadingContentMessage")) : error ? t("somethingWentWrongContentMessage") : (<div className="gigCardUser">
                     <Link to="/">
                         {/* <img className='infoImage' src={item.profilePicture} alt="" /> */}
-                        <img className='infoImage' src={data.img || NoavatarInage} alt={t("altUserImage")} />
+                        <img className='infoImage' src={data.img || NoavatarInage} alt={t("altTextUserImage")} />
                     </Link>
                     <Link to="/">
                         {/* <span className="username">{item.username}</span> */}
                         <span className="username">{data.username}</span>
                     </Link>
                     
-                </div>}
+                </div>)}
                 <div className="cardTextsContainer">
                     <span className='desc'><p>{item.shortDesc}</p></span>
                 </div>

@@ -9,13 +9,14 @@ import moment from 'moment';
 import ca from 'moment/dist/locale/ca';
 import de from 'moment/dist/locale/de';
 import es from 'moment/dist/locale/es';
+import getCurrentUser from '../../utils/getCurrentUser';
 
 function Message() {
     const {id} = useParams();
 
     const {t, i18n} = useTranslation();
 
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = getCurrentUser();
 
     if (i18n.language === "cat") {
         moment.updateLocale('ca', ca);

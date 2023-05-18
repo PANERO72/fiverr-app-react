@@ -44,7 +44,7 @@ export const languageCAT = {
     /* NO HAY TEXTOS TODAVÍA */
     /* */
     /* PÁGINA 'ADDING' */ 
-    addingGigTitle: "Afegeix Nou Servei",
+    addingGigTitle: "Afegir Nou Servei",
     gigTitleLabel: "Títol:",
     gigTitlePlaceholder: "Títol del servei...",
     gigCategoryLabel: "Categoria:",
@@ -69,6 +69,7 @@ export const languageCAT = {
     serviceSkillsPlaceholder5: "ex.: Il·lustració gràfica...",
     serviceSkillsPlaceholder6: "ex.: Art d'IA...",
     priceServiceLabel: "Preu:",
+    addSkillBtn: "Afegir",
     /* */
     /* FLATA LA PÁGINA 'FORGOTPASSWORD' */
     /* */
@@ -132,6 +133,7 @@ export const languageCAT = {
     myGigsTableHeadingPrice: "Preu",
     myGigsTableHeadingSales: "Vendes",
     myGigsTableHeadingActions: "Accions",
+    altGigCoverImage: "Imatge del Servei",
     /* FALTAN MÁS TEXTOS POR TRADUCIR QUE SE OBTINEN DE LA BASE DE DATOS */
     /* */
     /* PÁGINA 'ORDERS' */
@@ -265,7 +267,7 @@ export const languageCAT = {
     fiverrBusinessLink: "Fiverr Business",
     exploreLink: "Explora",
     becomeSeller: "Converteix-te en venedor",
-    altUserImage: "Imatge de l'Usuari",
+    altTextUserImage: "Imatge de l'Usuari",
     servicesLink: "Serveis",
     createrServiceLink: "Crear Servei",
     ordersLink: "Comandes",
@@ -283,8 +285,8 @@ export const languageCAT = {
     aIServicesLink: "Serveis d'IA",
     /* */
     /* COMPONENTE 'PROJECTCARD' */
-    altBackgroundImage: "Imatge de Fons",
-    altProfileImage: "Imatge del Perfil",
+    altTextBackgroundImage: "Imatge de Fons",
+    altTextProfileImage: "Imatge del Perfil",
     /* */
     /* COMPONENTE 'REVIEW' */ 
     translateToText: "Traduir a",

@@ -8,11 +8,12 @@ import ca from 'moment/dist/locale/ca';
 import de from 'moment/dist/locale/de';
 import es from 'moment/dist/locale/es';
 import { useTranslation } from 'react-i18next';
+import getCurrentUser from '../../utils/getCurrentUser';
 
 const UrlImages = '../src/assets/img/flags/';
 
 function Review({review}) {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = getCurrentUser();
 
     let idioma = "";
 

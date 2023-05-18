@@ -8,6 +8,7 @@ import moment from 'moment';
 import ca from 'moment/dist/locale/ca';
 import de from 'moment/dist/locale/de';
 import es from 'moment/dist/locale/es';
+import getCurrentUser from '../../utils/getCurrentUser';
 
 // import AsReadImage from '../../assets/img/mark-as-read.svg';
 // import AsUnreadImage from '../../assets/img/mark-as-unread.svg';
@@ -16,7 +17,7 @@ function Messages() {
 
     const {t, i18n} = useTranslation();
 
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = getCurrentUser();
 
     // const bandera = currentUser;
 

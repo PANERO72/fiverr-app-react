@@ -9,11 +9,11 @@ function ProjectCard({item}) {
         <>
         <div className="projectCardItem">
             <Link to="/">
-                <img className='backgroundImage' src={item.img} alt={t("altBackgroundImage")} />
+                <img className='backgroundImage' src={item.img} alt={t("altTextBackgroundImage")} />
             </Link>
             <div className="projectCardInfo">
                 <Link to="/">
-                    <img className='infoImage' src={item.profilePicture} alt={t("altProfileImage")} />
+                    <img className='infoImage' src={item.profilePicture} alt={t("altTextProfileImage")} />
                 </Link>
                 <div className="projectCardTexts">
                     <Link to="/" className='link'>
