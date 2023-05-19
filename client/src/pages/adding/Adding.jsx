@@ -36,13 +36,13 @@ function Adding() {
 
     const handleChange = (e) => {
         dispatch({
-            type: "CHANGE_INPUT", pyload: {name: e.target.name, value: e.target.value},
+            type: "CHANGE_INPUT", payload: {name: e.target.name, value: e.target.value},
         });
     };
     const handleFeature = (e) => {
         e.preventDefault();
         dispatch({
-            type: "ADD_FEATURE", pyload: e.target[0].value,
+            type: "ADD_FEATURE", payload: e.target[0].value,
         });
         e.target[0].value = "";
     };
@@ -59,7 +59,7 @@ function Adding() {
 
             setUploading(false);
             dispatch({
-                type: "ADD_IMAGES", pyload: {cover, images},
+                type: "ADD_IMAGES", payload: {cover, images},
             });
         } catch (error) {
             console.log(error);
@@ -71,7 +71,7 @@ function Adding() {
             <div className="addingWrapper">
                 <h1>{t("addingGigTitle")}</h1>
                 <div className="addingSections">
-                    <form action="">
+                    <form className='main-form' action="">
                         <div className="left">
                             <div className="form-group">
                                 <label className='form-label' htmlFor="gigTitle">{t("gigTitleLabel")}</label>
@@ -81,7 +81,7 @@ function Adding() {
                                 <label className='form-label' htmlFor="cat">{t("gigCategoryLabel")}</label>
                                 <select name="cat" className={isActiveSelect ? "form-control-select select-border" : "form-control-select"} id="cat" onClick={() => setIsActiveSelect(!isActiveSelect)} onChange={handleChange} >
                                     <option value="">-- {t("gigSelectCategoryPlaceholder")} --</option>
-                                    {gigsCategory.map((category) => (<option key={category.id} value={category.cat}>{category.title}</option>))}
+                                    {gigsCategory.map((category) => (<option key={category.id} value={category?.cat}>{category.title}</option>))}
                                 </select>
                             </div>
                             <div className="form-group">
@@ -109,12 +109,12 @@ function Adding() {
                                 <label className='form-label' htmlFor="shortDesc">{t("shortServiceDescriptionLabel")}</label>
                                 <textarea name="shortDesc" id="shortDesc" className="form-control-textarea" cols="30" rows="16" placeholder={t("shortServiceDescriptionPlaceholder")} onChange={handleChange} ></textarea>
                             </div>
-                            <div className="form-group-delivery-revision">
-                                <div className="delivery-revision">
+                            <div className="form-group-delivery-revision-price">
+                                <div className="delivery-revision-price">
                                     <label className='form-label' htmlFor="deliveryTime">{t("deliveryTimeLabel")} <span className='delivery-time'>{t("deliveryTimeExampleText")}</span>:</label>
                                     <input type="number" className="form-control-input" name='deliveryTime' id="deliveryTime" aria-describedby="deliveryTime" min={1} placeholder="1" onChange={handleChange} />
                                 </div>
-                                <div className="delivery-revision">
+                                <div className="delivery-revision-price">
                                     <label className='form-label' htmlFor="revisionNumber">{t("revisionNumberLabel")}</label>
                                     <input type="number" className="form-control-input" name='revisionNumber' id="revisionNumber" aria-describedby="revisionNumber" min={1} placeholder="1" onChange={handleChange} />
                                 </div>
@@ -122,15 +122,40 @@ function Adding() {
                             <div className="form-group">
                                 <label className='form-label' htmlFor="features">{t("serviceSkillsLabel")}</label>
                                 <div className="form-group-skills">
-                                    <form action="" onSubmit={handleFeature}>
+                                    <form className='form-skills' action="" onSubmit={handleFeature}>
                                         <input type="text" className="form-control-input" name='features1' id="features1" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder1")} />
                                         {/* <input type="text" className="form-control-input" name='features2' id="features2" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder2")} />
                                         <input type="text" className="form-control-input" name='features3' id="features3" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder3")} />
                                         <input type="text" className="form-control-input" name='features4' id="features4" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder4")} />
                                         <input type="text" className="form-control-input" name='features5' id="features5" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder5")} />
                                         <input type="text" className="form-control-input" name='features6' id="features6" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder6")} /> */}
-                                        <button type="submit">{t("addSkillBtn")}</button>
+                                        <button type="submit" className="form-control-button">{t("addSkillBtn")}</button>
                                     </form>
+                                    <div className='addedFeatures'>
+                                        <div className='featureItem'>
+                                            <button type='button'>X</button>
+                                        </div>
+                                        <div className='featureItem'>
+                                            <button type='button'>X</button>
+                                        </div>
+                                        <div className='featureItem'>
+                                            <button type='button'>X</button>
+                                        </div>
+                                        <div className='featureItem'>
+                                            <button type='button'>X</button>
+                                        </div>
+                                        <div className='featureItem'>
+                                            <button type='button'>X</button>
+                                        </div>
+                                        <div className='featureItem'>
+                                            <button type='button'>X</button>
+                                        </div>
+                                        <div className='featureItem'>
+                                            <button type='button'>X</button>
+                                        </div>
+                                        
+                                        
+                                    </div>
                                 </div>
                             </div>
                             <div className="form-group">

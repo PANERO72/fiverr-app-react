@@ -10,7 +10,7 @@
         }
         .addingSections{
             
-            form{
+            .main-form{
                 display: flex;
                 flex-direction: row;
                 gap: 100px;
@@ -42,13 +42,15 @@
                             border-color: rgb(173, 173, 173);
                             border-image: initial;
                             border-radius: 4px;
-                            padding: 15px;
+                            // padding: 15px;
+                            padding: 10px;
                             &:focus{
                                 outline: #17a563 auto 0.1px;
                             }
                         }
                         .form-control-textarea{
-                            height: 210px;
+                            // height: 210px;
+                            height: 100px;
                             resize: none;
                             padding: 15px;
                             border-width: 1px;
@@ -62,7 +64,8 @@
                             }
                         }
                         .form-control-select{
-                            padding: 15px;
+                            // padding: 15px;
+                            padding: 10px;
                             color: gray;
                             appearance: auto;
                             border-width: 1px;
@@ -80,7 +83,8 @@
                         //     border-radius: 2px;       
                         // }
                         .form-control-input-file{
-                            padding: 15px;
+                            // padding: 15px;
+                            padding: 10px;
                             appearance: auto;
                             // border: 1px solid currentColor;
 
@@ -116,7 +120,8 @@
                 .right{
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
+                    justify-content: start;
+                    // justify-content: space-between;
                     gap: 10px;
                     flex-grow: 1;
                     flex-shrink: 1;
@@ -126,18 +131,36 @@
                         flex-direction: column;
                         justify-content: space-between;
                         gap: 10px;
+                        // ANTES A DOS
                         .form-group-skills{
-                            display: grid;
-                           grid-template-columns: auto auto;
+                        display: grid;
+                           grid-template-columns: auto;
                            grid-template-rows: auto auto auto;
                            gap: 15px;
+
+                           .form-skills{
+                                display: flex;
+                                flex-direction: row;
+                                gap: 20px;
+
+                                grid-column: 1 / 1;
+                                grid-row: 1;
+                           }
+
+                           .addedFeatures{
+                            max-height: 160px;
+                            border: 1px solid red;
+                            overflow-y: auto;
+                           }
                         }
                         .form-label{
                             color: gray;
                             font-weight: 800;
                         }
                         .form-control-input{
-                            padding: 15px;
+                            width: 100%;
+                            // padding: 15px;
+                            padding: 10px;
                             border-width: 1px;
                             border-style: solid;
                             border-color: rgb(173, 173, 173);
@@ -148,7 +171,8 @@
                             }
                         }
                         .form-control-textarea{
-                            height: 210px;
+                            // height: 210px;
+                            height: 100px;
                             resize: none;
                             padding: 15px;
                             border-width: 1px;
@@ -160,15 +184,29 @@
                                 outline: #17a563 auto 0.1px;
                             }
                         }
+                        .form-control-button{
+                            background-color: #1dbf73;
+                            padding: 10px;
+                            color: white;
+                            font-weight: 600;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            width: auto;
+        
+                            &:hover{background-color: #17a563;}
+                        }
 
                     }
-                    .form-group-delivery-revision{
+                    /* CLASE ORIGINAL => form-group-delivery-revision */
+                    .form-group-delivery-revision-price{
+                        // ANTES A DOS COLUMNAS
                         display: grid;
-                        grid-template-columns: auto auto;
+                        grid-template-columns: auto auto; 
                         grid-template-rows: auto;
                         gap: 15px;
-
-                        .delivery-revision{
+                        /* CLASE ORIGINAL => delivery-revision-price */
+                        .delivery-revision-price{
                             display: flex;
                             flex-direction: column;
                             gap: 15px;
@@ -178,7 +216,8 @@
                                 font-weight: 800;
                             }
                             .form-control-input{
-                                padding: 15px;
+                                // padding: 15px;
+                                padding: 10px;
                                 border-width: 1.5px;
                                 border-style: solid;
                                 border-color: rgb(173, 173, 173);

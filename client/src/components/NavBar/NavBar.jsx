@@ -44,6 +44,7 @@ function NavBar() {
   // }
 
   const currentUser = getCurrentUser();
+  console.log(currentUser);
 
   const handleLogout = async () => {
     try {
