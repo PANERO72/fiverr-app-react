@@ -133,25 +133,72 @@
                         gap: 10px;
                         // ANTES A DOS
                         .form-group-skills{
-                        display: grid;
-                           grid-template-columns: auto;
-                           grid-template-rows: auto auto auto;
-                           gap: 15px;
+                            display: grid;
+                            grid-template-columns: auto;
+                            grid-template-rows: auto auto;
+                            gap: 15px;
 
-                           .form-skills{
+                            .form-skills{
                                 display: flex;
                                 flex-direction: row;
                                 gap: 20px;
 
                                 grid-column: 1 / 1;
                                 grid-row: 1;
-                           }
+                            }
 
-                           .addedFeatures{
-                            max-height: 160px;
-                            border: 1px solid red;
-                            overflow-y: auto;
-                           }
+                            .addedFeatures{
+                                display: table-row;
+                                // justify-content: space-between;
+                                max-height: 160px;
+                                // border: 1px solid red;
+                                overflow-y: auto;
+                                margin-top: 15px;
+                                padding-right: 4px;
+
+                                .featureItem {
+                                    display: flex;
+                                    position: relative;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    padding: 4px;
+                                    border: 1px solid rgb(173, 173, 173);
+                                    border-radius: 5px;
+                                    
+                                    &:hover {
+                                        background-color: rgb(245, 245, 245);
+                                    }
+                                    span{
+                                        position: relative;
+                                        
+                                    }
+                                    button{
+                                        vertical-align: middle;
+                                        visibility: hidden;
+                                        background-color: transparent;
+                                        padding: 5px;
+                                        color: black;
+                                        font-weight: 600;
+                                        border: none;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                        width: auto;
+                                        position: absolute;
+                                        top: 2px;
+                                        right: 0;
+                    
+                                        &:hover{background-color: transparent; color: red;}
+                                    }
+
+                                    &:hover button{
+                                        visibility: visible;
+                                    }
+                                }
+                            }
+
+                            &.no-gap{
+                                gap: 0px;
+                            }
                         }
                         .form-label{
                             color: gray;
@@ -182,6 +229,9 @@
                             border-radius: 4px;
                             &:focus{
                                 outline: #17a563 auto 0.1px;
+                            }
+                            &.textarea-height {
+                              height: 150px;
                             }
                         }
                         .form-control-button{

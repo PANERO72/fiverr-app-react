@@ -27,6 +27,10 @@ function Adding() {
 
     const [isActiveInput, setIsActiveInput] = useState(false);
     const [isActiveSelect, setIsActiveSelect] = useState(false);
+    const [isShowSkills, setIsShowSkills] = useState(false);
+    const [textareaClass, setTexeareaClass] = useState(false);
+
+
 
     const [imageCover, setImageCover] = useState(undefined);
     const [uploadImages, setUploadImages] = useState([]);
@@ -45,6 +49,7 @@ function Adding() {
             type: "ADD_FEATURE", payload: e.target[0].value,
         });
         e.target[0].value = "";
+        setTexeareaClass(true);
     };
 
     const handleUpload = async () => {
@@ -66,12 +71,17 @@ function Adding() {
         }
     }
 
+    const handleSkills = (e) => {
+        //e.preventDefault();
+    }
+
     return (
         <div className='addingContainer'>
             <div className="addingWrapper">
                 <h1>{t("addingGigTitle")}</h1>
                 <div className="addingSections">
-                    <form className='main-form' action="">
+                    {/* ** ESTE DIV ERA UN ELEMENTO FORM */}
+                    <div className='main-form' action="">
                         <div className="left">
                             <div className="form-group">
                                 <label className='form-label' htmlFor="gigTitle">{t("gigTitleLabel")}</label>
@@ -107,7 +117,7 @@ function Adding() {
                             </div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor="shortDesc">{t("shortServiceDescriptionLabel")}</label>
-                                <textarea name="shortDesc" id="shortDesc" className="form-control-textarea" cols="30" rows="16" placeholder={t("shortServiceDescriptionPlaceholder")} onChange={handleChange} ></textarea>
+                                <textarea name="shortDesc" id="shortDesc" className={!textareaClass ? "form-control-textarea textarea-height" : "form-control-textarea"} cols="30" rows="16" placeholder={t("shortServiceDescriptionPlaceholder")} onChange={handleChange} ></textarea>
                             </div>
                             <div className="form-group-delivery-revision-price">
                                 <div className="delivery-revision-price">
@@ -121,40 +131,21 @@ function Adding() {
                             </div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor="features">{t("serviceSkillsLabel")}</label>
-                                <div className="form-group-skills">
+                                <div className={state?.features ? "form-group-skills no-gap" : "form-group-skills"}>
                                     <form className='form-skills' action="" onSubmit={handleFeature}>
-                                        <input type="text" className="form-control-input" name='features1' id="features1" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder1")} />
+                                        <input type="text" className="form-control-input" name='features1' id="features1" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder1")} required/>
                                         {/* <input type="text" className="form-control-input" name='features2' id="features2" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder2")} />
                                         <input type="text" className="form-control-input" name='features3' id="features3" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder3")} />
                                         <input type="text" className="form-control-input" name='features4' id="features4" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder4")} />
                                         <input type="text" className="form-control-input" name='features5' id="features5" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder5")} />
                                         <input type="text" className="form-control-input" name='features6' id="features6" aria-describedby="features" placeholder={t("serviceSkillsPlaceholder6")} /> */}
-                                        <button type="submit" className="form-control-button">{t("addSkillBtn")}</button>
+                                        <button type="submit" className="form-control-button" onClick={handleSkills}>{t("addSkillBtn")}</button>
                                     </form>
                                     <div className='addedFeatures'>
-                                        <div className='featureItem'>
-                                            <button type='button'>X</button>
-                                        </div>
-                                        <div className='featureItem'>
-                                            <button type='button'>X</button>
-                                        </div>
-                                        <div className='featureItem'>
-                                            <button type='button'>X</button>
-                                        </div>
-                                        <div className='featureItem'>
-                                            <button type='button'>X</button>
-                                        </div>
-                                        <div className='featureItem'>
-                                            <button type='button'>X</button>
-                                        </div>
-                                        <div className='featureItem'>
-                                            <button type='button'>X</button>
-                                        </div>
-                                        <div className='featureItem'>
-                                            <button type='button'>X</button>
-                                        </div>
-                                        
-                                        
+                                        {state?.features?.map((feature) => (<div className='featureItem' key={feature}>
+                                            <span>{feature}</span>
+                                            <button type='button' onClick={()=>{dispatch({type: "REMOVE_FEATURE", payload: feature}); setTexeareaClass(false)}}>X</button>
+                                        </div>))}
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +154,8 @@ function Adding() {
                                 <input type="number" className="form-control-input" name='price' id="price" aria-describedby="price" min={2} placeholder="10,00" onChange={handleChange}/>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                    {/* *** */}
                 </div>
             </div>
         </div>

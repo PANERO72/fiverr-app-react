@@ -18,7 +18,7 @@ function MyGigs() {
 
     const {isLoading, error, data} = useQuery({
         queryKey: ['myGigs'], queryFn: () => 
-            newRequest.get(`/gigs?=userdId=${currentUser.id}`).then((res) => {
+            newRequest.get(`/gigs?=userdId=${currentUser?.id}`).then((res) => {
                 return res.data;
             }),
     });
@@ -54,7 +54,7 @@ function MyGigs() {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((gig) => (<tr key={gig._id}>
+                            {data?.map((gig) => (<tr key={gig._id}>
                                 <td className='image'><img className='gigImage' src={gig.cover} alt={t("altGigCoverImage")} /></td>
                                 <td className='title'>{gig.title}</td>
                                 <td className='desc'>{gig.desc}</td>
