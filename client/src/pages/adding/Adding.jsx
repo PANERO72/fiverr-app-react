@@ -9,6 +9,9 @@ import {gigsCategoryES} from '../../data/dummyDataES';
 import { useTranslation } from 'react-i18next';
 import { INITIAL_STATE, gigReducer } from '../../reducers/gigReducer';
 import upload from '../../utils/upload';
+import { useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import newRequest from '../../utils/newRequest';
 
 function Adding() {
     const {t, i18n} = useTranslation();
@@ -30,13 +33,14 @@ function Adding() {
     const [isShowSkills, setIsShowSkills] = useState(false);
     const [textareaClass, setTexeareaClass] = useState(false);
 
-
-
     const [imageCover, setImageCover] = useState(undefined);
-    const [uploadImages, setUploadImages] = useState([]);
+    const [uploadedImages, setUploadImages] = useState([]);
     const [uploading, setUploading] = useState(false);
 
     const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
+
+    const navigate = useNavigate();
+    const queryClient = useQueryClient();
 
     const handleChange = (e) => {
         dispatch({
@@ -57,7 +61,7 @@ function Adding() {
         try {
             const cover = await upload(imageCover);
 
-            const images = await Promise.all([...files].map(async (file) => {
+            const images = await Promise.all([...uploadedImages].map(async (file) => {
                 const url = await upload(file);
                 return url;
             }));
@@ -75,6 +79,21 @@ function Adding() {
         //e.preventDefault();
     }
 
+    const mutation = useMutation({
+        mutationFn: (gig) => {
+            return newRequest.post("/gigs", gig);
+        }, onSuccess: () => {
+            queryClient.invalidateQueries(["myGigs"]);
+        },
+    });
+
+    const handleSubmit = (e) => {
+        handleUpload();
+        e.preventDefault();
+        mutation.mutate(state);
+        // navigate("/myGigs");
+    }
+
     return (
         <div className='addingContainer'>
             <div className="addingWrapper">
@@ -85,29 +104,29 @@ function Adding() {
                         <div className="left">
                             <div className="form-group">
                                 <label className='form-label' htmlFor="gigTitle">{t("gigTitleLabel")}</label>
-                                <input type="text" className="form-control-input" id="gigTitle" name='title' placeholder={t("gigTitlePlaceholder")} onChange={handleChange} />
+                                <input type="text" className="form-control-input" id="gigTitle" name='title' placeholder={t("gigTitlePlaceholder")} onChange={handleChange} required/>
                             </div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor="cat">{t("gigCategoryLabel")}</label>
-                                <select name="cat" className={isActiveSelect ? "form-control-select select-border" : "form-control-select"} id="cat" onClick={() => setIsActiveSelect(!isActiveSelect)} onChange={handleChange} >
+                                <select name="cat" className={isActiveSelect ? "form-control-select select-border" : "form-control-select"} id="cat" onClick={() => setIsActiveSelect(!isActiveSelect)} onChange={handleChange} required>
                                     <option value="">-- {t("gigSelectCategoryPlaceholder")} --</option>
                                     {gigsCategory.map((category) => (<option key={category.id} value={category?.cat}>{category.title}</option>))}
                                 </select>
                             </div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor="cover">{t("gigCoverImageLabel")}</label>
-                                <input type="file" className={isActiveInput ? "form-control-input-file file-border" : "form-control-input-file"} id="cover" onClick={() => setIsActiveInput(!isActiveInput)} onChange={(e) => setImageCover(e.target.files[0])} />
+                                <input type="file" className={isActiveInput ? "form-control-input-file file-border" : "form-control-input-file"} id="cover" onClick={() => setIsActiveInput(!isActiveInput)} onChange={(e) => setImageCover(e.target.files[0])} required />
                             </div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor="images">{t("gigUploadImagesLabel")}</label>
-                                <input type="file" className={isActiveInput ? "form-control-input-file file-border" : "form-control-input-file"} id="images" multiple onClick={() => setIsActiveInput(!isActiveInput)} onChange={(e) => setUploadImages(e.target.files)} />
+                                <input type="file" className={isActiveInput ? "form-control-input-file file-border" : "form-control-input-file"} id="images" multiple onClick={() => setIsActiveInput(!isActiveInput)} onChange={(e) => setUploadImages(e.target.files)} required />
                             </div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor="desc">{t("gigDescriptionLabel")}</label>
                                 <textarea name="desc" id="desc" className="form-control-textarea" cols="30" rows="16" placeholder={t("gigDescriptionPlaceholder")} onChange={handleChange} ></textarea>
                             </div>
                             <div className="form-group">
-                                <button type="button" className="form-control-button">{t("gigCreateButton")}</button>
+                                <button type="button" className="form-control-button" onClick={handleSubmit}>{t("gigCreateButton")}</button>
                             </div>
                         </div>
                         <div className="right">
@@ -142,7 +161,7 @@ function Adding() {
                                         <button type="submit" className="form-control-button" onClick={handleSkills}>{t("addSkillBtn")}</button>
                                     </form>
                                     <div className='addedFeatures'>
-                                        {state?.features?.map((feature) => (<div className='featureItem' key={feature}>
+                                        {state?.features?.map((feature, index) => (<div className='featureItem' key={index}>
                                             <span>{feature}</span>
                                             <button type='button' onClick={()=>{dispatch({type: "REMOVE_FEATURE", payload: feature}); setTexeareaClass(false)}}>X</button>
                                         </div>))}
