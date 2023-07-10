@@ -17,6 +17,7 @@ export const languageEN = {
     loginErrorMessage: "Something went wrong...",
     notHaveAcountYetText: "You do not have an account yet?",
     forgotYourPassword: "Forgot your password?",
+    userNotFound: "User not found!",
     /**/ 
     startButton: "Start",
     

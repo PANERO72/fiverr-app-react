@@ -17,6 +17,7 @@ export const languageDE = {
     loginErrorMessage: "Etwas ist schief gelaufen...",
     notHaveAcountYetText: "Sie haben noch kein Konto?",
     forgotYourPassword: "Haben Sie Ihr Kennwort vergessen?",
+    userNotFound: "Benutzer nicht gefunden!",
     /**/
     startButton: "Starten", 
     

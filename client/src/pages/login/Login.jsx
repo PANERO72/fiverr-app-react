@@ -44,10 +44,19 @@ function Login() {
 
     const navigate = useNavigate();
 
-    const handleAlert = (error) => {
+    // const handleAlert = (error) => {
+    //     Swal.fire({
+    //         title: "Error",
+    //         text: error,
+    //         icon: "error",
+    //         confirmButtonText: t("okButton"),
+    //     });
+
+    // }
+    const handleAlert = () => {
         Swal.fire({
             title: "Error",
-            text: error,
+            text: t("userNotFound"),
             icon: "error",
             confirmButtonText: t("okButton"),
         });
@@ -65,8 +74,9 @@ function Login() {
         } catch (error) {
             setError(error.response.data + 'error...');
             // setError('error...');
-            handleAlert(error.response.data);
-            console.log(error.response.data);
+            handleAlert();
+            // handleAlert(error.response.data);
+            console.log(error);
         }
 
     }

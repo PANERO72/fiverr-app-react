@@ -17,6 +17,7 @@ export const languageCAT = {
     loginErrorMessage: "Alguna cosa va sortir malament...",
     notHaveAcountYetText: "Encara no té cap compte?",
     forgotYourPassword: "Heu oblidat la contrasenya?",
+    userNotFound: "Usuari no trobat!",
     /**/ 
     startButton: "Començar",
     
