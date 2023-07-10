@@ -324,5 +324,5 @@ export const languageCAT = {
     somethingWentWrongContentMessage: "Alguna cosa ha anat malament.",
     /* */
     /* TEXTO DEL BOTÓN DE SWEETALERT */
-    okButton: "Aceptar",
+    okButton: "Acceptar",
 }
